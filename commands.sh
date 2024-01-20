@@ -21,6 +21,14 @@ check_xlsxwriter(){
     fi
 }
 
+# Function to print a centered string with padding
+centered() {
+  local width=$1
+  local text=$2
+  local padding=$((($width - ${#text}) / 2))
+  printf "%*s%s%*s" $padding "" "$text" $padding ""
+}
+
 # Function to display the menu
 display_mian_menu() {
 #    echo -e "\n===== Welcome to kubectl Helper ====="
@@ -34,9 +42,10 @@ display_mian_menu() {
 #    echo -e "|  8. Create excel report           ="
 #    echo -e "|  9. Exit                          ="
 #    echo -e "====================================="
-   # Print table header with lines
+    # Print table header with lines
     printf "+-------------------------------------+\n"
-    printf "| %-35s |\n" "Welcome to kubectl Helper"
+    #printf "| %-35s |\n" "Welcome to kubectl Helper"
+    printf "| %s |\n" "$(centered 35 'Welcome to kubectl Helper')" 
     printf "+-------------------------------------+\n"
 
     # Print data rows with lines
