@@ -33,11 +33,11 @@ centered() {
 display_mian_menu() {
     # Printing the table header
     printf "+-------------------------------------+\n"
-    printf "| %s |\n" "$(centered 35 'Welcome to kubectl Helper')" 
+    printf "| %s |\n" "$(centered 35 'Welcome to kubectl Helper')"
     printf "+-------------------------------------+\n"
 
     # Printing the available options
-    printf "| %-35s |\n" "1. Get pods"
+    printf "| %-35s |\n" "1. Get Resources"
     printf "| %-35s |\n" "2. Describe resources"
     printf "| %-35s |\n" "3. Get logs for a pod"
     printf "| %-35s |\n" "4. Delete a pod"
@@ -56,7 +56,7 @@ get_namespace(){
 }
 
 # Function to get pods
-get_pods() {
+get_resources() {
     echo "1. Get pods from all namespaces"
     echo "2. Get pods from specific namespace"
     read -p "Enter your choice (1-2): " podchoice
@@ -506,7 +506,7 @@ main() {
        check_kubectl
        read -p "Enter your choice (1-9): " choice
        case $choice in
-           1) get_pods ;;
+           1) get_resources ;;
            2) describe_resource ;;
            3) get_pod_logs ;;
            4) delete_pod ;;
