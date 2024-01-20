@@ -23,17 +23,17 @@ check_xlsxwriter(){
 
 # Function to display the menu
 display_mian_menu() {
-   echo -e "\n===== kubectl Commands ====="
-   echo "1. Get pods"
-   echo "2. Describe resources"
-   echo "3. Get logs for a pod"
-   echo "4. Delete a pod"
-   echo "5. Delete other resources"
-   echo "6. Nodes"
-   echo "7. Contexts"
-   echo "8. Create excel report"
-   echo "9. Exit"
-   echo "==============================="
+   echo -e "\n===== Welcome to kubectl Helper ====="
+   echo -e "1. Get pods"
+   echo -e "2. Describe resources"
+   echo -e "3. Get logs for a pod"
+   echo -e "4. Delete a pod"
+   echo -e "5. Delete other resources"
+   echo -e "6. Nodes"
+   echo -e "7. Contexts"
+   echo -e "8. Create excel report"
+   echo -e "9. Exit"
+   echo -e "======================================="
 }
 
 # Function to select the namespace
