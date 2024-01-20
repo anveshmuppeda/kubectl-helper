@@ -29,14 +29,14 @@ centered() {
   printf "%*s%s%*s" $padding "" "$text" $padding ""
 }
 
-# Function to display the menu
+# Function to display the main menu
 display_mian_menu() {
     # Printing the table header
     printf "+-------------------------------------+\n"
     printf "| %s |\n" "$(centered 35 'Welcome to kubectl Helper')"
     printf "+-------------------------------------+\n"
 
-    # Printing the available options
+    # Printing the Available Options
     printf "| %-35s |\n" "1. Get Resources"
     printf "| %-35s |\n" "2. Describe resources"
     printf "| %-35s |\n" "3. Get logs for a pod"
@@ -57,6 +57,11 @@ get_namespace(){
 
 # Function to get pods
 get_resources() {
+
+    printf "+-------------------------------------+\n"
+    printf "| %s |\n" "$(centered 35 'Select the Resources to be listed')"
+    printf "+-------------------------------------+\n"
+
     echo "1. Get pods from all namespaces"
     echo "2. Get pods from specific namespace"
     read -p "Enter your choice (1-2): " podchoice
@@ -514,7 +519,7 @@ main() {
            6) nodes_commands ;;
            7) context_commands ;;
            8) fetch_k8s_data ;;
-           9) echo "Exiting the script. Goodbye!"; exit 0 ;;
+           9) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
