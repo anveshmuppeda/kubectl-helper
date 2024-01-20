@@ -23,17 +23,34 @@ check_xlsxwriter(){
 
 # Function to display the menu
 display_mian_menu() {
-   echo -e "\n===== Welcome to kubectl Helper ====="
-   echo -e "1. Get pods"
-   echo -e "2. Describe resources"
-   echo -e "3. Get logs for a pod"
-   echo -e "4. Delete a pod"
-   echo -e "5. Delete other resources"
-   echo -e "6. Nodes"
-   echo -e "7. Contexts"
-   echo -e "8. Create excel report"
-   echo -e "9. Exit"
-   echo -e "======================================="
+#    echo -e "\n===== Welcome to kubectl Helper ====="
+#    echo -e "|  1. Get pods                      ="
+#    echo -e "|  2. Describe resources            ="
+#    echo -e "|  3. Get logs for a pod            ="
+#    echo -e "|  4. Delete a pod                  ="
+#    echo -e "|  5. Delete other resources        ="
+#    echo -e "|  6. Nodes                         ="
+#    echo -e "|  7. Contexts                      ="
+#    echo -e "|  8. Create excel report           ="
+#    echo -e "|  9. Exit                          ="
+#    echo -e "====================================="
+   # Print table header with lines
+    printf "+-------------------------------------+\n"
+    printf "| %-35s |\n" "Welcome to kubectl Helper"
+    printf "+-------------------------------------+\n"
+
+    # Print data rows with lines
+    printf "| %-35s |\n" "1. Get pods"
+    printf "| %-35s |\n" "2. Describe resources"
+    printf "| %-35s |\n" "3. Get logs for a pod"
+    printf "| %-35s |\n" "4. Delete a pod"
+    printf "| %-35s |\n" "5. Delete Other resources"
+    printf "| %-35s |\n" "6. Nodes"
+    printf "| %-35s |\n" "7. Contexts"
+    printf "| %-35s |\n" "8. Create excel report"
+    printf "| %-35s |\n" "9. Exit"
+    printf "+-------------------------------------+\n"
+
 }
 
 # Function to select the namespace
