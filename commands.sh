@@ -38,14 +38,13 @@ display_mian_menu() {
 
     # Printing the Available Options
     printf "| %-35s |\n" "1. Get Resources"
-    printf "| %-35s |\n" "2. Describe resources"
+    printf "| %-35s |\n" "2. Describe Resources"
     printf "| %-35s |\n" "3. Get logs for a pod"
-    printf "| %-35s |\n" "4. Delete a pod"
-    printf "| %-35s |\n" "5. Delete Other resources"
-    printf "| %-35s |\n" "6. Nodes"
-    printf "| %-35s |\n" "7. Contexts"
-    printf "| %-35s |\n" "8. Create excel report"
-    printf "| %-35s |\n" "9. Exit"
+    printf "| %-35s |\n" "4. Delete Resources"
+    printf "| %-35s |\n" "5. Nodes"
+    printf "| %-35s |\n" "6. Contexts"
+    printf "| %-35s |\n" "7. Create excel report"
+    printf "| %-35s |\n" "8. Exit"
     printf "+-------------------------------------+\n"
 }
 
@@ -121,7 +120,7 @@ get_pod_logs() {
     get_namespace
     kubectl get pod -n $namespace | awk '{print $1}'
     read -p "Enter the name of the pod from the above list to view the logs: " pod_name
-    
+
     #calculate the containers count
     container_count=$(kubectl get pod "$pod_name" -o=jsonpath='{.spec.containers[*].name}' | tr -cd ' ' | wc -c)
     # Add 1 to account for the fact that container names are space-separated
@@ -187,122 +186,64 @@ describe_resources() {
    
 }
 
-# Function to delete a pod
-delete_pod() {
+delete_k8s_resource(){
     get_namespace
-    kubectl get pod -n $namespace | awk '{print $1}'
-    read -p "Enter the name of the pod from above list: " pod_name
+    kubectl get $1 -n $namespace | awk '{print $1}'
+    read -p "Enter the name of the $1 from above list to delete: " deleting_resource_name
+    while true; do
+        read -p "Do you want to proceed with Deleting $1 $deleting_resource_name in namespace $namespace...? (yes/no): " response
+        # Convert the response to lowercase for case-insensitive comparison
+        response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+        if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
+            echo "Deleting $1 $deleting_resource_name in namespace $namespace..."
+            kubectl delete $1 -n $namespace $deleting_resource_name
+            exit 0 ;
+        elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
+            echo "Deleting $1 $deleting_resource_name in namespace $namespace is cancelled"
+            exit 0 ;
+        else
+            echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
+        fi  
+    done
+}
 
-    read -p "Do you want to proceed with Deleting pod $pod_name in namespace $namespace...? (yes/no): " response
-    # Convert the response to lowercase for case-insensitive comparison
-    response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+# Function to trigger delete function based on user selection
+delete_k8s_resources() {
 
-    if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-        echo "Deleting pod $pod_name in namespace $namespace..."
-        kubectl delete pod -n $namespace $pod_name
-    elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-        echo "Deleting pod $pod_name in namespace $namespace is cancelled"
-    else
-        echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-    fi   
+        case $1 in
+            1)  delete_k8s_resource Pod ;;
+            2)  delete_k8s_resource Deployment ;;
+            3)  delete_k8s_resource Service ;;
+            4)  delete_k8s_resource Daemonset ;;
+            5)  delete_k8s_resource Statefulset ;;
+            6)  delete_k8s_resource Configmap ;;
+            7)  delete_k8s_resource Secret ;;
+            8)  kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be deleted from the above list: " resource_name_to_describe
+                delete_k8s_resource $resource_name_to_describe ;;
+            9)  main ;;
+            10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
+        esac
 }
 
 # Function to delete a pod
 delete_resources() {
-    echo "===== Select the resource to be deleted ====="
-    echo "1. Deployment"
-    echo "2. Satefulset"
-    echo "3. Daemonset"
-    echo "4. Configmap"
-    echo "5. Secret"
-    echo "6. Other"
-    echo "==============================="
-    read -p "Enter your choice (1-5): " choice
-       case $choice in
-           1)   get_namespace
-                kubectl get deploy -n $namespace | awk '{print $1}'
-                read -p "Enter the name of the deployment from above list: " deploy_name
 
-                read -p "Do you want to proceed with Deleting Deployment $deploy_name in namespace $namespace...? (yes/no): " response
-                # Convert the response to lowercase for case-insensitive comparison
-                response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+    while true; do
+        printf "+-------------------------------------+\n"
+        printf "| %s |\n" "$(centered 35 'Select the Resource to be deleted')"
+        printf "+-------------------------------------+\n"
 
-                if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-                    echo "Deleting Deployment $deploy_name in namespace $namespace..."
-                    kubectl delete deploy -n $namespace $deploy_name
-                elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-                    echo "Deleting Deployment $deploy_name in namespace $namespace is cancelled"
-                else
-                    echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-                fi ;;
-           2)   get_namespace
-                kubectl get sts -n $namespace | awk '{print $1}'
-                read -p "Enter the name of the Statefulset from above list: " sts_name
+        options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
 
-                read -p "Do you want to proceed with Deleting Statefulset $sts_name in namespace $namespace...? (yes/no): " response
-                # Convert the response to lowercase for case-insensitive comparison
-                response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-
-                if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-                    echo "Deleting Statefulset $sts_name in namespace $namespace..."
-                    kubectl delete sts -n $namespace $sts_name
-                elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-                    echo "Deleting Statefulset $sts_name in namespace $namespace is cancelled"
-                else
-                    echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-                fi ;;
-           3)   get_namespace
-                kubectl get ds -n $namespace | awk '{print $1}'
-                read -p "Enter the name of the Daemonset from above list: " ds_name
-
-                read -p "Do you want to proceed with Deleting Daemonset $ds_name in namespace $namespace...? (yes/no): " response
-                # Convert the response to lowercase for case-insensitive comparison
-                response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-
-                if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-                    echo "Deleting Daemonset $ds_name in namespace $namespace..."
-                    kubectl delete ds -n $namespace $ds_name
-                elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-                    echo "Deleting Daemonset $ds_name in namespace $namespace is cancelled"
-                else
-                    echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-                fi ;;
-           4)   get_namespace
-                kubectl get cm -n $namespace | awk '{print $1}'
-                read -p "Enter the name of the Configmap from above list: " cm_name
-
-                read -p "Do you want to proceed with Deleting Configmap $cm_name in namespace $namespace...? (yes/no): " response
-                # Convert the response to lowercase for case-insensitive comparison
-                response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-
-                if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-                    echo "Deleting Configmap $cm_name in namespace $namespace..."
-                    kubectl delete cm -n $namespace $cm_name
-                elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-                    echo "Deleting Configmap $cm_name in namespace $namespace is cancelled"
-                else
-                    echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-                fi ;;
-           5)   get_namespace
-                kubectl get secret -n $namespace | awk '{print $1}'
-                read -p "Enter the name of the Secret from above list: " secret_name
-
-                read -p "Do you want to proceed with Deleting Secret $secret_name in namespace $namespace...? (yes/no): " response
-                # Convert the response to lowercase for case-insensitive comparison
-                response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-
-                if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-                    echo "Deleting Secret $secret_name in namespace $namespace..."
-                    kubectl delete secret -n $namespace $secret_name
-                elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-                    echo "Deleting Secret $secret_name in namespace $namespace is cancelled"
-                else
-                    echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-                fi ;;
-           6)   echo "To delete any resources in kubernetes use the below command::" 
-                echo "kubectl delete <resource_name> -n <namespace_name>";;
-           *) echo "Invalid choice. Please enter a number between 1 and 6." ;;
-       esac 
+        select option in "${options[@]}"; do
+                case $option in
+                    *) delete_k8s_resources $REPLY ;;
+                esac
+                break
+        done
+    done 
 }
 
 # Function to get nodes
@@ -553,12 +494,11 @@ main() {
            1) select_resources ;;
            2) describe_resources ;;
            3) get_pod_logs ;;
-           4) delete_pod ;;
-           5) delete_resources ;;
-           6) nodes_commands ;;
-           7) context_commands ;;
-           8) fetch_k8s_data ;;
-           9) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+           4) delete_resources ;;
+           5) nodes_commands ;;
+           6) context_commands ;;
+           7) fetch_k8s_data ;;
+           8) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
