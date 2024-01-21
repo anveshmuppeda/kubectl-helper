@@ -117,10 +117,11 @@ select_resources() {
 
 # Function to get logs for a pod
 get_pod_logs() {
-
+    echo "select a namespace of the pod to get the logs"
     get_namespace
     kubectl get pod -n $namespace | awk '{print $1}'
-    read -p "Enter the name of the pod from the above list: " pod_name
+    read -p "Enter the name of the pod from the above list to view the logs: " pod_name
+    
     #calculate the containers count
     container_count=$(kubectl get pod "$pod_name" -o=jsonpath='{.spec.containers[*].name}' | tr -cd ' ' | wc -c)
     # Add 1 to account for the fact that container names are space-separated
@@ -138,6 +139,7 @@ get_pod_logs() {
     fi
 }
 
+# Function to describe Kubernetes resources based on user selection
 describe_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
@@ -145,7 +147,7 @@ describe_resource(){
     kubectl describe $1 $describe_workload -n $namespace
 }
 
-# Function to list Kubernetes resources based on user selection
+# Function to trigger describe function based on user selection
 describe_k8s_resource() {
 
         case $1 in
@@ -165,7 +167,7 @@ describe_k8s_resource() {
         esac
 }
 
-# Function to describe a Resource
+# Function to choose an option to describe a Resource
 describe_resources() {
 
     while true; do

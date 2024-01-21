@@ -2,7 +2,9 @@
 Kubectl Helper
 Kuberenetes cluster manager  
 
-Allowed values 
+Allowed values
+
+A-Z
 
 ## Main menu  
 ```
