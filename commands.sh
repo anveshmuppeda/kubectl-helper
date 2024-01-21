@@ -92,7 +92,7 @@ get_k8s_resource() {
                 kubectl get $resource_name --all-namespaces;;
             11) main ;;
             12) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
-            *)  echo "Invalid option. Please enter a number between 1 and 11." ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
         esac
 }
 
@@ -113,19 +113,6 @@ select_resources() {
         done
     done
 
-    # Printing the Available Options
-    printf "| %-35s |\n" "1. Pods"
-    printf "| %-35s |\n" "2. Deployments"
-    printf "| %-35s |\n" "3. Replicaset"
-    printf "| %-35s |\n" "4. Services"
-    printf "| %-35s |\n" "5. Secrets"
-    printf "| %-35s |\n" "6. Configmaps"
-    printf "| %-35s |\n" "7. Statefulsets"
-    printf "| %-35s |\n" "8. Cronjobs"
-    printf "| %-35s |\n" "9. Daemonsets"
-    printf "+-------------------------------------+\n"
-
-       
 }
 
 # Function to get logs for a pod
