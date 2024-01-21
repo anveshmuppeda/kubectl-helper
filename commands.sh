@@ -29,13 +29,16 @@ centered() {
   printf "%*s%s%*s" $padding "" "$text" $padding ""
 }
 
-# Function to display the main menu
-display_mian_menu() {
-    # Printing the table header
+# Function to print the header
+display_header() {
     printf "+-------------------------------------+\n"
-    printf "| %s |\n" "$(centered 35 'Welcome to kubectl Helper')"
+    printf "| %s |\n" "$(centered 35 "$1")"
     printf "+-------------------------------------+\n"
+}
 
+# Function to display the main menu
+display_main_menu() {
+    display_header "Welcome to kubectl Helper"
     # Printing the Available Options
     printf "| %-35s |\n" "1. Get Resources"
     printf "| %-35s |\n" "2. Describe Resources"
@@ -46,8 +49,15 @@ display_mian_menu() {
     printf "| %-35s |\n" "7. Create excel report"
     printf "| %-35s |\n" "8. Exit"
     printf "+-------------------------------------+\n"
+
+    read -p "Enter your choice (1-8): " choice
 }
 
+exit_function()
+{
+    echo "Exiting the kubectl helper. See you soon!"
+    exit 0
+}
 # Function to select the namespace
 get_namespace(){
     kubectl get namespace | awk '{print $1}'
@@ -56,7 +66,6 @@ get_namespace(){
 
 # Function to list Kubernetes resources based on user selection
 get_k8s_resource() {
-
         case $1 in
             1)  while true; do
                     echo "Select an option from below:"
@@ -74,7 +83,7 @@ get_k8s_resource() {
                                 kubectl get pods -n $namespace ;;
                         3)  select_resources ;;
                         4)  main ;;
-                        5)  echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+                        5)  exit_function ;;
                         *) echo "Invalid choice. Please enter a number between 1 and 5." ;;
                     esac
                 done ;;
@@ -90,7 +99,7 @@ get_k8s_resource() {
                 read -p "Please enter the resource name to be listed from the above list: " resource_name
                 kubectl get $resource_name --all-namespaces;;
             11) main ;;
-            12) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            12) exit_function ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
         esac
 }
@@ -98,10 +107,7 @@ get_k8s_resource() {
 # Function to List Resources
 select_resources() {
     while true; do
-        printf "+-------------------------------------+\n"
-        printf "| %s |\n" "$(centered 35 'Select the Resource to be listed')"
-        printf "+-------------------------------------+\n"
-
+        display_header "Select the Resource to be listed"
         options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
@@ -139,7 +145,7 @@ get_pod_logs() {
 }
 
 # Function to describe Kubernetes resources based on user selection
-describe_resource(){
+describe_k8s_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
     read -p "Enter a $1 name from above list to describe: " describe_workload
@@ -147,43 +153,38 @@ describe_resource(){
 }
 
 # Function to trigger describe function based on user selection
-describe_k8s_resource() {
-
+describe_k8s_resources() {
         case $1 in
-            1)  describe_resource Pod ;;
-            2)  describe_resource Deployment ;;
-            3)  describe_resource Service ;;
-            4)  describe_resource Daemonset ;;
-            5)  describe_resource Statefulset ;;
-            6)  describe_resource Configmap ;;
-            7)  describe_resource Secret ;;
+            1)  describe_k8s_resource Pod ;;
+            2)  describe_k8s_resource Deployment ;;
+            3)  describe_k8s_resource Service ;;
+            4)  describe_k8s_resource Daemonset ;;
+            5)  describe_k8s_resource Statefulset ;;
+            6)  describe_k8s_resource Configmap ;;
+            7)  describe_k8s_resource Secret ;;
             8)  kubectl api-resources | awk '{print $1}'  
                 read -p "Please enter the resource name to be described from the above list: " resource_name_to_describe
-                describe_resource $resource_name_to_describe ;;
+                describe_k8s_resource $resource_name_to_describe ;;
             9)  main ;;
-            10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            10) exit_function ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
         esac
 }
 
 # Function to choose an option to describe a Resource
 describe_resources() {
-
     while true; do
-        printf "+-------------------------------------+\n"
-        printf "| %s |\n" "$(centered 35 'Select the Resource to be described')"
-        printf "+-------------------------------------+\n"
+        display_header "Select the Resource to be described"
 
         options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
                 case $option in
-                    *) describe_k8s_resource $REPLY ;;
+                    *) describe_k8s_resources $REPLY ;;
                 esac
                 break
         done
     done
-   
 }
 
 delete_k8s_resource(){
@@ -209,7 +210,6 @@ delete_k8s_resource(){
 
 # Function to trigger delete function based on user selection
 delete_k8s_resources() {
-
         case $1 in
             1)  delete_k8s_resource Pod ;;
             2)  delete_k8s_resource Deployment ;;
@@ -222,19 +222,15 @@ delete_k8s_resources() {
                 read -p "Please enter the resource name to be deleted from the above list: " resource_name_to_describe
                 delete_k8s_resource $resource_name_to_describe ;;
             9)  main ;;
-            10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            10) exit_function ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
         esac
 }
 
 # Function to delete a pod
 delete_resources() {
-
     while true; do
-        printf "+-------------------------------------+\n"
-        printf "| %s |\n" "$(centered 35 'Select the Resource to be deleted')"
-        printf "+-------------------------------------+\n"
-
+        display_header "Select the Resource to be deleted"
         options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
@@ -246,24 +242,11 @@ delete_resources() {
     done 
 }
 
-# Function to get nodes
-get_nodes() {
-    echo "Getting nodes:"
-    kubectl get nodes
-}
-
 # Function to get node names
 get_node_name()
 {
     kubectl get nodes | awk '{print $1}'
     read -p "Enter the name of the node from above list: " node_name
-}
-
-# Function to describe a node
-describe_node() {
-    get_node_name
-    echo "Describing node $node_name:"
-    kubectl describe node $node_name
 }
 
 # Function to get node status
@@ -282,103 +265,67 @@ get_node_config() {
     kubectl get node $node_name -o json | jq '.metadata'
 }
 
-# Function to get node events
-get_node_events() {
-    get_node_name
-    echo "Getting events for node $node_name:"
-    kubectl get events --field-selector involvedObject.name=$node_name --sort-by=.metadata.creationTimestamp
-}
-
-# Function to drain a node (evicting pods)
-drain_node() {
-    get_node_name
-    echo "Draining node $node_name (evicting pods):"
-    kubectl drain $node_name --ignore-daemonsets
-}
-
-# Function to uncordon (make schedulable) a node
-uncordon_node() {
-    get_node_name
-    echo "Uncordoning (making schedulable) node $node_name:"
-    kubectl uncordon $node_name
-}
-
-# Function to cordon (make unschedulable) a node
-cordon_node() {
-    get_node_name
-    echo "Cordoning (making unschedulable) node $node_name:"
-    kubectl cordon $node_name
-}
-
-# Function to view system logs for a node
-view_node_logs() {
-    get_node_name
-    echo "Viewing system logs for node $node_name:"
-    kubectl logs -n kube-system $(kubectl get pods -n kube-system --field-selector spec.nodeName=$node_name -o jsonpath='{.items[0].metadata.name}')
-}
-
-# Function to view kubelet logs for a node
-view_kubelet_logs() {
-    get_node_name
-    echo "Viewing kubelet logs for node $node_name:"
-    kubectl logs -n kube-system $(kubectl get pods -n kube-system --field-selector spec.nodeName=$node_name -o jsonpath='{.items[0].metadata.name}')
-}
-
-# Function to get node metrics
-get_node_metrics() {
-    echo "Node metrics:"
-    kubectl top node
-}
-
-# Function to get node components (kubelet, proxy, etc.)
-get_node_components() {
-    get_node_name
-    echo "Getting components for node $node_name:"
-    kubectl get pods --all-namespaces --field-selector spec.nodeName=$node_name
-}
-
-# Function to get node resource usage
-get_node_resource_usage() {
-    get_node_name
-    echo "Getting resource usage for node $node_name:"
-    kubectl describe node $node_name | grep -E '(Allocatable|Capacity|Conditions|Addresses|System Info|Non-terminated Pods|Container Runtime Version)'
-}
-
 # Function to get nodes commands
 nodes_commands() {
-    echo "===== kubectl Worker Node Commands ====="
-    echo "1. Get nodes"
-    echo "2. Describe a node"
-    echo "3. Get node status"
-    echo "4. Get node configuration"
-    echo "5. Get node events"
-    echo "6. Drain a node (evicting pods)"
-    echo "7. Cordon(make unschedulable) a node"
-    echo "8. Uncordon (make schedulable) a node"
-    echo "9. View system logs for a node"
-    echo "10. View kubelet logs for a node"
-    echo "11. Get node metrics"
-    echo "12. Get node components (kubelet, proxy, etc.)"
-    echo "13. Get node resource usage"
-    echo "========================================"
-    read -p "Enter your choice (1-13): " choice
+    while true; do
+        display_header "kubectl Worker Node Commands"
+        printf "| %-35s |\n" " 1. Get nodes"
+        printf "| %-35s |\n" " 2. Describe a node"
+        printf "| %-35s |\n" " 3. Get node status"
+        printf "| %-35s |\n" " 4. Get node configuration"
+        printf "| %-35s |\n" " 5. Get node events"
+        printf "| %-35s |\n" " 6. Drain a node (evicting pods)"
+        printf "| %-35s |\n" " 7. Cordon node(make unschedulable)"
+        printf "| %-35s |\n" " 8. Uncordon node(make schedulable)"
+        printf "| %-35s |\n" " 9. View system logs for a node"
+        printf "| %-35s |\n" "10. View kubelet logs for a node"
+        printf "| %-35s |\n" "11. Get node metrics"
+        printf "| %-35s |\n" "12. Get node components(kubelet..)"
+        printf "| %-35s |\n" "13. Get node resource usage"
+        printf "| %-35s |\n" "14. Main Menu"
+        printf "| %-35s |\n" "15. Exit"
+        printf "+-------------------------------------+\n"
+        read -p "Enter your choice (1-15): " choice
 
-        case $choice in
-            1) get_nodes ;;
-            2) describe_node ;;
-            3) get_node_status ;;
-            4) get_node_config ;;
-            5) get_node_events ;;
-            6) drain_node ;;
-            7) cordon_node ;;
-            8) uncordon_node ;;
-            9) view_node_logs ;;
-            10) view_kubelet_logs ;;
-            11) get_node_metrics ;;
-            12) get_node_components ;;
-            13) get_node_resource_usage ;;
-            *) echo "Invalid choice. Please enter a number between 1 and 13." ;;
-        esac
+            case $choice in
+                1)  echo "Getting nodes:"
+                    kubectl get nodes ;;
+                2)  get_node_name
+                    echo "Describing node $node_name:"
+                    kubectl describe node $node_name ;;
+                3)  get_node_status ;;
+                4)  get_node_config ;;
+                5)  get_node_name
+                    echo "Getting events for node $node_name:"
+                    kubectl get events --field-selector involvedObject.name=$node_name --sort-by=.metadata.creationTimestamp ;;
+                6)  get_node_name
+                    echo "Draining node $node_name (evicting pods):"
+                    kubectl drain $node_name --ignore-daemonsets ;;
+                7)  get_node_name
+                    echo "Cordoning (making unschedulable) node $node_name:"
+                    kubectl cordon $node_name ;;
+                8)  get_node_name
+                    echo "Uncordoning (making schedulable) node $node_name:"
+                    kubectl uncordon $node_name ;;
+                9)  get_node_name
+                    echo "Viewing system logs for node $node_name:"
+                    kubectl logs -n kube-system $(kubectl get pods -n kube-system --field-selector spec.nodeName=$node_name -o jsonpath='{.items[0].metadata.name}') ;;
+                10) get_node_name
+                    echo "Viewing kubelet logs for node $node_name:"
+                    kubectl logs -n kube-system $(kubectl get pods -n kube-system --field-selector spec.nodeName=$node_name -o jsonpath='{.items[0].metadata.name}') ;;
+                11) echo "Node metrics:"
+                    kubectl top node ;;
+                12) get_node_name
+                    echo "Getting components for node $node_name:"
+                    kubectl get pods --all-namespaces --field-selector spec.nodeName=$node_name ;;
+                13) get_node_name
+                    echo "Getting resource usage for node $node_name:"
+                    kubectl describe node $node_name | grep -E '(Allocatable|Capacity|Conditions|Addresses|System Info|Non-terminated Pods|Container Runtime Version)' ;;
+                14) main ;;
+                15) exit_function ;;
+                *)  echo "Invalid choice. Please enter a number between 1 and 13." ;;
+            esac
+    done
 }
 
 # Function to display current context
@@ -487,9 +434,8 @@ EOF
 # Main function
 main() {
    while true; do
-       display_mian_menu
        check_kubectl
-       read -p "Enter your choice (1-9): " choice
+       display_main_menu
        case $choice in
            1) select_resources ;;
            2) describe_resources ;;
@@ -498,7 +444,7 @@ main() {
            5) nodes_commands ;;
            6) context_commands ;;
            7) fetch_k8s_data ;;
-           8) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+           8) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done

@@ -5,6 +5,11 @@ Kuberenetes cluster manager
 Allowed values
 
 A-Z
+to be added
+kubectl installation
+eksctl installation
+patches
+debug
 
 ## Main menu  
 ```
