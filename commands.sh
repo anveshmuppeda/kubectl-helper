@@ -100,7 +100,7 @@ get_k8s_resource() {
 select_resources() {
     while true; do
         printf "+-------------------------------------+\n"
-        printf "| %s |\n" "$(centered 35 'Select the Resources to be listed')"
+        printf "| %s |\n" "$(centered 35 'Select the Resource to be listed')"
         printf "+-------------------------------------+\n"
 
         options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Other" "Main Menu" "Exit")
@@ -138,8 +138,50 @@ get_pod_logs() {
     fi
 }
 
+get_resource(){
+    get_namespace
+    kubectl get $1 -n $namespace | awk '{print $1}'
+    read -p "Enter a $1 name from above list to describe: " describe_workload
+    kubectl describe $1 $describe_workload -n $namespace
+}
+
+# Function to list Kubernetes resources based on user selection
+describe_k8s_resource() {
+
+        case $1 in
+            1)  get_resource Pod ;;
+            2)  get_resource Deployment ;;
+            3)  get_resource Service ;;
+            4)  get_resource Daemonset ;;
+            5)  get_resource Statefulset ;;
+            6)  get_resource Configmap ;;
+            7)  get_resource Secret ;;
+            8)  kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be described from the above list: " resource_name_to_describe
+                get_resource $resource_name_to_describe ;;
+            9)  main ;;
+            10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
+        esac
+}
+
 # Function to describe a Resource
 describe_resource() {
+
+    while true; do
+        printf "+-------------------------------------+\n"
+        printf "| %s |\n" "$(centered 35 'Select the Resource to be described')"
+        printf "+-------------------------------------+\n"
+
+        options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
+
+        select option in "${options[@]}"; do
+                case $option in
+                    *) describe_k8s_resource $REPLY ;;
+                esac
+                break
+        done
+    done
    
     echo "===== Select the resource to be described ====="
     echo "1. Pod"
