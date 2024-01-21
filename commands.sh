@@ -49,7 +49,6 @@ display_main_menu() {
     printf "| %-35s |\n" "7. Create excel report"
     printf "| %-35s |\n" "8. Exit"
     printf "+-------------------------------------+\n"
-
     read -p "Enter your choice (1-8): " choice
 }
 
@@ -328,11 +327,6 @@ nodes_commands() {
     done
 }
 
-# Function to display current context
-get_current_context() {
-    kubectl config current-context
-}
-
 # Function to list available contexts
 list_contexts() {
     kubectl config get-contexts
@@ -341,9 +335,7 @@ list_contexts() {
 # Function to switch to a specific context
 switch_context() {
     list_contexts
-    echo "Select a context to switch from above list:"
-    read context_name
-
+    read -p "Select a context to switch from above list:: " context_name
     # Check if the context exists in kubeconfig
     if kubectl config get-contexts | grep -q "$context_name"; then
         kubectl config use-context "$context_name"
@@ -356,9 +348,7 @@ switch_context() {
 # Function to delete a context
 delete_context() {
     list_contexts
-    echo "Select a context to switch from above list:"
-    read context_name
-
+    read -p "Select a context to delete from above list:: " context_name
     # Check if the context exists in kubeconfig
     if kubectl config get-contexts | grep -q "$context_name"; then
         kubectl config delete-context "$context_name"
@@ -369,23 +359,26 @@ delete_context() {
 }
 
 context_commands(){
-    echo "Kubernetes Context Management Script"
-    echo "1. Display current context"
-    echo "2. List available contexts"
-    echo "3. Switch to a specific context"
-    echo "4. Set a new context"
-    echo "5. Delete a context"
-    echo -n "Select an option (1-5): "
-
-    read choice
-
-    case $choice in
-        1) get_current_context ;;
-        2) list_contexts ;;
-        3) switch_context ;;
-        4) delete_context ;;
-        *) echo "Invalid option" ;;
-    esac
+    while true; do
+        display_header "Kubernetes Context Management"
+        printf "| %-35s |\n" " 1. Display current context"
+        printf "| %-35s |\n" " 2. List available contexts"
+        printf "| %-35s |\n" " 3. Switch to a specific context"
+        printf "| %-35s |\n" " 4. Delete a context"
+        printf "| %-35s |\n" " 5. Main Menu"
+        printf "| %-35s |\n" " 6. Exit"
+        printf "+-------------------------------------+\n"
+        read -p "Enter your choice (1-6): " choice
+        case $choice in
+            1) kubectl config current-context ;;
+            2) list_contexts ;;
+            3) switch_context ;;
+            4) delete_context ;;
+            5) main ;;
+            6) exit_function ;;
+            *) echo "Invalid option" ;;
+        esac
+    done
 }
 
 # Set the output Excel file name

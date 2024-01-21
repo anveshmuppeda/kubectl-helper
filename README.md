@@ -10,6 +10,7 @@ kubectl installation
 eksctl installation
 patches
 debug
+output in box 
 
 ## Main menu  
 ```
