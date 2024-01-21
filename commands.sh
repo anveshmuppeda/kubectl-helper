@@ -138,7 +138,7 @@ get_pod_logs() {
     fi
 }
 
-get_resource(){
+describe_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
     read -p "Enter a $1 name from above list to describe: " describe_workload
@@ -149,16 +149,16 @@ get_resource(){
 describe_k8s_resource() {
 
         case $1 in
-            1)  get_resource Pod ;;
-            2)  get_resource Deployment ;;
-            3)  get_resource Service ;;
-            4)  get_resource Daemonset ;;
-            5)  get_resource Statefulset ;;
-            6)  get_resource Configmap ;;
-            7)  get_resource Secret ;;
+            1)  describe_resource Pod ;;
+            2)  describe_resource Deployment ;;
+            3)  describe_resource Service ;;
+            4)  describe_resource Daemonset ;;
+            5)  describe_resource Statefulset ;;
+            6)  describe_resource Configmap ;;
+            7)  describe_resource Secret ;;
             8)  kubectl api-resources | awk '{print $1}'  
                 read -p "Please enter the resource name to be described from the above list: " resource_name_to_describe
-                get_resource $resource_name_to_describe ;;
+                describe_resource $resource_name_to_describe ;;
             9)  main ;;
             10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
@@ -166,7 +166,7 @@ describe_k8s_resource() {
 }
 
 # Function to describe a Resource
-describe_resource() {
+describe_resources() {
 
     while true; do
         printf "+-------------------------------------+\n"
@@ -183,51 +183,6 @@ describe_resource() {
         done
     done
    
-    echo "===== Select the resource to be described ====="
-    echo "1. Pod"
-    echo "2. Deployment"
-    echo "3. Satefulset"
-    echo "4. Daemonset"
-    echo "5. Configmap"
-    echo "6. Secret"
-    echo "7. Other"
-    echo "==============================="
-    read -p "Enter your choice (1-5): " choice
-       case $choice in
-           1)   get_namespace
-                kubectl get po -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the pod from above list to describe: " pod_name
-                echo "Describing pod $pod_name in namespace $namespace:"
-                kubectl describe pod -n $namespace $pod_name ;;
-           2)   get_namespace
-                kubectl get deploy -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the Deployment from above list to describe:" deploy_name
-                echo "Describing Deployment $deploy_name in namespace $namespace:"
-                kubectl describe deploy -n $namespace $deploy_name ;;
-           3)   get_namespace
-                kubectl get sts -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the Satefulset from above list to describe:" sts_name
-                echo "Describing Satefulset $sts_name in namespace $namespace:"
-                kubectl describe sts -n $namespace $sts_name ;;
-           4)   get_namespace
-                kubectl get ds -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the Daemonset from above list to describe:" ds_name
-                echo "Describing Daemonset $ds_name in namespace $namespace:"
-                kubectl describe ds -n $namespace $ds_name ;;
-           5)   get_namespace
-                kubectl get cm -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the Configmap from above list to describe:" cm_name
-                echo "Describing Configmap $cm_name in namespace $namespace:"
-                kubectl describe cm -n $namespace $cm_name ;;
-           6)   get_namespace
-                kubectl get secret -n $namespace  | awk '{print $1}'
-                read -p "Enter the name of the Secret from above list to describe:" secret_name
-                echo "Describing Secret $secret_name in namespace $namespace:"
-                kubectl describe secret -n $namespace $secret_name ;;
-           7)   echo "To describe any resources in kubernetes use the below command::" 
-                echo "kubectl describe <resource_name> -n <namespace_name>";;
-           *) echo "Invalid choice. Please enter a number between 1 and 6." ;;
-       esac 
 }
 
 # Function to delete a pod
@@ -594,7 +549,7 @@ main() {
        read -p "Enter your choice (1-9): " choice
        case $choice in
            1) select_resources ;;
-           2) describe_resource ;;
+           2) describe_resources ;;
            3) get_pod_logs ;;
            4) delete_pod ;;
            5) delete_resources ;;
