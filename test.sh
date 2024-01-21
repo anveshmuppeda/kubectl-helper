@@ -1,30 +1,52 @@
 #!/bin/bash
 
-# Data to be printed in a table
-name1="John"
-age1="25"
-city1="New York"
+list_pod() {
 
-name2="Alice"
-age2="30"
-city2="San Francisco"
-
-# Calculate the width of the columns
-name_width=10
-age_width=4
-city_width=15
-
-# Function to print a centered string with padding
-centered() {
-  local width=$1
-  local text=$2
-  local padding=$((($width - ${#text}) / 2))
-  printf "%*s%s%*s" $padding "" "$text" $padding ""
+    case $1 in
+        1)  #echo "enter the namespace to list the pods"
+            kubectl get namespace | awk '{print $1}'
+            read -p "Enter the namespace name from the above list: " namespace
+            kubectl get pods -n $namespace;;
+        2) kubectl get pods -A ;;
+        3) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+    esac
 }
 
-# Print table header with centered headers
-printf "+%s+%s+%s+\n" "$(centered $name_width 'Name')" "$(centered $age_width 'Age')" "$(centered $city_width 'City')"
-printf "|%s|%s|%s|\n" "$(centered $name_width '')" "$(centered $age_width '')" "$(centered $city_width '')"
-printf "|%s|%s|%s|\n" "$(centered $name_width "$name1")" "$(centered $age_width "$age1")" "$(centered $city_width "$city1")"
-printf "|%s|%s|%s|\n" "$(centered $name_width "$name2")" "$(centered $age_width "$age2")" "$(centered $city_width "$city2")"
-printf "+%s+%s+%s+\n" "$(centered $name_width '')" "$(centered $age_width '')" "$(centered $city_width '')"
+# Function to list Kubernetes resources based on user selection
+list_k8s_resource() {
+    
+        case $1 in
+            1) echo "Select a Kubernetes resource to list:"
+            options=("Namespace Pods" "All pods" "Exit")
+            select option in "${options[@]}"; do
+                    case $option in
+                        *) list_pod $REPLY ;;
+                    esac
+                    #break
+                done ;;
+            2) kubectl get deployments ;;
+            3) kubectl get services ;;
+            4) kubectl get replicasets ;;
+            5) kubectl get statefulsets ;;
+            6) kubectl get configmaps ;;
+            7) kubectl get secrets ;;
+            8) kubectl get persistentvolumes ;;
+            9) kubectl get persistentvolumeclaims ;;
+            10) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            *) echo "Invalid option" ;;
+        esac
+}
+
+# Display menu
+while true; do
+    echo "Select a Kubernetes resource to list:"
+    options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Exit")
+
+    select option in "${options[@]}"; do
+        
+            case $option in
+                *) list_k8s_resource $REPLY ;;
+            esac
+            break
+    done
+done

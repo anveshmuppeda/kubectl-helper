@@ -55,24 +55,74 @@ get_namespace(){
     read -p "Enter the namespace name from the above list: " namespace
 }
 
-# Function to get pods
-get_resources() {
+# Function to list Kubernetes resources based on user selection
+get_k8s_resource() {
 
-    printf "+-------------------------------------+\n"
-    printf "| %s |\n" "$(centered 35 'Select the Resources to be listed')"
+        case $1 in
+            1)  while true; do
+                    echo "Select an option from below:"
+                    echo "1. Get pods from all namespaces"
+                    echo "2. Get pods from specific namespace"
+                    echo "3. Go back"
+                    echo "4. Main Menu"
+                    echo "5. Exit"
+                    read -p "Enter your choice (1-5): " podchoice
+                    case $podchoice in
+                        1)  echo "Getting pods in all namespaces:"
+                                kubectl get pods --all-namespaces ;;
+                        2)  echo "Getting pods from specific namespace:"
+                                get_namespace
+                                kubectl get pods -n $namespace ;;
+                        3)  select_resources ;;
+                        4)  main ;;
+                        5)  echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+                        *) echo "Invalid choice. Please enter a number between 1 and 5." ;;
+                    esac
+                done ;;
+            2) kubectl get deployments ;;
+            3) kubectl get services ;;
+            4) kubectl get replicasets ;;
+            5) kubectl get statefulsets ;;
+            6) kubectl get configmaps ;;
+            7) kubectl get secrets ;;
+            8) kubectl get persistentvolumes ;;
+            9) kubectl get persistentvolumeclaims ;;
+            10) main ;;
+            11) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            *) echo "Invalid option. Please enter a number between 1 and 11." ;;
+        esac
+}
+
+# Function to List Resources
+select_resources() {
+    while true; do
+        printf "+-------------------------------------+\n"
+        printf "| %s |\n" "$(centered 35 'Select the Resources to be listed')"
+        printf "+-------------------------------------+\n"
+
+        options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Main Menu" "Exit")
+
+        select option in "${options[@]}"; do
+                case $option in
+                    *) get_k8s_resource $REPLY ;;
+                esac
+                break
+        done
+    done
+
+    # Printing the Available Options
+    printf "| %-35s |\n" "1. Pods"
+    printf "| %-35s |\n" "2. Deployments"
+    printf "| %-35s |\n" "3. Replicaset"
+    printf "| %-35s |\n" "4. Services"
+    printf "| %-35s |\n" "5. Secrets"
+    printf "| %-35s |\n" "6. Configmaps"
+    printf "| %-35s |\n" "7. Statefulsets"
+    printf "| %-35s |\n" "8. Cronjobs"
+    printf "| %-35s |\n" "9. Daemonsets"
     printf "+-------------------------------------+\n"
 
-    echo "1. Get pods from all namespaces"
-    echo "2. Get pods from specific namespace"
-    read -p "Enter your choice (1-2): " podchoice
-    case $podchoice in
-           1)   echo "Getting pods in all namespaces:"
-                kubectl get pods --all-namespaces ;;
-           2)   echo "Getting pods from specific namespace:"
-                get_namespace
-                kubectl get pods -n $namespace ;;
-           *) echo "Invalid choice. Please enter a number between 1 and 2." ;;
-    esac    
+       
 }
 
 # Function to get logs for a pod
@@ -511,7 +561,7 @@ main() {
        check_kubectl
        read -p "Enter your choice (1-9): " choice
        case $choice in
-           1) get_resources ;;
+           1) select_resources ;;
            2) describe_resource ;;
            3) get_pod_logs ;;
            4) delete_pod ;;
