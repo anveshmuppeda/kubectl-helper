@@ -79,17 +79,20 @@ get_k8s_resource() {
                         *) echo "Invalid choice. Please enter a number between 1 and 5." ;;
                     esac
                 done ;;
-            2) kubectl get deployments ;;
-            3) kubectl get services ;;
-            4) kubectl get replicasets ;;
-            5) kubectl get statefulsets ;;
-            6) kubectl get configmaps ;;
-            7) kubectl get secrets ;;
-            8) kubectl get persistentvolumes ;;
-            9) kubectl get persistentvolumeclaims ;;
-            10) main ;;
-            11) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
-            *) echo "Invalid option. Please enter a number between 1 and 11." ;;
+            2)  kubectl get deployments ;;
+            3)  kubectl get services ;;
+            4)  kubectl get replicasets ;;
+            5)  kubectl get statefulsets ;;
+            6)  kubectl get configmaps ;;
+            7)  kubectl get secrets ;;
+            8)  kubectl get persistentvolumes ;;
+            9)  kubectl get persistentvolumeclaims ;;
+            10) kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be listed from the above list: " resource_name
+                kubectl get $resource_name --all-namespaces;;
+            11) main ;;
+            12) echo "Exiting the kubectl helper. See you soon!"; exit 0 ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 11." ;;
         esac
 }
 
@@ -100,7 +103,7 @@ select_resources() {
         printf "| %s |\n" "$(centered 35 'Select the Resources to be listed')"
         printf "+-------------------------------------+\n"
 
-        options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Main Menu" "Exit")
+        options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
                 case $option in
