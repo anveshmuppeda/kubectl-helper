@@ -358,6 +358,7 @@ delete_context() {
     fi
 }
 
+# Context Function
 context_commands(){
     while true; do
         display_header "Kubernetes Context Management"
