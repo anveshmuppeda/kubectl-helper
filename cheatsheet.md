@@ -14,6 +14,7 @@
 12. [ Rollout ](#rollout)
 13. [ Taint ](#taint)
 14. [ Port Forward ](#portforward)
+15. [ Patch ](#patch)
 
 
 <a name="Cluster"></a>
@@ -380,6 +381,19 @@ curl -X GET -s http://localhost:80/
 curl -X GET -s http://localhost:80/_cluster/health  
 ```
 
----
+---  
+
+<a name="patch"></a>  
+## Patch  
+### patch with a file  
+```
+kubectl patch deployment <deployment-name> --patch-file patch-file.yaml  
+```  
+
+### patch with a value  
+```
+kubectl patch {{ resource }} {{ resource_name }} -p '{"metadata":{"finalizers":null}}'
+```  
+
 ## Reference:  
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
