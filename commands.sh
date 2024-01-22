@@ -32,13 +32,13 @@ centered() {
 # Function to print the header
 display_header() {
     printf "+-------------------------------------+\n"
-    printf "| %s |\n" "$(centered 35 "$1")"
+    printf "| %s |\n" "$(centered "$1" "$2")"
     printf "+-------------------------------------+\n"
 }
 
 # Function to display the main menu
 display_main_menu() {
-    display_header "Welcome to kubectl Helper"
+    display_header 35 "Welcome to kubectl Helper"
     # Printing the Available Options
     printf "| %-35s |\n" "1. Get Resources"
     printf "| %-35s |\n" "2. Describe Resources"
@@ -106,7 +106,7 @@ get_k8s_resource() {
 # Function to List Resources
 select_resources() {
     while true; do
-        display_header "Select the Resource to be listed"
+        display_header 35 "Select the Resource to be listed"
         options=("Pods" "Deployments" "Services" "ReplicaSets" "StatefulSets" "ConfigMaps" "Secrets" "PersistentVolumes" "PersistentVolumeClaims" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
@@ -173,7 +173,7 @@ describe_k8s_resources() {
 # Function to choose an option to describe a Resource
 describe_resources() {
     while true; do
-        display_header "Select the Resource to be described"
+        display_header 35 "Select the Resource to be described"
 
         options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
 
@@ -229,7 +229,7 @@ delete_k8s_resources() {
 # Function to delete a pod
 delete_resources() {
     while true; do
-        display_header "Select the Resource to be deleted"
+        display_header 35 "Select the Resource to be deleted"
         options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
 
         select option in "${options[@]}"; do
@@ -267,7 +267,7 @@ get_node_config() {
 # Function to get nodes commands
 nodes_commands() {
     while true; do
-        display_header "kubectl Worker Node Commands"
+        display_header 35 "kubectl Worker Node Commands"
         printf "| %-35s |\n" " 1. Get nodes"
         printf "| %-35s |\n" " 2. Describe a node"
         printf "| %-35s |\n" " 3. Get node status"
@@ -361,7 +361,7 @@ delete_context() {
 # Context Function
 context_commands(){
     while true; do
-        display_header "Kubernetes Context Management"
+        display_header 35 "Kubernetes Context Management"
         printf "| %-35s |\n" " 1. Display current context"
         printf "| %-35s |\n" " 2. List available contexts"
         printf "| %-35s |\n" " 3. Switch to a specific context"
@@ -383,7 +383,7 @@ context_commands(){
 }
 
 # Set the output Excel file name
-excel_file="kubernetes_data.xlsx"
+excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
 # Function to fetch and process Kubernetes data
 fetch_k8s_data() {
@@ -395,6 +395,7 @@ fetch_k8s_data() {
 
     # Extract relevant information using jq
     pod_names=$(echo "$pods_data" | jq -r '.items[].metadata.name')
+    pod_namespace=$(echo "$pods_data" | jq -r '.items[].metadata.namespace')
     pod_statuses=$(echo "$pods_data" | jq -r '.items[].status.phase')
 
     # Create Excel file
@@ -410,19 +411,27 @@ bold = workbook.add_format({'bold': True})
 
 # Write some data headers with the bold format.
 worksheet.write('A1', 'Pod Name', bold)
-worksheet.write('B1', 'Status', bold)
+worksheet.write('B1', 'Namespace', bold)
+worksheet.write('C1', 'Status', bold)
 
-# Write data from Kubernetes.
+# Write data from Kubernetes Cluster.
 pod_names = """$pod_names""".splitlines()
+pod_namespace = """$pod_namespace""".splitlines()
 pod_statuses = """$pod_statuses""".splitlines()
 
-for row_num, (pod_name, pod_status) in enumerate(zip(pod_names, pod_statuses), start=1):
+for row_num, (pod_name, pod_namespace, pod_status) in enumerate(zip(pod_names, pod_namespace, pod_statuses), start=1):
     worksheet.write(row_num, 0, pod_name)
-    worksheet.write(row_num, 1, pod_status)
+    worksheet.write(row_num, 1, pod_namespace)
+    worksheet.write(row_num, 2, pod_status)
 
 # Close the Excel workbook.
 workbook.close()
 EOF
+    display_header 35 "Excel File Creation Status"
+    printf "| %-35s |\n" "The excel file has been created"
+    printf "| %-35s |\n" "succesfully with the following name" 
+    printf "| %-35s |\n" "$excel_file"
+    printf "+-------------------------------------+\n"
 }
 
 # Main function
