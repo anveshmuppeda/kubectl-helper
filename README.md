@@ -8,7 +8,7 @@ A-Z
 to be added
 kubectl installation
 eksctl installation
-patches
+patches 
 debug
 output in box 
 
