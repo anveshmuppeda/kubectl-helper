@@ -1,5 +1,10 @@
 # Welcome to Kubectl cheatsheet [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)  
 
+<p align="center">  
+Anvesh Muppeda 
+</p>  
+
+## Table of Contents  
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Labels & Selectors ](#Labels&Selectors )
