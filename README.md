@@ -1,4 +1,4 @@
-# kubectl-helper
+# kubectl-helper [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)
 Kubectl Helper
 Kuberenetes cluster manager  
 
