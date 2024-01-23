@@ -1,6 +1,6 @@
 # Welcome to Kubectl cheatsheet [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)  
 <p align="center">  
-Anvesh Muppeda  
+Anvesh Muppeda & Sai Manasa Kota  
 </p>  
 
 ## Table of Contents  
