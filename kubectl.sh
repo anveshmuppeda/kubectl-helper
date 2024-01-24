@@ -50,7 +50,7 @@ display_main_menu() {
     printf "| %-35s |\n" "8. Create excel report"
     printf "| %-35s |\n" "9. Exit"
     printf "+-------------------------------------+\n"
-    read -p "Enter your choice (1-8): " choice
+    read -p "Enter your choice (1-9): " choice
 }
 
 exit_function()
@@ -387,22 +387,10 @@ context_commands(){
 patch_k8s_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
-    read -p "Enter the name of the $1 from above list to patch: " patching_resource_name
-    while true; do
-        read -p "Do you want to proceed with Patching $1 $patching_resource_name in namespace $namespace...? (yes/no): " response
-        # Convert the response to lowercase for case-insensitive comparison
-        response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-        if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
-            echo "Patching $1 $patching_resource_name in namespace $namespace..."
-            kubectl patch $1 -n $namespace $patching_resource_name
-            exit 0 ;
-        elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
-            echo "Patching $1 $patching_resource_name in namespace $namespace is cancelled"
-            exit 0 ;
-        else
-            echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
-        fi  
-    done
+    read -p "Enter the name of the $1 from above list to patch: " patching_resource_name 
+    read -p "Enter the patching file:" patching_file 
+    echo "Patching $1 $patching_resource_name in namespace $namespace..."
+    kubectl patch $1 -n $namespace $patching_resource_name -p "$(cat $patching_file)"
 }
 
 # Function to trigger patch function based on user selection
