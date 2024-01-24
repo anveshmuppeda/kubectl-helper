@@ -5,12 +5,15 @@ Kuberenetes cluster manager
 Allowed values
 
 A-Z
-to be added
+## to be added  
 kubectl installation
-eksctl installation
-patches 
+eksctl installation 
 debug
 output in box 
+labels to a node 
+Annotations
+Create 
+pod logs to a file 
 
 ## Main menu  
 ```
