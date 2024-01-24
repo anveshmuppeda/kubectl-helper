@@ -48,6 +48,7 @@ display_main_menu() {
     printf "| %-35s |\n" "6. Contexts"
     printf "| %-35s |\n" "7. Patch"
     printf "| %-35s |\n" "8. Adding Annotations"
+    printf "| %-35s |\n" "8. Adding lables"
     printf "| %-35s |\n" "9. Create excel report"
     printf "| %-35s |\n" "10. Exit"
     printf "+-------------------------------------+\n"
@@ -449,13 +450,14 @@ annotate_k8s_resources() {
             6)  annotate_k8s_resource Configmap ;;
             7)  annotate_k8s_resource Secret ;;
             8)  kubectl api-resources | awk '{print $1}'  
-                read -p "Please enter the resource name to be patched from the above list: " resource_name_to_annotate
+                read -p "Please enter the resource name to be annotated from the above list: " resource_name_to_annotate
                 annotate_k8s_resource $resource_name_to_annotate ;;
             9)  main ;;
             10) exit_function ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
         esac
 }
+
 # Function to annotate a kubernetes resource
 annotate_resources() {
     while true; do
@@ -471,6 +473,50 @@ annotate_resources() {
     done 
 }
 
+
+label_k8s_resource(){
+    get_namespace
+    kubectl get $1 -n $namespace | awk '{print $1}'
+    read -p "Enter the name of the $1 from above list to be labeled: " lebeling_resource_name 
+    read -p "Enter the Label key name:" labeling_key_name
+    read -p "Enter the Label key value:" labeling_key_name
+    echo "Update/overwrite the annotation for $1 $lebeling_resource_name in namespace $namespace..."
+    kubectl annotate $1 -n $namespace $lebeling_resource_name --overwrite $labeling_key_name="$labeling_key_name"
+}
+
+# Function to trigger patch function based on user selection
+labeling_k8s_resources() {
+        case $1 in
+            1)  label_k8s_resource Pod ;;
+            2)  label_k8s_resource Deployment ;;
+            3)  label_k8s_resource Service ;;
+            4)  label_k8s_resource Daemonset ;;
+            5)  label_k8s_resource Statefulset ;;
+            6)  label_k8s_resource Configmap ;;
+            7)  label_k8s_resource Secret ;;
+            8)  kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be labeled from the above list: " resource_name_to_annotate
+                label_k8s_resource $resource_name_to_annotate ;;
+            9)  main ;;
+            10) exit_function ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
+        esac
+}
+
+# Function to annotate a kubernetes resource
+labeling_resources() {
+    while true; do
+        display_header 35 "Select the Resource to be Labeled"
+        options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
+
+        select option in "${options[@]}"; do
+                case $option in
+                    *) labeling_k8s_resources $REPLY ;;
+                esac
+                break
+        done
+    done 
+}
 # Set the output Excel file name
 excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
@@ -537,8 +583,9 @@ main() {
            6) context_commands ;;
            7) patch_resources ;;
            8) annotate_resources ;;
-           9) fetch_k8s_data ;;
-           10) exit_function ;;
+           9) labeling_resources ;;
+           10) fetch_k8s_data ;;
+           11) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
