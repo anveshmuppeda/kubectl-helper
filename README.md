@@ -28,4 +28,11 @@ output in box
 | 9. Exit                             |
 +-------------------------------------+
 Enter your choice (1-9):
-```
+```  
+
+## Project Maintainers & Contributors  
+<table>
+  <tr>
+    <td align="center"><a href="http://anveshmuppeda.github.io"><img src="https://avatars.githubusercontent.com/u/115966808?v=4" width="100px;" alt=""/><br /><sub><b>Anvesh Muppeda</b></sub></a></td>
+  </tr>
+</table>
