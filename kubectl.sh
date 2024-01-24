@@ -394,7 +394,7 @@ patch_k8s_resource(){
         response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
         if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
             echo "Patching $1 $patching_resource_name in namespace $namespace..."
-            kubectl delete $1 -n $namespace $patching_resource_name
+            kubectl patch $1 -n $namespace $patching_resource_name
             exit 0 ;
         elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
             echo "Patching $1 $patching_resource_name in namespace $namespace is cancelled"
