@@ -396,7 +396,7 @@ kubectl patch deployment <deployment-name> --patch-file patch-file.yaml
 
 ### patch with a value  
 ```
-kubectl patch {{ resource }} {{ resource_name }} -p '{"metadata":{"finalizers":null}}'
+kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
 ```  
 
 ## Reference:  
