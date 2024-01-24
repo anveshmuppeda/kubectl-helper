@@ -47,8 +47,9 @@ display_main_menu() {
     printf "| %-35s |\n" "5. Nodes"
     printf "| %-35s |\n" "6. Contexts"
     printf "| %-35s |\n" "7. Patch"
-    printf "| %-35s |\n" "8. Create excel report"
-    printf "| %-35s |\n" "9. Exit"
+    printf "| %-35s |\n" "8. Adding Annotations"
+    printf "| %-35s |\n" "9. Create excel report"
+    printf "| %-35s |\n" "10. Exit"
     printf "+-------------------------------------+\n"
     read -p "Enter your choice (1-9): " choice
 }
@@ -427,6 +428,49 @@ patch_resources() {
     done 
 }
 
+annotate_k8s_resource(){
+    get_namespace
+    kubectl get $1 -n $namespace | awk '{print $1}'
+    read -p "Enter the name of the $1 from above list to annotate: " annotatting_resource_name 
+    read -p "Enter the Annotating key name:" annotating_key_name
+    read -p "Enter the Annotating key value:" annotating_key_value
+    echo "Update/overwrite the annotation for $1 $annotatting_resource_name in namespace $namespace..."
+    kubectl annotate $1 -n $namespace $annotatting_resource_name --overwrite $annotating_key_name="$annotating_key_value"
+}
+
+# Function to trigger patch function based on user selection
+annotate_k8s_resources() {
+        case $1 in
+            1)  annotate_k8s_resource Pod ;;
+            2)  annotate_k8s_resource Deployment ;;
+            3)  annotate_k8s_resource Service ;;
+            4)  annotate_k8s_resource Daemonset ;;
+            5)  annotate_k8s_resource Statefulset ;;
+            6)  annotate_k8s_resource Configmap ;;
+            7)  annotate_k8s_resource Secret ;;
+            8)  kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be patched from the above list: " resource_name_to_annotate
+                annotate_k8s_resource $resource_name_to_annotate ;;
+            9)  main ;;
+            10) exit_function ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
+        esac
+}
+# Function to annotate a kubernetes resource
+annotate_resources() {
+    while true; do
+        display_header 35 "Select the Resource to be Annotated"
+        options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
+
+        select option in "${options[@]}"; do
+                case $option in
+                    *) annotate_k8s_resources $REPLY ;;
+                esac
+                break
+        done
+    done 
+}
+
 # Set the output Excel file name
 excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
@@ -492,8 +536,9 @@ main() {
            5) nodes_commands ;;
            6) context_commands ;;
            7) patch_resources ;;
-           8) fetch_k8s_data ;;
-           9) exit_function ;;
+           8) annotate_resources ;;
+           9) fetch_k8s_data ;;
+           10) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
