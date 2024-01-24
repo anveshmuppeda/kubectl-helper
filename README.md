@@ -393,6 +393,15 @@ curl -X GET -s http://localhost:80/_cluster/health
 ```
 kubectl patch deployment <deployment-name> --patch-file patch-file.yaml  
 ```  
+### patch file looks like:  
+```
+spec:
+  template:
+    spec:
+      containers:
+      - name: patch-demo-ctr-3
+        image: gcr.io/google-samples/node-hello:1.0
+```  
 
 ### patch with a value  
 ```
