@@ -46,8 +46,9 @@ display_main_menu() {
     printf "| %-35s |\n" "4. Delete Resources"
     printf "| %-35s |\n" "5. Nodes"
     printf "| %-35s |\n" "6. Contexts"
-    printf "| %-35s |\n" "7. Create excel report"
-    printf "| %-35s |\n" "8. Exit"
+    printf "| %-35s |\n" "7. Patch"
+    printf "| %-35s |\n" "8. Create excel report"
+    printf "| %-35s |\n" "9. Exit"
     printf "+-------------------------------------+\n"
     read -p "Enter your choice (1-8): " choice
 }
@@ -186,6 +187,7 @@ describe_resources() {
     done
 }
 
+# Function to delete the k8's resource
 delete_k8s_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
@@ -218,8 +220,8 @@ delete_k8s_resources() {
             6)  delete_k8s_resource Configmap ;;
             7)  delete_k8s_resource Secret ;;
             8)  kubectl api-resources | awk '{print $1}'  
-                read -p "Please enter the resource name to be deleted from the above list: " resource_name_to_describe
-                delete_k8s_resource $resource_name_to_describe ;;
+                read -p "Please enter the resource name to be deleted from the above list: " resource_name_to_delete
+                delete_k8s_resource $resource_name_to_delete ;;
             9)  main ;;
             10) exit_function ;;
             *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
@@ -382,6 +384,61 @@ context_commands(){
     done
 }
 
+patch_k8s_resource(){
+    get_namespace
+    kubectl get $1 -n $namespace | awk '{print $1}'
+    read -p "Enter the name of the $1 from above list to patch: " patching_resource_name
+    while true; do
+        read -p "Do you want to proceed with Patching $1 $patching_resource_name in namespace $namespace...? (yes/no): " response
+        # Convert the response to lowercase for case-insensitive comparison
+        response_lower=$(echo "$response" | tr '[:upper:]' '[:lower:]')
+        if [[ "$response_lower" == "yes" || "$response_lower" == "y" ]]; then
+            echo "Patching $1 $patching_resource_name in namespace $namespace..."
+            kubectl delete $1 -n $namespace $patching_resource_name
+            exit 0 ;
+        elif [[ "$response_lower" == "no" || "$response_lower" == "n" ]]; then
+            echo "Patching $1 $patching_resource_name in namespace $namespace is cancelled"
+            exit 0 ;
+        else
+            echo "Invalid response. Please enter 'yes', 'no', 'y', or 'n'."
+        fi  
+    done
+}
+
+# Function to trigger patch function based on user selection
+patch_k8s_resources() {
+        case $1 in
+            1)  patch_k8s_resource Pod ;;
+            2)  patch_k8s_resource Deployment ;;
+            3)  patch_k8s_resource Service ;;
+            4)  patch_k8s_resource Daemonset ;;
+            5)  patch_k8s_resource Statefulset ;;
+            6)  patch_k8s_resource Configmap ;;
+            7)  patch_k8s_resource Secret ;;
+            8)  kubectl api-resources | awk '{print $1}'  
+                read -p "Please enter the resource name to be patched from the above list: " resource_name_to_patch
+                patch_k8s_resource $resource_name_to_patch ;;
+            9)  main ;;
+            10) exit_function ;;
+            *)  echo "Invalid option. Please enter a number between 1 and 12." ;;
+        esac
+}
+
+# Function to patch a kubernetes resource
+patch_resources() {
+    while true; do
+        display_header 35 "Select the Resource to be patched"
+        options=("Pods" "Deployments" "Services" "Daemonsets" "StatefulSets" "ConfigMaps" "Secrets" "Other" "Main Menu" "Exit")
+
+        select option in "${options[@]}"; do
+                case $option in
+                    *) patch_k8s_resources $REPLY ;;
+                esac
+                break
+        done
+    done 
+}
+
 # Set the output Excel file name
 excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
@@ -446,8 +503,9 @@ main() {
            4) delete_resources ;;
            5) nodes_commands ;;
            6) context_commands ;;
-           7) fetch_k8s_data ;;
-           8) exit_function ;;
+           7) patch_resources ;;
+           8) fetch_k8s_data ;;
+           9) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
