@@ -19,27 +19,37 @@ By Anvesh Muppeda & Sai Manasa Kota
 14. [ Port Forward ](#portforward)
 15. [ Patch ](#patch)
 
-
-<a name="Cluster"></a>
-
+---
+<a name="Cluster"></a>  
 ## Cluster  
 
-### Listing all the resources in cluster
+### 1. Listing all the resources in cluster
 ```
 kubectl api-resources
 ```  
 
-### Listing all the api versions in cluster
+### 2. Listing all the api versions in cluster
 ```
 kubectl api-versions
 ```  
 
-### Get the configurations of saved clusters  
+### 3. Get the configurations of saved clusters  
 To get more information about config view click here.
 ```
 kubectl config view
 ```
-### 
+
+### 4. Get the Kubernetes version running on the client and server  
+```
+kubectl version
+```
+
+### 5. Get everything from the cluster  
+```
+kubectl get all --all-namespaces
+```  
+
+---
 
 ### decode and encode of data for k8's to use in secrets
 ```
