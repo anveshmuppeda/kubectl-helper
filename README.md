@@ -10,9 +10,6 @@ kubectl installation
 eksctl installation 
 debug
 output in box 
-labels to a node 
-Annotations
-Create 
 pod logs to a file 
 
 ## Main menu  

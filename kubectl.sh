@@ -50,8 +50,9 @@ display_main_menu() {
     printf "| %-35s |\n" "8. Adding Annotations"
     printf "| %-35s |\n" "9. Adding lables"
     printf "| %-35s |\n" "10. Create Resources"
-    printf "| %-35s |\n" "11. Create excel report"
-    printf "| %-35s |\n" "12. Exit"
+    printf "| %-35s |\n" "11. Debug Pods"
+    printf "| %-35s |\n" "12. Create excel report"
+    printf "| %-35s |\n" "13. Exit"
     printf "+-------------------------------------+\n"
     read -p "Enter your choice (1-9): " choice
 }
@@ -525,6 +526,14 @@ create_resources(){
     kubectl apply -f $resource_manifest
 }
 
+debug_pods(){
+    get_namespace
+    kubectl get pod -n $namespace | awk '{print $1}'
+    read -p "Please enter the pod name from above list to create a debug pod: " debug_pod_name
+    echo "Creating  debug_pod/$debug_pod_name in $namespace:"
+    kubectl debug $debug_pod_name -it --image=busybox --share-processes --copy-to="${debug_pod_name}-$(date +"%H%M%S")-debug"
+}
+
 # Set the output Excel file name
 excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
@@ -593,8 +602,9 @@ main() {
            8) annotate_resources ;;
            9) labeling_resources ;;
            10) create_resources ;;
-           11) fetch_k8s_data ;;
-           12) exit_function ;;
+           11) debug_pods ;;
+           12) fetch_k8s_data ;;
+           13) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
