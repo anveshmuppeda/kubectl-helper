@@ -48,9 +48,10 @@ display_main_menu() {
     printf "| %-35s |\n" "6. Contexts"
     printf "| %-35s |\n" "7. Patch"
     printf "| %-35s |\n" "8. Adding Annotations"
-    printf "| %-35s |\n" "8. Adding lables"
-    printf "| %-35s |\n" "9. Create excel report"
-    printf "| %-35s |\n" "10. Exit"
+    printf "| %-35s |\n" "9. Adding lables"
+    printf "| %-35s |\n" "10. Create Resources"
+    printf "| %-35s |\n" "11. Create excel report"
+    printf "| %-35s |\n" "12. Exit"
     printf "+-------------------------------------+\n"
     read -p "Enter your choice (1-9): " choice
 }
@@ -517,6 +518,13 @@ labeling_resources() {
         done
     done 
 }
+
+create_resources(){
+    read -p "Please enter the manifest file name with complete path (like /path/to/nginx-service.yaml) to create the respective resource: " resource_manifest
+    echo "Creating kubernetes resource using $resource_manifest"
+    kubectl apply -f $resource_manifest
+}
+
 # Set the output Excel file name
 excel_file="k8's_data_$(date +'%Y-%m-%d_%H-%M-%S').xlsx"
 
@@ -584,8 +592,9 @@ main() {
            7) patch_resources ;;
            8) annotate_resources ;;
            9) labeling_resources ;;
-           10) fetch_k8s_data ;;
-           11) exit_function ;;
+           10) create_resources ;;
+           11) fetch_k8s_data ;;
+           12) exit_function ;;
            *) echo "Invalid choice. Please enter a number between 1 and 9." ;;
        esac
    done
