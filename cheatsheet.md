@@ -407,10 +407,19 @@ curl -X GET -s http://localhost:80/_cluster/health
 ```
 kubectl patch deployment <deployment-name> --patch-file patch-file.yaml  
 ```  
+### patch file looks like:  
+```
+spec:
+  template:
+    spec:
+      containers:
+      - name: patch-demo-ctr-3
+        image: gcr.io/google-samples/node-hello:1.0
+```  
 
 ### patch with a value  
 ```
-kubectl patch {{ resource }} {{ resource_name }} -p '{"metadata":{"finalizers":null}}'
+kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
 ```  
 
 ## Reference:  
