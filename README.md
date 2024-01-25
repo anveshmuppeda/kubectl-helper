@@ -24,76 +24,63 @@ By Anvesh Muppeda & Sai Manasa Kota
 ## Cluster  
 
 ### 1. Listing all the resources in cluster
-```
+```sh
 kubectl api-resources
 ```  
 
 ### 2. Listing all the api versions in cluster
-```
+```sh
 kubectl api-versions
 ```  
 
 ### 3. Get the configurations of saved clusters  
 To get more information about config view click here.
-```
+```sh
 kubectl config view
 ```
 
 ### 4. Get the Kubernetes version running on the client and server  
-```
+```sh
 kubectl version
 ```
 
 ### 5. Get everything from the cluster  
-```
+```sh
 kubectl get all --all-namespaces
 ```  
-
 ---
+<a name="SwitchingBetweenContexts"></a>  
+## Switching between contexts  
 
-### decode and encode of data for k8's to use in secrets
-```
-echo -n "anvesh" | base64
-echo -n "" | base64 --decode
-```
-### to Check Access  
-```
-kuebctl auth can-i create deployments
-kubectl auth can-i create pods
-```
-### to check IP range for pods within the namespaces
-```
-kubectl cluster-info dump | grep -m 1 cluster-cidr
-```
----
-
-<a name="SwitchingBetweenContexts"></a>
-## Switching Between Contexts
-### to list all preconfigured contexts and see which one is active:
-```
+### 1. Get all preconfigured contexts and see which one is active:  
+```sh
 kubectl config get-contexts
-```
-### prints the current config name
-```
+```  
+
+### 2. Get the current config name
+```sh
 kubectl config current-context
-```
-### prints the current config with more details
+```  
+
+### 3. Get the current config with more details
 ```sh
 kubectl config view --minify
-```
-### to switch between the predefined contexts(Switch to a context/cluster):
-```
-kubectl config use-context NikTest
-```
-### setting Default Namespace
-Namespace defaults are set in your cluster’s context configuration. We change the default you will need to use the kubectl set-config command and specify the name of the namespace want to be used as default.
-```
-kubectl config set-context --current --namespace=<NAMESPACE>
-```
-For example, to set the namespace anvesh as your default, you would run the following command:
-```
-kubectl config set-context --current --namespace=anvesh
-```
+```  
+
+### 4. Switch between the predefined contexts(Switch to a context/cluster)  
+```sh
+kubectl config use-context <context-name>
+```  
+
+### 5. Setting default namespace 
+The default namespace **default** is configured in your cluster's context. To change the default namespace, use the below command. Specify the desired namespace name that you want to set as the default.  
+```sh
+kubectl config set-context --current --namespace=<NAMESPACE-NAME>
+```  
+For example, to set the namespace kube-system as your default, you would run the following command  
+```sh
+kubectl config set-context --current --namespace=kube-system
+```  
 
 ---
 <a name="Labels&Selectors"></a>
@@ -434,3 +421,21 @@ kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
 
 ## Reference:  
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
+
+
+---
+
+### decode and encode of data for k8's to use in secrets
+```sh
+echo -n "anvesh" | base64
+echo -n "" | base64 --decode
+```
+### to Check Access  
+```sh
+kuebctl auth can-i create deployments
+kubectl auth can-i create pods
+```
+### to check IP range for pods within the namespaces
+```sh
+kubectl cluster-info dump | grep -m 1 cluster-cidr
+```  
