@@ -54,7 +54,7 @@ display_main_menu() {
     printf "| %-35s |\n" "12. Create excel report"
     printf "| %-35s |\n" "13. Exit"
     printf "+-------------------------------------+\n"
-    read -p "Enter your choice (1-9): " choice
+    read -p "Enter your choice (1-13): " choice
 }
 
 exit_function()

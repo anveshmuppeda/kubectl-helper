@@ -8,7 +8,6 @@ A-Z
 ## to be added  
 kubectl installation
 eksctl installation 
-debug
 output in box 
 pod logs to a file 
 
