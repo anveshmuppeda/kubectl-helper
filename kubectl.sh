@@ -195,7 +195,7 @@ describe_resources() {
 delete_k8s_resource(){
     get_namespace
     kubectl get $1 -n $namespace | awk '{print $1}'
-    read -p "Enter the name of the $1 from above list to delete: " deleting_resource_name
+    read -p "Enter the name of the $1 from above list to delete, you can enter multiple resources like (pod1 pod2): " deleting_resource_name
     while true; do
         read -p "Do you want to proceed with Deleting $1 $deleting_resource_name in namespace $namespace...? (yes/no): " response
         # Convert the response to lowercase for case-insensitive comparison
