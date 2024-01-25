@@ -1,9 +1,8 @@
 # Welcome to Kubectl cheatsheet [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)  
 <p align="center">  
 By Anvesh Muppeda & Sai Manasa Kota  
-</p>  
+</p>   
 
-## Table of Contents  
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Labels & Selectors ](#Labels&Selectors )
@@ -22,11 +21,26 @@ By Anvesh Muppeda & Sai Manasa Kota
 
 
 <a name="Cluster"></a>
-## Cluster 
-### listing all the resources in cluster
+
+## Cluster  
+
+### Listing all the resources in cluster
 ```
-k api-resources
+kubectl api-resources
+```  
+
+### Listing all the api versions in cluster
 ```
+kubectl api-versions
+```  
+
+### Get the configurations of saved clusters  
+To get more information about config view click here.
+```
+kubectl config view
+```
+### 
+
 ### decode and encode of data for k8's to use in secrets
 ```
 echo -n "anvesh" | base64
