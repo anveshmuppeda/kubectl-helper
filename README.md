@@ -17,7 +17,8 @@ By Anvesh Muppeda & Sai Manasa Kota
 12. [ Rollout ](#rollout)
 13. [ Taint ](#taint)
 14. [ Port Forward ](#portforward)
-15. [ Patch ](#patch)
+15. [ Patch ](#patch)  
+16. [ Blogs ](#blogs)
 
 ---
 <a name="Cluster"></a>  
@@ -421,6 +422,10 @@ kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
 
 ## Reference:  
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
+
+---  
+<a name="blog"></a>    
+
 
 
 ---
