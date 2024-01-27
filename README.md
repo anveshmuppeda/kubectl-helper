@@ -5,6 +5,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
+3. [ Rollout ](#rollouts)
 3. [ Labels & Selectors ](#Labels&Selectors )
 4. [ Container ](#Container)
 5. [ Pod ](#Pod)
@@ -82,6 +83,54 @@ For example, to set the namespace kube-system as your default, you would run the
 ```sh
 kubectl config set-context --current --namespace=kube-system
 ```  
+---
+<a name="rollouts"></a>
+## Rollout  
+The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
+
+### kubectl rollout syntax  
+```sh 
+kubectl rollout <COMMAND> 
+```  
+**COMMAND** can be one of the following:  
+1. status  
+2. history  
+3. restart  
+4. pause  
+5. resume  
+6. undo  
+
+### To check the rollout status  
+```sh
+kubectl rollout status <resource>/<resource-name>
+```  
+
+### To get the rollout history  
+```sh
+kubectl rollout status <resource>/<resource-name>
+```  
+
+### To restart the deployment  
+```sh 
+kubectl restart status <resource>/<resource-name> 
+```  
+ 
+### To pause the deployment updates  
+```sh 
+kubectl rollout pause <resource>/<resource-name>
+```  
+
+### To resume the deployment updates  
+```sh
+kubectl rollout resume <resource>/<resource-name>
+```  
+
+### To undo the deployment updates to previous revision  
+```sh
+kubectl rollout undo <resource>/<resource-name>
+```   
+> [!TIP]  
+> Here you can use **Deployments**, **Statefulsets** and **DaemonSets** in place of <resource>.
 
 ---
 <a name="Labels&Selectors"></a>
