@@ -2,6 +2,7 @@
 <p align="center">  
 By Anvesh Muppeda & Sai Manasa Kota  
 </p>   
+<a name="tableofcontents"></a>  
 
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
@@ -50,7 +51,9 @@ kubectl version
 ```sh
 kubectl get all --all-namespaces
 ```  
----
+---  
+[ Go to Top  ](#tableofcontents) 
+
 <a name="SwitchingBetweenContexts"></a>  
 ## Switching between contexts  
 
