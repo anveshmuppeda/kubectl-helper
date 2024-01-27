@@ -8,7 +8,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Rollout ](#rollouts)
-4. [ Labels & Selectors ](#Labels&Selectors )
+4. [ Labels ](#Labels )
 4. [ Container ](#Container)
 5. [ Pod ](#Pod)
 6. [ Nodes ](#Nodes) 
@@ -145,8 +145,8 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="Labels&Selectors"></a>  
-## Labels & Selectors  
+<a name="Labels"></a>  
+## Labels  
 
   ### Adding a label to a specific resource  
   ```bash
