@@ -52,7 +52,7 @@ kubectl version
 kubectl get all --all-namespaces
 ```  
 --- 
-<div align="center">  
+<div style="text-align:center">  
 ![ Go to Top ▲ ](#tableofcontents) 
 </div>  
 
