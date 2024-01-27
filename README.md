@@ -93,10 +93,9 @@ By Anvesh Muppeda & Sai Manasa Kota
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p> 
-
 <a name="rollouts"></a>
 ## 3. Rollout  
-  The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
+The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
 
   ### kubectl rollout syntax  
   ```sh 
@@ -111,36 +110,36 @@ By Anvesh Muppeda & Sai Manasa Kota
   6. undo  
 
   ### To check the rollout status  
-  ```sh
-  kubectl rollout status <resource>/<resource-name>
+ ```sh
+  kubectl rollout status <resource-type>/<resource-name>
   ```  
 
   ### To get the rollout history  
   ```sh
-  kubectl rollout status <resource>/<resource-name>
+  kubectl rollout status <resource-type>/<resource-name>
   ```  
 
   ### To restart the deployment  
   ```sh 
-  kubectl restart status <resource>/<resource-name> 
+  kubectl restart status <resource-type>/<resource-name> 
   ```  
   
   ### To pause the deployment updates  
   ```sh 
-  kubectl rollout pause <resource>/<resource-name>
+  kubectl rollout pause <resource-type>/<resource-name>
   ```  
 
   ### To resume the deployment updates  
   ```sh
-  kubectl rollout resume <resource>/<resource-name>
+  kubectl rollout resume <resource-type>/<resource-name>
   ```  
 
   ### To undo the deployment updates to previous revision  
   ```sh
-  kubectl rollout undo <resource>/<resource-name>
+  kubectl rollout undo <resource-type>/<resource-name>
   ```   
   > [!TIP]  
-  > Here you can use **Deployments**, **Statefulsets** and **DaemonSets** in place of <resource>.
+  > Here you can use **Deployments**, **Statefulsets** and **DaemonSets** in place of <resource-type>.
 
 ---
 <p align="center">
@@ -149,24 +148,27 @@ By Anvesh Muppeda & Sai Manasa Kota
 <a name="Labels&Selectors"></a>  
 ## Labels & Selectors  
 
-### labeling a node 
-```
-kubectl label node <nodename> <label_name>=<label_value>
-```
-### remove Label from a node
-```
-kubectl label node <nodename> <label_name>=<label_value>-
-```
-### to read node labels  
-```
-kubectl get nodes --show-labels  
-kubectl label --list nodes node_name  
-```  
-### to overwrite the node label  
-``` 
-kubectl label --overwrite <nodename> <label_name>=<label_value>   
-```
----
+  ### Adding a label to a specific resource  
+  ```bash
+  kubectl label <resource-type> <resource-name> <label-key>=<label-value>
+  ```
+  ### Removing a label to a specific resource
+  ```bash
+  kubectl label <resource-type> <resource-name> <label-key>-
+  ```
+  ### List all the labels from a resource  
+  ```bash
+  kubectl get <resource-type> <resource-name> --show-labels 
+  ```  
+  ### Overwrite the resource label  
+  ```bash
+  kubectl label --overwrite <resource-type> <resource-name> <label-key>=<label-new-value>  
+  ```  
+
+---  
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="Containers"></a>
 ## Container 
 ### to login inside docker container
