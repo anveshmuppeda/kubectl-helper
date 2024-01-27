@@ -60,92 +60,96 @@ By Anvesh Muppeda & Sai Manasa Kota
 <a name="SwitchingBetweenContexts"></a>  
 ## 2. Switching between contexts  
 
-### a. Get all preconfigured contexts and see which one is active:  
-```sh
-kubectl config get-contexts
-```  
+  ### a. Get all preconfigured contexts and see which one is active:  
+  ```sh
+  kubectl config get-contexts
+  ```  
 
-### b. Get the current config name
-```sh
-kubectl config current-context
-```  
+  ### b. Get the current config name
+  ```sh
+  kubectl config current-context
+  ```  
 
-### c. Get the current config with more details
-```sh
-kubectl config view --minify
-```  
+  ### c. Get the current config with more details
+  ```sh
+  kubectl config view --minify
+  ```  
 
-### d. Switch between the predefined contexts(Switch to a context/cluster)  
-```sh
-kubectl config use-context <context-name>
-```  
+  ### d. Switch between the predefined contexts(Switch to a context/cluster)  
+  ```sh
+  kubectl config use-context <context-name>
+  ```  
 
-### e. Setting default namespace 
-The default namespace **default** is configured in your cluster's context. To change the default namespace, use the below command. Specify the desired namespace name that you want to set as the default.  
-```sh
-kubectl config set-context --current --namespace=<NAMESPACE-NAME>
-```  
-For example, to set the namespace kube-system as your default, you would run the following command  
-```sh
-kubectl config set-context --current --namespace=kube-system
-```  
+  ### e. Setting default namespace 
+  The default namespace **default** is configured in your cluster's context. To change the default namespace, use the below command. Specify the desired namespace name that you want to set as the default.  
+  ```sh
+  kubectl config set-context --current --namespace=<NAMESPACE-NAME>
+  ```  
+  For example, to set the namespace kube-system as your default, you would run the following command  
+  ```sh
+  kubectl config set-context --current --namespace=kube-system
+  ```  
 ---  
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p> 
 
 <a name="rollouts"></a>
-## Rollout  
-The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
+## 3. Rollout  
+  The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
 
-### kubectl rollout syntax  
-```sh 
-kubectl rollout <COMMAND> 
-```  
-**COMMAND** can be one of the following:  
-1. status  
-2. history  
-3. restart  
-4. pause  
-5. resume  
-6. undo  
+  ### kubectl rollout syntax  
+  ```sh 
+  kubectl rollout <COMMAND> 
+  ```  
+  **COMMAND** can be one of the following:  
+  1. status  
+  2. history  
+  3. restart  
+  4. pause  
+  5. resume  
+  6. undo  
 
-### To check the rollout status  
-```sh
-kubectl rollout status <resource>/<resource-name>
-```  
+  ### To check the rollout status  
+  ```sh
+  kubectl rollout status <resource>/<resource-name>
+  ```  
 
-### To get the rollout history  
-```sh
-kubectl rollout status <resource>/<resource-name>
-```  
+  ### To get the rollout history  
+  ```sh
+  kubectl rollout status <resource>/<resource-name>
+  ```  
 
-### To restart the deployment  
-```sh 
-kubectl restart status <resource>/<resource-name> 
-```  
- 
-### To pause the deployment updates  
-```sh 
-kubectl rollout pause <resource>/<resource-name>
-```  
+  ### To restart the deployment  
+  ```sh 
+  kubectl restart status <resource>/<resource-name> 
+  ```  
+  
+  ### To pause the deployment updates  
+  ```sh 
+  kubectl rollout pause <resource>/<resource-name>
+  ```  
 
-### To resume the deployment updates  
-```sh
-kubectl rollout resume <resource>/<resource-name>
-```  
+  ### To resume the deployment updates  
+  ```sh
+  kubectl rollout resume <resource>/<resource-name>
+  ```  
 
-### To undo the deployment updates to previous revision  
-```sh
-kubectl rollout undo <resource>/<resource-name>
-```   
-> [!TIP]  
-> Here you can use **Deployments**, **Statefulsets** and **DaemonSets** in place of <resource>.
+  ### To undo the deployment updates to previous revision  
+  ```sh
+  kubectl rollout undo <resource>/<resource-name>
+  ```   
+  > [!TIP]  
+  > Here you can use **Deployments**, **Statefulsets** and **DaemonSets** in place of <resource>.
 
 ---
-<a name="Labels&Selectors"></a>
-## Labels & Selectors 
-### labeling a node
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
+<a name="Labels&Selectors"></a>  
+## Labels & Selectors  
+
+### labeling a node 
 ```
 kubectl label node <nodename> <label_name>=<label_value>
 ```
