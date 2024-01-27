@@ -4,6 +4,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 </p>   
 <a name="tableofcontents"></a>  
 
+## Table of Contents   
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Rollout ](#rollouts)
@@ -56,34 +57,30 @@ kubectl get all --all-namespaces
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>
 
-<div style="text-align:center">  
-![ Go to Top ▲ ](#tableofcontents) 
-</div>  
-
 <a name="SwitchingBetweenContexts"></a>  
-## Switching between contexts  
+## 2. Switching between contexts  
 
-### 1. Get all preconfigured contexts and see which one is active:  
+### a. Get all preconfigured contexts and see which one is active:  
 ```sh
 kubectl config get-contexts
 ```  
 
-### 2. Get the current config name
+### b. Get the current config name
 ```sh
 kubectl config current-context
 ```  
 
-### 3. Get the current config with more details
+### c. Get the current config with more details
 ```sh
 kubectl config view --minify
 ```  
 
-### 4. Switch between the predefined contexts(Switch to a context/cluster)  
+### d. Switch between the predefined contexts(Switch to a context/cluster)  
 ```sh
 kubectl config use-context <context-name>
 ```  
 
-### 5. Setting default namespace 
+### e. Setting default namespace 
 The default namespace **default** is configured in your cluster's context. To change the default namespace, use the below command. Specify the desired namespace name that you want to set as the default.  
 ```sh
 kubectl config set-context --current --namespace=<NAMESPACE-NAME>
@@ -92,7 +89,11 @@ For example, to set the namespace kube-system as your default, you would run the
 ```sh
 kubectl config set-context --current --namespace=kube-system
 ```  
----
+---  
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p> 
+
 <a name="rollouts"></a>
 ## Rollout  
 The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
