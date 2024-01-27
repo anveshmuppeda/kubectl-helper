@@ -51,9 +51,10 @@ kubectl version
 ```sh
 kubectl get all --all-namespaces
 ```  
----  
+--- 
+<p align="center">  
 [ Go to Top ▲ ](#tableofcontents) 
-
+</p>
 <a name="SwitchingBetweenContexts"></a>  
 ## Switching between contexts  
 
