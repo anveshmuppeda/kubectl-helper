@@ -23,30 +23,30 @@ By Anvesh Muppeda & Sai Manasa Kota
 
 ---
 <a name="Cluster"></a>  
-## Cluster  
+## 1. Cluster  
 
-### 1. Listing all the resources in cluster
+### a. Listing all the resources in cluster
 ```sh
 kubectl api-resources
 ```  
 
-### 2. Listing all the api versions in cluster
+### b. Listing all the api versions in cluster
 ```sh
 kubectl api-versions
 ```  
 
-### 3. Get the configurations of saved clusters  
+### c. Get the configurations of saved clusters  
 To get more information about config view click here.
 ```sh
 kubectl config view
 ```
 
-### 4. Get the Kubernetes version running on the client and server  
+### d. Get the Kubernetes version running on the client and server  
 ```sh
 kubectl version
 ```
 
-### 5. Get everything from the cluster  
+### e. Get everything from the cluster  
 ```sh
 kubectl get all --all-namespaces
 ```  
