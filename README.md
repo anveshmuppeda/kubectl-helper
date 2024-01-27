@@ -25,6 +25,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 
 ---
 <a name="Cluster"></a>  
+
 ## 1. Cluster  
 
   ### a. Listing all the resources in cluster
@@ -58,6 +59,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 </p>
 
 <a name="SwitchingBetweenContexts"></a>  
+
 ## 2. Switching between contexts  
 
   ### a. Get all preconfigured contexts and see which one is active:  
@@ -93,7 +95,8 @@ By Anvesh Muppeda & Sai Manasa Kota
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p> 
-<a name="rollouts"></a>
+<a name="rollouts"></a>  
+
 ## 3. Rollout  
 The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
 
@@ -146,6 +149,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
 <a name="Labels"></a>  
+
 ## Labels  
 
   ### Adding a label to a specific resource  
