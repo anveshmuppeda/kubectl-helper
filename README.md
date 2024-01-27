@@ -8,7 +8,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 1. [ Cluster ](#Cluster)
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Rollout ](#rollouts)
-3. [ Labels & Selectors ](#Labels&Selectors )
+4. [ Labels & Selectors ](#Labels&Selectors )
 4. [ Container ](#Container)
 5. [ Pod ](#Pod)
 6. [ Nodes ](#Nodes) 
@@ -27,31 +27,31 @@ By Anvesh Muppeda & Sai Manasa Kota
 <a name="Cluster"></a>  
 ## 1. Cluster  
 
-### a. Listing all the resources in cluster
-```sh
-kubectl api-resources
-```  
+  ### a. Listing all the resources in cluster
+  ```sh
+  kubectl api-resources
+  ```  
 
-### b. Listing all the api versions in cluster
-```sh
-kubectl api-versions
-```  
+  ### b. Listing all the api versions in cluster
+  ```sh
+  kubectl api-versions
+  ```  
 
-### c. Get the configurations of saved clusters  
-To get more information about config view click here.
-```sh
-kubectl config view
-```
+  ### c. Get the configurations of saved clusters  
+  To get more information about config view click here.
+  ```sh
+  kubectl config view
+  ```
 
-### d. Get the Kubernetes version running on the client and server  
-```sh
-kubectl version
-```
+  ### d. Get the Kubernetes version running on the client and server  
+  ```sh
+  kubectl version
+  ```
 
-### e. Get everything from the cluster  
-```sh
-kubectl get all --all-namespaces
-```  
+  ### e. Get everything from the cluster  
+  ```sh
+  kubectl get all --all-namespaces
+  ```  
 ---   
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
