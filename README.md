@@ -497,6 +497,7 @@ curl -X GET -s http://localhost:80/_cluster/health
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>   
+<a name="create"></a> 
 
 ## 13. Create a Resource  
 ### a. Create a resource in imperative way.  
@@ -527,16 +528,45 @@ kubectl create -f ./directory
 ```bash
 kubectl create -f 'URL'
 ```  
-
-
-
+### f. Edit and update the resources  
+```bash
+kubectl edit <resource-type> <resource-name>
+```
 ---  
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>   
+<a name="delete"></a>  
 
 ## 14. Delete a Resource 
----  
+### a. Delete a resource by name  
+```bash
+kubectl -n <namespace> delete <resource-type> <resource-name>
+```  
+### b. Delete a resource using a manifest file  
+```bash 
+kubectl delete -f manifest-file.yaml
+```  
+### d. Deleting resources with a label selector 
+```bash
+kubectl delete <resource-type> --selector=<key>=<value>
+kubectl delete <resource-type> --selector=<key>
+```  
+### e. Deleting all resources in current namespace  
+```bash 
+kubectl delete all --all
+```  
+### f. Deleting all resources in specific namespace  
+```bash 
+kubectl -n <namespace> delete all --all
+```  
+### g. Deleting all resources matching a label selector 
+```bash 
+kubectl delete all --selector=<key>=<value>
+kubectl delete all --selector=<key>
+```
+--- 
+
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
