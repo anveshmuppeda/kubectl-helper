@@ -1,7 +1,6 @@
 # Upcoming  
 port formard   
 create  
-
 # Table of Contents
 
 1. <span style="color: #3498db; font-weight: bold;">Section 1</span>
