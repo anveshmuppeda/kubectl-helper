@@ -20,8 +20,8 @@ By Anvesh Muppeda & Sai Manasa Kota
 13. [ Create Resources 🏗️ ](#create)
 14. [ Delete Resources 🚮 ](#delete)
 15. [ Kubernetes Blogs 📝 ](#blogs)  
-16. [ Contact Information ](#contact)
-17. [ Feedback ](#feedback)
+16. [ Contact Information 📧 ](#contact)
+17. [ Feedback 🌟 ](#feedback)
 
 ---
 <a name="Cluster"></a>  
@@ -592,9 +592,9 @@ kubectl delete all --selector=<key>
 ## Contact Information  
 If you have any questions or feedback, feel free to reach out:  
 
-- Email: muppedaanvesh@gmail.com 
-- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 
-- GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 
+- Email: muppedaanvesh@gmail.com 📧  
+- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 🌐  
+- GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 🚀 
 
 --- 
 <p align="center">
@@ -603,5 +603,5 @@ If you have any questions or feedback, feel free to reach out:
 <a name="feedback"></a>   
 ## Feedback
 
-We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues).   
+We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues). 🚀  
 ---
