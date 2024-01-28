@@ -601,7 +601,8 @@ If you have any questions or feedback, feel free to reach out:
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
 <a name="feedback"></a>   
-## Feedback
+
+## Feedback  
 
 We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues). 🚀  
 ---
