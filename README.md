@@ -12,10 +12,9 @@ By Anvesh Muppeda & Sai Manasa Kota
 5. [ Pod 📦 ](#Pod)
 6. [ Nodes 💻 ](#Nodes) 
 7. [ Logs ⎏ ](#Logs) 
-8. [ Secrets Encode & Decode 🕵️ ](#certs)
-11. [ Set ](#set_command)
-12. [ Rollout ](#rollout)
-13. [ Taint ](#taint)
+8. [ Secrets Encode & Decode 🕵️ ](#certs) 
+9. [ Taints & Tolerations 🔭 ](#taint) 
+11. [ Set ](#set_command) 
 14. [ Port Forward ](#portforward)
 15. [ Patch ](#patch)  
 16. [ Blogs ](#blogs)
@@ -320,37 +319,37 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <a name="logs"></a> 
 
 ## 7. Logs
-  ### Get logs from a pod 
+  ### a. Get logs from a pod 
   ```bash
   kubectl -n <namespace> logs <podname>
   ```  
-  ### Stream Logs in Real-time  
+  ### b. Stream Logs in Real-time  
   ```bash 
   kubectl -n <namespace> -f logs <podname> 
   ``` 
-  ### Specify Container in Multi-container Pods
+  ### c. Specify Container in Multi-container Pods
   ```bash 
   kubectl -n <namespace> logs <podname> -c <containerName>  
   ``` 
-  ### Retrieve Previous Container Logs  
+  ### d. Retrieve Previous Container Logs  
   ```bash 
   kubectl -n <namespace> logs --previous <pod-name>
   ``` 
-  ### Tail the Logs with a Specific Number of Lines  
+  ### e. Tail the Logs with a Specific Number of Lines  
   ```bash
   kubectl logs <pod-name> --tail=<lines>
   ```  
-  ### Filter the logs based on a time window  
+  ### f. Filter the logs based on a time window  
   ```bash
   kubectl logs --since=<time-period> <pod-name>
   ```  
   > [!TIP]  
   > Here you can mention **10s**, **10m**, **10h**, and **10d** in place of <time-period>(Just an exmaple). 
-  ### Add timestamps in the Logs  
+  ### g. Add timestamps in the Logs  
   ```bash 
   kubectl -n <namespace> logs <pod-name> --timestamps  
   ```  
-  ### Deployment, Statefulset, Daemonset, and Job logs 
+  ### h. Deployment, Statefulset, Daemonset, and Job logs 
   ```bash
   kubectl -n <namespace> logs <resource-type>/<resource-name> 
   ``` 
@@ -366,15 +365,52 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <a name="certs"></a>
 
 ## certs  
-  ### Encode your secret  
+  ### a. Encode your secret  
   ```bash
   echo -n 'your-secret' | base64
   ```  
-  ### Decode your secret  
+  ### b. Decode your secret  
   ```bash
   echo -n 'your-string' | base64 --decode
   ```  
 --- 
+
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
+<a name="taint"></a> 
+
+## Taints & Tolerations  
+  ### a. View Taints on a Node  
+  ```bash
+  kubectl describe node <node-name> | grep Taints
+  ``` 
+  ### b. Add a Taint to a node  
+  ```bash 
+  kubectl taint nodes <nodename> <key>=<value>:<effect>  
+  ``` 
+  > [!TIP]  
+  > Here you can use **NoSchedule**, **NoExecute**, and **NoSchedule** in place of <effect>.  
+
+  ### c. Remove a Taint from a Node 
+  ```bash
+  kubectl taint nodes <nodename> <key>-
+  ```  
+  ### d. Adding tolerations to a pod YAML  
+  Add the following section to your pod YAML  
+  ```yaml
+  tolerations:
+  - key: "<key>"
+    operator: "Equal"
+    value: "<value>"
+    effect: "<effect>"
+  ```  
+  ### e. Get Toleration in a Running Pod  
+  ```bash
+  kubectl get pod <pod-name> -o=jsonpath='{.spec.tolerations}'
+  ```  
+---
+
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
@@ -397,47 +433,12 @@ Available Commands:
 or cluster role binding  
 
 ---
-<p align="center">
-  <a href="#tableofcontents">Go to Top ▲</a>
-</p>  
-<a name="rollout"></a>
-## Rollout
-### to rollout restart  
-Created a new kubectl rollout restart command that does a rolling restart of a deployment.  
-kubectl rollout restart now works for DaemonSets and StatefulSets.  
-```
-kubectl rollout restart deployment your_deployment_name
-```
----
-<p align="center">
-  <a href="#tableofcontents">Go to Top ▲</a>
-</p>  
-<a name="taint"></a>
-## Taint
-### to taint a node  
-You add a taint to a node using kubectl taint. For example,  
-```
-kubectl taint nodes node1 key1=value1:NoSchedule
-kubectl taint nodes node1 key1=value1:NoExecute
-kubectl taint nodes node1 key2=value2:NoSchedule
-```
-places a taint on node node1. The taint has key key1, value value1, and taint effect NoSchedule. This means that no pod will be able to schedule onto node1 unless it has a matching toleration.  
 
-To remove the taint added by the command above, you can run:  
-```
-kubectl taint nodes node1 key1=value1:NoSchedule-
-kubectl taint nodes node1 key1=value1:NoExecute-
-kubectl taint nodes node1 key2=value2:NoSchedule-
-```
-* if there is at least one un-ignored taint with effect NoSchedule then Kubernetes will not schedule the pod onto that node  
-* if there is no un-ignored taint with effect NoSchedule but there is at least one un-ignored taint with effect PreferNoSchedule then Kubernetes will try to not schedule the pod onto the node  
-* if there is at least one un-ignored taint with effect NoExecute then the pod will be evicted from the node (if it is already running on the node), and will not be scheduled onto the node (if it is not yet running on the node).  
-
----  
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="portforward"></a>
+<a name="portforward"></a> 
+
 ## Port Forward 
 kubectl port-forward forwards connections to a local port to a port on a pod. Compared to kubectl proxy, kubectl port-forward is more generic as it can forward TCP traffic while kubectl proxy can only forward HTTP traffic.  
 
@@ -499,11 +500,6 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 
 ---
 
-### decode and encode of data for k8's to use in secrets
-```sh
-echo -n "anvesh" | base64
-echo -n "" | base64 --decode
-```
 ### to Check Access  
 ```sh
 kuebctl auth can-i create deployments
