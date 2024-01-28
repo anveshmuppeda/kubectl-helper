@@ -593,7 +593,7 @@ kubectl delete all --selector=<key>
 If you have any questions or feedback, feel free to reach out:  
 
 - Email: muppedaanvesh@gmail.com 📧  
-- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 🌐  
+- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) & [@ManasaLInkedInHanlde](https://www.linkedin.com/in/sai-manasa-51882b156) 🌐  
 - GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 🚀 
 
 --- 
