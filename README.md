@@ -485,10 +485,15 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="blog"></a>    
+
+<a name="blogs"></a>    
 
 ## Kubernetes Blogs  
-### [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 🔗
+### [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers.](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 
+### [2. Deploying Nginx on Kubernetes: Exploring Various Methods.](https://medium.com/@muppedaanvesh/deploying-nginx-on-kubernetes-a-quick-guide-04d533414967)  
+### [3 Setting Up an Amazon EKS Cluster and Node Group Using eksctl.](https://medium.com/@muppedaanvesh/setting-up-an-amazon-eks-cluster-and-node-group-using-eksctl-52acc808eb83)  
+### [4. Jump box setup on eks cluster](https://medium.com/@muppedaanvesh/jump-box-setup-on-eks-cluster-383ca92f51ef)  
+
 
 ---
 
