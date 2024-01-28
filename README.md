@@ -19,7 +19,9 @@ By Anvesh Muppeda & Sai Manasa Kota
 12. [ Port Forward ↔️ ](#portforward)  
 13. [ Create Resources 🏗️ ](#create)
 14. [ Delete Resources 🚮 ](#delete)
-15. [ Kubernetes Blogs 📝 ](#blogs)
+15. [ Kubernetes Blogs 📝 ](#blogs)  
+16. [ Contact Information ](#contact)
+17. [ Feedback ](#feedback)
 
 ---
 <a name="Cluster"></a>  
@@ -585,13 +587,21 @@ kubectl delete all --selector=<key>
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
+<a name="contact"></a>  
 
-## Contact Information
-
-If you have any questions or feedback, feel free to reach out:
+## Contact Information  
+If you have any questions or feedback, feel free to reach out:  
 
 - Email: muppedaanvesh@gmail.com 
-- LinjedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 
+- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 
 - GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 
 
+--- 
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
+<a name="feedback"></a>   
+## Feedback
+
+We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues).   
 ---
