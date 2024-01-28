@@ -461,31 +461,25 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="portforward"></a> 
 
-## Port Forward 
-kubectl port-forward forwards connections to a local port to a port on a pod. Compared to kubectl proxy, kubectl port-forward is more generic as it can forward TCP traffic while kubectl proxy can only forward HTTP traffic.  
+## Port Forward  
+  kubectl port-forward forwards connections to a local port to a port on a pod. Compared to kubectl proxy, kubectl port-forward is more generic as it can forward TCP traffic while kubectl proxy can only forward HTTP traffic.  
+  kubectl port-forward is useful for testing/debugging purposes so you can access your service locally without exposing it.   
 
-kubectl port-forward is useful for testing/debugging purposes so you can access your service locally without exposing it.  
+  ### a. Syntax 
+  ```bash
+  kubectl port-forward -n <namespace> <resource-type>/<resource-name> <localhost-port>:<pod-port>
+  ``` 
+  #### Example
+  ```bash 
+  kubectl port-forward -n default deploy/sampledeploy 8080:80
+  ```  
+  Once the connection is succesfull from local port to target resource port, then we can test local connection using curl to the end point or we can access the end point using `localhost:8080`
 
-```
-kubectl port-forward <pod-name> localhostport:containerport
-kubectl port-forward nginx-54bf6dc5f-2qtv5 81:80
-```
-OR
-```
-kubectl port-forward pod/<pod-name> localhostport:containerport
-kubectl port-forward deployment/<deployment-name> localhostport:containerport
-kubectl port-forward replicaset/<replicasetname-name> localhostport:containerport
-kubectl port-forward service/<service-name> localhostport:containerport
-```
-Once the connection to local port to a port on pod happened, then we can test local connection using curl to the end point i.e. pod.
-
-```
-curl -X GET -s http://localhost:80/
-curl -X GET -s http://localhost:80/_cluster/health  
-```
-
-## Reference:  
-https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
+  #### Testing  
+  ```bash
+  curl -X GET -s http://localhost:80/
+  curl -X GET -s http://localhost:80/_cluster/health  
+  ```
 
 ---  
 <p align="center">
