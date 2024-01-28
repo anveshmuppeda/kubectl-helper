@@ -17,7 +17,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 10. [ Patch 🛠️ ](#patch) 
 11. [ Set ⚙️ ](#set_command) 
 14. [ Port Forward ↔️ ](#portforward) 
-16. [ Blogs 📝 ](#blogs)
+16. [ Kubernetes Blogs 📝 ](#blogs)
 
 ---
 <a name="Cluster"></a>  
@@ -364,7 +364,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 
 <a name="certs"></a>
 
-## certs  
+## 8. certs  
   ### a. Encode your secret  
   ```bash
   echo -n 'your-secret' | base64
@@ -380,7 +380,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="taint"></a> 
 
-## Taints & Tolerations  
+## 9. Taints & Tolerations  
   ### a. View Taints on a Node  
   ```bash
   kubectl describe node <node-name> | grep Taints
@@ -415,8 +415,8 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="patch"></a>  
 
-## Patch  
-  ### Patch using a file  
+## 10 Patch  
+  ### a. Patch using a file  
   ```bash
   kubectl patch <resource <resource-name> --patch-file patch-file.yaml  
   ```  
@@ -430,7 +430,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
           image: gcr.io/google-samples/node-hello:1.0
   ```  
 
-  ### Patch using a string
+  ### c. Patch using a string
   ```bash
   kubectl patch <resource> <resource-name> -p '<pathcing-string>'
   ```  
@@ -445,22 +445,15 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="set_command"></a> 
 
-## Set Command
-### to set the variables 
-```
-kubectl set image deployment/<deploy-name> <container-name>=<new-image-name>:version  
-kubectl set image deployment/frontend simple-webapp=kodekloud/webapp-color:v2    
-```
-Set command help you make changes to existing application resources.  
-Available Commands:  
-  1. **env**              : Update environment variables on a pod template
-  2. **image**            : Update the image of a pod template
-  3. **resources**        : Update resource requests/limits on objects with pod templates
-  4. **selector**         : Set the selector on a resource
-  5. **serviceaccount**   : Update the service account of a resource
-  6. **subject**          : Update the user, group, or service account in a role binding  
-or cluster role binding  
-
+## 11. Set Command  
+  ### a. Set a resource with specific option   
+  ```bash
+  kubectl set <resource-type> <resource-name> [options]
+  ``` 
+  #### Example  
+  ```bash 
+  kubectl set deployment sampledeploy --replicas=3  
+  ```
 ---
 
 <p align="center">
@@ -500,7 +493,8 @@ https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands
 </p>  
 <a name="blog"></a>    
 
-## [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 🔗
+## Kubernetes Blogs  
+### [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 🔗
 
 ---
 
