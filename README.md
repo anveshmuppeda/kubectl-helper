@@ -9,7 +9,6 @@ By Anvesh Muppeda & Sai Manasa Kota
 2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
 3. [ Rollout ](#rollouts)
 4. [ Labels ](#Labels )
-4. [ Container ](#Container)
 5. [ Pod ](#Pod)
 6. [ Nodes ](#Nodes) 
 7. [ Logs ](#Logs) 
@@ -100,7 +99,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 ## 3. Rollout  
 The `kubectl rollout` command is primarily used with Kubernetes **Deployments**, **Statefulsets** and **DaemonSets**.  
 
-  ### kubectl rollout syntax  
+  ### a. kubectl rollout syntax  
   ```sh 
   kubectl rollout <COMMAND> 
   ```  
@@ -112,32 +111,32 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   5. resume  
   6. undo  
 
-  ### To check the rollout status  
+  ### b. To check the rollout status  
  ```sh
   kubectl rollout status <resource-type>/<resource-name>
   ```  
 
-  ### To get the rollout history  
+  ### c. To get the rollout history  
   ```sh
   kubectl rollout status <resource-type>/<resource-name>
   ```  
 
-  ### To restart the deployment  
+  ### d. To restart the deployment  
   ```sh 
   kubectl restart status <resource-type>/<resource-name> 
   ```  
   
-  ### To pause the deployment updates  
+  ### e. To pause the deployment updates  
   ```sh 
   kubectl rollout pause <resource-type>/<resource-name>
   ```  
 
-  ### To resume the deployment updates  
+  ### f. To resume the deployment updates  
   ```sh
   kubectl rollout resume <resource-type>/<resource-name>
   ```  
 
-  ### To undo the deployment updates to previous revision  
+  ### g. To undo the deployment updates to previous revision  
   ```sh
   kubectl rollout undo <resource-type>/<resource-name>
   ```   
@@ -150,21 +149,21 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="Labels"></a>  
 
-## Labels  
+## 4. Labels  
 
-  ### Adding a label to a specific resource  
+  ### a. Adding a label to a specific resource  
   ```bash
   kubectl label <resource-type> <resource-name> <label-key>=<label-value>
   ```
-  ### Removing a label to a specific resource
+  ### b. Removing a label to a specific resource
   ```bash
   kubectl label <resource-type> <resource-name> <label-key>-
   ```
-  ### List all the labels from a resource  
+  ### c. List all the labels from a resource  
   ```bash
   kubectl get <resource-type> <resource-name> --show-labels 
   ```  
-  ### Overwrite the resource label  
+  ### d. Overwrite the resource label  
   ```bash
   kubectl label --overwrite <resource-type> <resource-name> <label-key>=<label-new-value>  
   ```  
@@ -173,72 +172,117 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="Containers"></a>  
-
-## Container 
-### to login inside docker container
-```
-docker exec -it <container name> /bin/bash
-```
----
 <a name="Pod"></a>
-## Pod
-### to curl to a pod 
-```
-kubectl exec -it selenium-hub-b4bb44946-xthvr -n selenium — curl http://192.168.194.81:4444/wd/hub/status
-```
-### to ssh to a pod  
-```
-winpty kubectl exec -it <pod-name> -n <namespace> //bin//sh
-```
-### to watch a pod 
-```sh
-kubectl get <pods/deployments> -n <namespace> -w
-kubectl get <pods/deployments> -n <namespace> --watch
-```
-### to list all pods in a cluster
-```
-kubectl get pods -A
-```
-### to print env variables of a pod
-```
-kubectl exec <pod-name> -- printenv
-```
-### to login inside pod  
-```
-winpty kubectl exec -it -n <n-s> <pod> sh
-```
-### to delete all pods which are evicted with namespace wise
-```
-kubectl get pod -n <name-space> | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n <name-space>
-```
-### to get the pod definition
-```
-kubectl get pod pod-name -o yaml > pod.yaml
-```
-### to get pod definition possible options
-```
-kubectl explain pods --recursive | less
-```
-### to delete the pods which are Evicted State
-```
-kubectl get pod -n <namespace> | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n <name-space>
-```
-### to login into pod
-```
-winpty kubectl exec -it -n <namespace> <pod-name> sh 
-```  
-### to view logs from containers
-```
-kubectl exec <pod-name> -- cat /log/app.log
-```
-### to get the pod deatils with wide options
-```
-kubectl get pods -o wide
-```
+
+## 5. Pod  
+  ### a. To list the pods in specific namespace  
+  ```bash 
+  kubectl get pods -n <namespace> 
+  ```  
+  ### b. To list all pods in all namespaces  
+  ```bash  
+  kubectl get pods -A
+  ```  
+  ### c. Exec into a pod  
+  ##### bash 
+  ```bash 
+  kubectl -n <namespace> exec -it <pod-name> //bin//bash
+  ```  
+  ##### sh  
+  ```sh 
+  kubectl -n <namespace> exec -it <pod-name> //bin//sh
+  ```  
+  #### In windows   
+  ##### bash 
+  ```bash
+  winpty kubectl -n <namespace> exec -it <pod-name> //bin//bash
+  ```  
+  ##### sh  
+  ```sh
+  winpty kubectl -n <namespace> exec -it <pod-name> //bin//sh
+  ```  
+  ### d. Watch a pod status 
+  ```sh
+  kubectl -n <namespace> get <pods/deployments>  -w
+  kubectl -n <namespace> get <pods/deployments> --watch
+  ```  
+  ### e. Print env variables of a pod
+  ```bash
+  kubectl -n <namespace> exec <pod-name> -- printenv
+  ```
+
+  ### f. To make a curl to a pod  
+  ##### sh
+  ```sh 
+  kubectl -n <namespace> exec -it <pod-name> -- /bin/sh -c "curl http://example.com"
+  ``` 
+  ##### bash  
+  ```bash 
+  kubectl -n <namespace> exec -it <pod-name> -- /bin/bash -c "curl http://example.com"
+  ```
+
+  ### g. Delete all pods which are evicted with namespace wise  
+  ```bash
+  kubectl get pod -n <namespace> | grep Evicted | awk '{print $1}' | xargs kubectl delete pod -n <namespace>
+  ```
+  ### h. To get the pod definition in YAML format  
+  ```bash
+  kubectl -n <namespace> get pod pod-name -o yaml > pod.yaml
+  ```
+  ### i. To get pod definition possible options  
+  ```bash
+  kubectl explain pods --recursive | less
+  ``` 
+  ### j. Get the pod deatils with wide options
+  ```bash
+  kubectl get pods -o wide
+  ```  
+  ### k. View detailed information about a pod  
+  ```bash 
+  kubectl -n <namespace> describe pod <podname>
+  ```  
+  ### l. Create or apply a pod configuration  
+  ```bash 
+  kubectl -n <namespace> apply -f <pod-definition.yaml>
+  ```  
+  ### m. Delete a pod  
+  #### Delete a specific pod  
+  ```bash 
+  kubectl -n <namespace> delete pod <pod-name>
+  ``` 
+  #### Delete all pods  
+  ```bash
+  kubectl -n <namespace> delete pods --all
+  ```  
+  ### n. Execute a command in a running pod  
+  ```bash
+  kubectl exec -it <pod-name> -- <command> 
+  ```
+  ### o. Copy files to/from a pod  
+  #### Copy a file from your local machine to a pod  
+  ```bash
+  kubectl -n <namespace> cp <local-file> <pod-name>:<destination-path>
+  ```  
+  #### Copy a file from a pod to your local machine  
+  ```bash 
+  kubectl -n <namespace> cp <pod-name>:<source-path> <local-destination>
+  ```  
+  ### p. Get pod events  
+  ```bash  
+  kubectl get events 
+  ```  
+  ### q. Get resource usage  
+  ```bash 
+  kubectl -n <namespace> top pod
+  ```  
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
+
 <a name="Nodes"></a>
-## Nodes 
+
+## 6. Nodes 
 ### to list nodes with the resource usage
 ```
 kubectl top node
