@@ -12,9 +12,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 5. [ Pod 📦 ](#Pod)
 6. [ Nodes 💻 ](#Nodes) 
 7. [ Logs ⎏ ](#Logs) 
-8. [ eksctl ](#eksctl)  
-9. [ awscli ](#awscli)
-10. [ Certs ](#certs)
+8. [ Secrets Encode & Decode 🕵️ ](#certs)
 11. [ Set ](#set_command)
 12. [ Rollout ](#rollout)
 13. [ Taint ](#taint)
@@ -358,126 +356,30 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   ``` 
   > [!TIP]  
   > Here you can use **Deployments**, **Statefulsets**, **DaemonSets**, and **Jobs** in place of <resource-type>. 
-
-
 ---
+
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="eksctl"></a> 
 
-## EKSCTL
-### to switch the cluster 
-There are 2 ways you can get the kubeconfig.
-```
-aws eks update-kubeconfig --name <clustername> --region <region>
-eksctl utils write-kubeconfig --cluster=<clustername>
-```  
-### to create EKS cluster
-```
-eksctl create cluster --name eksrbac --node-type t2.large --nodes 1 --nodes-min 1 --nodes-max 2 --region us-east-1 --zones=us-east-1a,us-east-1b,us-east-1c
-```
-### to get EKS Cluster service
-```
-eksctl get cluster --name eksrbac --region us-east-1
-```
-### to get Node Group name  
-```
-eksctl get nodegroup --cluster=<clusterName>  
-```
-### to delete Node Group  
-```
-eksctl delete nodegroup --cluster=<clusterName> --name=<nodegroupName>
-```
-### to delete cluster
-```
-eksctl delete cluster --name eksrbac --region us-east-1
-``` 
-### Reference:  
-1. https://mhausenblas.info/eksctl/usage/custom-ami-support/  
-2. https://eksctl.io/usage/eks-managed-nodes/
 
----
-<p align="center">
-  <a href="#tableofcontents">Go to Top ▲</a>
-</p>  
-<a name="awscli"></a>
-## awscli
-### to create IAM user and create access key
-```
-aws iam create-user --user-name rbac-user
-aws iam create-access-key --user-name rbac-user
-```
-### to configure aws account
-```
-aws configure
-```
-### to check current user details on awscli
-```
-aws sts get-caller-identity
-```
-
----
-<p align="center">
-  <a href="#tableofcontents">Go to Top ▲</a>
-</p>  
 <a name="certs"></a>
-## certs
-### Decoce ca.crt using below two websites
-https://www.base64decode.org/  
-https://www.sslchecker.com/certdecoder
 
-### Decode token using below two websites
-https://www.base64decode.org/  
-https://jwt.io/  
-
-> [!NOTE]   
-> Notice: I'm taking a break from blogging to focus on Atari Gamer . com, check it out!  
-Base64 Encode or Decode on the command line without installing extra tools on Linux, Windows or macOS  
- 26-Apr-2017  
-Base64 encoding is used in quite a few places and there are many online web sites that let you encode or decode Base64. I am not very comfortable using such sites for security and privacy reasons so I went looking for alternative solutions. Whether you're using Linux, Windows or macOS you can use built-in tools to both encode or decode Base64 data. So ditch any online sites and start using software that is installed locally on your computer. Here's how.  
-
-You will need to do all of this via the command line. Given you're already dealing with Base64 data I am going to assume you know how to bring that up on your operating system. Scroll down to the relevant section based on your OS below, also substitute your file names as appropriate.  
-
-I am going to use .txt for the decoded data file extension and .b64 for the Base64 encoded file extension.  
-
-Linux   
-```
- Encode a data file to Base64  
-base64 data.txt > data.b64
-
- Decode a Base64 file  
-base64 -d data.b64 > data.txt
-```
-
-Windows 
-```
- Encode a data file to Base64  
-certutil -encode data.txt tmp.b64 && findstr /v /c:- tmp.b64 > data.b64
-
- Decode a Base64 file  
-certutil -decode data.b64 data.txt
-```
-
-> [!NOTE]   
-> Note: encoding with the above command will leave a temporary file, tmp.b64, on your file system. If you do not wish to have that file present simply add this to the end of the command: && del tmp.b64  
-
-
-
-**macOS**  
-```
- Encode a data file to Base64
-base64 -i data.txt -o data.b64
-
- Decode a Base64 file
-base64 -D -i data.b64 -o data.txt 
-```
-
----
+## certs  
+  ### Encode your secret  
+  ```bash
+  echo -n 'your-secret' | base64
+  ```  
+  ### Decode your secret  
+  ```bash
+  echo -n 'your-string' | base64 --decode
+  ```  
+--- 
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="set_command"></a>
+<a name="set_command"></a> 
+
 ## Set Command
 ### to set the variables 
 ```
