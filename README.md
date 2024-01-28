@@ -11,7 +11,7 @@ By Anvesh Muppeda & Sai Manasa Kota
 4. [ Labels 🏷️ ](#Labels )
 5. [ Pod 📦 ](#Pod)
 6. [ Nodes 💻 ](#Nodes) 
-7. [ Logs ⎏ ](#Logs) 
+7. [ troubleshooting with Logs 🛠️ ](#Logs) 
 8. [ Secrets Encode & Decode 🕵️ ](#certs) 
 9. [ Taints & Tolerations 🔭 ](#taint) 
 11. [ Set ](#set_command) 
