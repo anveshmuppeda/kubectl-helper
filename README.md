@@ -552,6 +552,8 @@ kubectl delete -f manifest-file.yaml
 kubectl delete <resource-type> --selector=<key>=<value>
 kubectl delete <resource-type> --selector=<key>
 ```  
+> [!CAUTION]
+> PLEASE DOUBLE CHECK BEFORE RUNNING THESE COMMANDS!!
 ### e. Deleting all resources in current namespace  
 ```bash 
 kubectl delete all --all
