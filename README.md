@@ -283,37 +283,42 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <a name="Nodes"></a>
 
 ## 6. Nodes 
-### to list nodes with the resource usage
-```
-kubectl top node
-```
-### to remove a taint from node
-```
-kubectl taint nodes node1 key1=value1:NoSchedule-
-kubectl taint nodes node1 key1=value1:NoExecute-
-kubectl taint nodes node1 key2=value2:NoSchedule-
-```
-### taint a node with key and value and taint effect
-```
-kubectl taint nodes node1 key1=value1:NoSchedule
-kubectl taint nodes node1 key1=value1:NoExecute
-kubectl taint nodes node1 key2=value2:NoSchedule
-```
-### mark node03 as unschedulable but do not remove any apps currently running on it .
-```
-kubectl cordon node03
-```
-### to drain the node01 (Empty the node of all applications and mark it unschedulable.)
-```
-kubectl drain node01 --ignore-daemonsets
-```
-### Configure the node to be schedulable again
-```
-kubectl uncordon node01
-```
+  ### a. List nodes  
+  ```bash
+  kubectl get pods 
+  ```  
+  ### b. List nodes with the resource usage
+  ```bash
+  kubectl top node
+  ```  
+  ### c. Get node details  
+  ```bash
+  kubectl describe node <nodename>
+  ```  
+  ### d. Cordon a node  
+  Mark a node as unschedulable, preventing new pods from being scheduled. 
+  ```bash 
+  kubectl cordon node <nodename> 
+  ```
+  ### e. Uncordon a node  
+  Mark a node as schedulable, allowing new pods to be scheduled.  
+  ```bash
+  kubectl uncordon node <nodename>
+  ```  
+  ### f. Drain Nodes  
+  Evict pods from a node, moving them to other nodes. The `--ignore-daemonsets` flag is used to ignore DaemonSet managed pods.  
+  ```bash 
+  kubectl drain <nodename> --ignore-daemonsets
+  ```  
+  ### g. Get the kubelet version for a specific node.  
+  ```bash
+  kubectl get node <nodename> -o jsonpath='{.status.nodeInfo.kubeletVersion}
+  ``` 
 
 ---
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="logs"></a>
 ## Logs
 ### to get the pod logs
@@ -331,7 +336,9 @@ kubectl logs myapp-pod -c init-myservice # Inspect the first init container
 kubectl logs myapp-pod -c init-mydb      # Inspect the second init container
 ```
 ---
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="eksctl"></a>
 ## EKSCTL
 ### to switch the cluster 
@@ -365,6 +372,9 @@ eksctl delete cluster --name eksrbac --region us-east-1
 2. https://eksctl.io/usage/eks-managed-nodes/
 
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="awscli"></a>
 ## awscli
 ### to create IAM user and create access key
@@ -382,6 +392,9 @@ aws sts get-caller-identity
 ```
 
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="certs"></a>
 ## certs
 ### Decoce ca.crt using below two websites
@@ -435,6 +448,9 @@ base64 -D -i data.b64 -o data.txt
 ```
 
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="set_command"></a>
 ## Set Command
 ### to set the variables 
@@ -453,7 +469,9 @@ Available Commands:
 or cluster role binding  
 
 ---
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="rollout"></a>
 ## Rollout
 ### to rollout restart  
@@ -463,7 +481,9 @@ kubectl rollout restart now works for DaemonSets and StatefulSets.
 kubectl rollout restart deployment your_deployment_name
 ```
 ---
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="taint"></a>
 ## Taint
 ### to taint a node  
@@ -486,7 +506,9 @@ kubectl taint nodes node1 key2=value2:NoSchedule-
 * if there is at least one un-ignored taint with effect NoExecute then the pod will be evicted from the node (if it is already running on the node), and will not be scheduled onto the node (if it is not yet running on the node).  
 
 ---  
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="portforward"></a>
 ## Port Forward 
 kubectl port-forward forwards connections to a local port to a port on a pod. Compared to kubectl proxy, kubectl port-forward is more generic as it can forward TCP traffic while kubectl proxy can only forward HTTP traffic.  
@@ -512,7 +534,9 @@ curl -X GET -s http://localhost:80/_cluster/health
 ```
 
 ---  
-
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="patch"></a>  
 ## Patch  
 ### patch with a file  
@@ -538,6 +562,9 @@ kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
 
 ---  
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
 <a name="blog"></a>    
 
 ## [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 🔗
