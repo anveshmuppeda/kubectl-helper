@@ -319,27 +319,53 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="logs"></a>
-## Logs
-### to get the pod logs
-```
-kubectl -n <n-s> logs -f <pod> --tail=10
-kubectl -n namespace-name logs pod-name
-kubectl logs -n namespace container-name --since 10m
-kubectl logs -n namespace container-name --tail=1000
-kubectl logs --selector=run=hello-world --tail 1
-```
-### to get the pod logs for particular directory
-```
-kubectl -n elastic-stack exec -it app cat /log/app.log
-kubectl logs myapp-pod -c init-myservice # Inspect the first init container
-kubectl logs myapp-pod -c init-mydb      # Inspect the second init container
-```
+<a name="logs"></a> 
+
+## 7. Logs
+  ### Get logs from a pod 
+  ```bash
+  kubectl -n <namespace> logs <podname>
+  ```  
+  ### Stream Logs in Real-time  
+  ```bash 
+  kubectl -n <namespace> -f logs <podname> 
+  ``` 
+  ### Specify Container in Multi-container Pods
+  ```bash 
+  kubectl -n <namespace> logs <podname> -c <containerName>  
+  ``` 
+  ### Retrieve Previous Container Logs  
+  ```bash 
+  kubectl -n <namespace> logs --previous <pod-name>
+  ``` 
+  ### Tail the Logs with a Specific Number of Lines  
+  ```bash
+  kubectl logs <pod-name> --tail=<lines>
+  ```  
+  ### Filter the logs based on a time window  
+  ```bash
+  kubectl logs --since=<time-period> <pod-name>
+  ```  
+  > [!TIP]  
+  > Here you can mention **10s**, **10m**, **10h**, and **10d** in place of <time-period>(Just an exmaple). 
+  ### Add timestamps in the Logs  
+  ```bash 
+  kubectl -n <namespace> logs <pod-name> --timestamps  
+  ```  
+  ### Deployment, Statefulset, Daemonset, and Job logs 
+  ```bash
+  kubectl -n <namespace> logs <resource-type>/<resource-name> 
+  ``` 
+  > [!TIP]  
+  > Here you can use **Deployments**, **Statefulsets**, **DaemonSets**, and **Jobs** in place of <resource-type>. 
+
+
 ---
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
-<a name="eksctl"></a>
+<a name="eksctl"></a> 
+
 ## EKSCTL
 ### to switch the cluster 
 There are 2 ways you can get the kubeconfig.
