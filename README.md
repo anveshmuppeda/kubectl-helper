@@ -5,13 +5,13 @@ By Anvesh Muppeda & Sai Manasa Kota
 <a name="tableofcontents"></a>  
 
 ## Table of Contents   
-1. [ Cluster ](#Cluster)
-2. [ Switching Between Contexts ](#SwitchingBetweenContexts)
-3. [ Rollout ](#rollouts)
-4. [ Labels ](#Labels )
-5. [ Pod ](#Pod)
-6. [ Nodes ](#Nodes) 
-7. [ Logs ](#Logs) 
+1. [ Cluster ⎈ ](#Cluster)
+2. [ Switching Between Contexts ⇢ ](#SwitchingBetweenContexts)
+3. [ Rollout ↩︎ ](#rollouts)
+4. [ Labels 🏷️ ](#Labels )
+5. [ Pod 📦 ](#Pod)
+6. [ Nodes 💻 ](#Nodes) 
+7. [ Logs ⎏ ](#Logs) 
 8. [ eksctl ](#eksctl)  
 9. [ awscli ](#awscli)
 10. [ Certs ](#certs)
