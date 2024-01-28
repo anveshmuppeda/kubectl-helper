@@ -344,7 +344,8 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   kubectl logs --since=<time-period> <pod-name>
   ```  
   > [!TIP]  
-  > Here you can mention **10s**, **10m**, **10h**, and **10d** in place of <time-period>(Just an exmaple). 
+  > Here you can mention **10s**, **10m**, **10h**, and **10d** in place of <time-period>(Just an exmaple).  
+
 ### g. Add timestamps in the Logs  
   ```bash 
   kubectl -n <namespace> logs <pod-name> --timestamps  
