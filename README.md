@@ -17,8 +17,8 @@ By Anvesh Muppeda & Sai Manasa Kota
 10. [ Patch 🛠️ ](#patch) 
 11. [ Set ⚙️ ](#set_command) 
 12. [ Port Forward ↔️ ](#portforward)  
-13. [ Create a Resources 🏗️ ](#create)
-14. [ Delete a Resources 🚮 ](#delete)
+13. [ Create Resources 🏗️ ](#create)
+14. [ Delete Resources 🚮 ](#delete)
 15. [ Kubernetes Blogs 📝 ](#blogs)
 
 ---
