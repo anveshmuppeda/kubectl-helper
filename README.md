@@ -49,6 +49,16 @@ By Anvesh Muppeda & Sai Manasa Kota
   ```sh
   kubectl get all --all-namespaces
   ```  
+### f. to Check Access   
+```sh
+kubectl auth can-i create deployments
+kubectl auth can-i create pods
+```  
+### g. to check IP range for pods within the namespaces
+```sh
+kubectl cluster-info dump | grep -m 1 cluster-cidr
+```  
+
 ---   
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
@@ -492,18 +502,8 @@ curl -X GET -s http://localhost:80/_cluster/health
 ## Kubernetes Blogs  
 ### [1. Exploring Container Types in Kubernetes: Beyond Init and Sidecar Containers.](https://medium.com/@muppedaanvesh/exploring-container-types-in-kubernetes-beyond-init-and-sidecar-containers-3c1001bb7a85) 
 ### [2. Deploying Nginx on Kubernetes: Exploring Various Methods.](https://medium.com/@muppedaanvesh/deploying-nginx-on-kubernetes-a-quick-guide-04d533414967)  
-### [3 Setting Up an Amazon EKS Cluster and Node Group Using eksctl.](https://medium.com/@muppedaanvesh/setting-up-an-amazon-eks-cluster-and-node-group-using-eksctl-52acc808eb83)  
+### [3. Setting Up an Amazon EKS Cluster and Node Group Using eksctl.](https://medium.com/@muppedaanvesh/setting-up-an-amazon-eks-cluster-and-node-group-using-eksctl-52acc808eb83)  
 ### [4. Jump box setup on eks cluster](https://medium.com/@muppedaanvesh/jump-box-setup-on-eks-cluster-383ca92f51ef)  
 
 
 ---
-
-### to Check Access  
-```sh
-kuebctl auth can-i create deployments
-kubectl auth can-i create pods
-```
-### to check IP range for pods within the namespaces
-```sh
-kubectl cluster-info dump | grep -m 1 cluster-cidr
-```  
