@@ -7,17 +7,17 @@ By Anvesh Muppeda & Sai Manasa Kota
 ## Table of Contents   
 1. [ Cluster ⎈ ](#Cluster)
 2. [ Switching Between Contexts ⇢ ](#SwitchingBetweenContexts)
-3. [ Rollout ↩︎ ](#rollouts)
+3. [ Rollout 🔄 ](#rollouts)
 4. [ Labels 🏷️ ](#Labels )
-5. [ Pod 📦 ](#Pod)
+5. [ Pod 🛡️ ](#Pod)
 6. [ Nodes 💻 ](#Nodes) 
-7. [ troubleshooting with Logs 🛠️ ](#Logs) 
+7. [ Troubleshooting With Logs 📊 ](#Logs) 
 8. [ Secrets Encode & Decode 🕵️ ](#certs) 
 9. [ Taints & Tolerations 🔭 ](#taint) 
-11. [ Set ](#set_command) 
-14. [ Port Forward ](#portforward)
-15. [ Patch ](#patch)  
-16. [ Blogs ](#blogs)
+10. [ Patch 🛠️ ](#patch) 
+11. [ Set ⚙️ ](#set_command) 
+14. [ Port Forward ↔️ ](#portforward) 
+16. [ Blogs 📝 ](#blogs)
 
 ---
 <a name="Cluster"></a>  
@@ -318,7 +318,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="logs"></a> 
 
-## 7. Logs
+## 7. Troubleshooting With Logs 
   ### a. Get logs from a pod 
   ```bash
   kubectl -n <namespace> logs <podname>
@@ -410,6 +410,35 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   kubectl get pod <pod-name> -o=jsonpath='{.spec.tolerations}'
   ```  
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
+<a name="patch"></a>  
+
+## Patch  
+  ### Patch using a file  
+  ```bash
+  kubectl patch <resource <resource-name> --patch-file patch-file.yaml  
+  ```  
+  #### patch file looks like:  
+  ```yaml
+  spec:
+    template:
+      spec:
+        containers:
+        - name: patch-demo-ctr-3
+          image: gcr.io/google-samples/node-hello:1.0
+  ```  
+
+  ### Patch using a string
+  ```bash
+  kubectl patch <resource> <resource-name> -p '<pathcing-string>'
+  ```  
+  #### Example  
+  ```bash
+  kubectl patch deployment sampledeploy -p '{"spec": {"replicas": 2}}'
+  ``` 
+---
 
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
@@ -461,31 +490,6 @@ Once the connection to local port to a port on pod happened, then we can test lo
 curl -X GET -s http://localhost:80/
 curl -X GET -s http://localhost:80/_cluster/health  
 ```
-
----  
-<p align="center">
-  <a href="#tableofcontents">Go to Top ▲</a>
-</p>  
-<a name="patch"></a>  
-## Patch  
-### patch with a file  
-```
-kubectl patch deployment <deployment-name> --patch-file patch-file.yaml  
-```  
-### patch file looks like:  
-```
-spec:
-  template:
-    spec:
-      containers:
-      - name: patch-demo-ctr-3
-        image: gcr.io/google-samples/node-hello:1.0
-```  
-
-### patch with a value  
-```
-kubectl patch deployment <deployment-name> -p '{"metadata":{"finalizers":null}}'
-```  
 
 ## Reference:  
 https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands  
