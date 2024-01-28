@@ -330,7 +330,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="logs"></a> 
 
-## 7. Troubleshooting With Logs 
+## 7. Streaming With Logs 
 ### a. Get logs from a pod 
   ```bash
   kubectl -n <namespace> logs <podname>
@@ -585,3 +585,13 @@ kubectl delete all --selector=<key>
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
 </p>  
+
+## Contact Information
+
+If you have any questions or feedback, feel free to reach out:
+
+- Email: muppedaanvesh@gmail.com 
+- LinjedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 
+- GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 
+
+---
