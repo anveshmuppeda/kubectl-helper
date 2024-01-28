@@ -16,8 +16,10 @@ By Anvesh Muppeda & Sai Manasa Kota
 9. [ Taints & Tolerations 🔭 ](#taint) 
 10. [ Patch 🛠️ ](#patch) 
 11. [ Set ⚙️ ](#set_command) 
-14. [ Port Forward ↔️ ](#portforward) 
-16. [ Kubernetes Blogs 📝 ](#blogs)
+12. [ Port Forward ↔️ ](#portforward)  
+13. [ Create a Resources 🏗️ ](#create)
+14. [ Delete a Resources 🚮 ](#delete)
+15. [ Kubernetes Blogs 📝 ](#blogs)
 
 ---
 <a name="Cluster"></a>  
@@ -472,7 +474,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
 </p>  
 <a name="portforward"></a> 
 
-## Port Forward  
+## 12. Port Forward  
   kubectl port-forward forwards connections to a local port to a port on a pod. Compared to kubectl proxy, kubectl port-forward is more generic as it can forward TCP traffic while kubectl proxy can only forward HTTP traffic.  
 kubectl port-forward is useful for testing/debugging purposes so you can access your service locally without exposing it.   
 
@@ -491,7 +493,49 @@ Once the connection is succesfull from local port to target resource port, then 
 curl -X GET -s http://localhost:80/
 curl -X GET -s http://localhost:80/_cluster/health  
 ```
+---  
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>   
 
+## 13. Create a Resource  
+### a. Create a resource in imperative way.  
+```bash 
+kubectl create <resource-type> <resource-name> --PARAMETER1=VALUE1
+```  
+#### Example 
+```bash
+kubectl create deployment sampledeploy --image=sampleimage
+```  
+#### For Pod  
+```bash 
+kubectl run samplepod --image=sampleimage
+```  
+### b. Create a resource in declarative way  
+```bash
+kubectl create -f manifest-file.yaml 
+```  
+### c. Create/update resource  
+```bash 
+kubectl apply -f manifest-file.yaml
+```  
+### d. Create resources from all manifest files in a directory  
+```bash
+kubectl create -f ./directory
+```  
+### e. Create resources from a link  
+```bash
+kubectl create -f 'URL'
+```  
+
+
+
+---  
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>   
+
+## 14. Delete a Resource 
 ---  
 <p align="center">
   <a href="#tableofcontents">Go to Top ▲</a>
@@ -505,5 +549,7 @@ curl -X GET -s http://localhost:80/_cluster/health
 ### [3. Setting Up an Amazon EKS Cluster and Node Group Using eksctl.](https://medium.com/@muppedaanvesh/setting-up-an-amazon-eks-cluster-and-node-group-using-eksctl-52acc808eb83)  
 ### [4. Jump box setup on eks cluster](https://medium.com/@muppedaanvesh/jump-box-setup-on-eks-cluster-383ca92f51ef)  
 
-
 ---
+<p align="center">
+  <a href="#tableofcontents">Go to Top ▲</a>
+</p>  
