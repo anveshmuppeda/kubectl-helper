@@ -8,3 +8,6 @@ create
   --md-code-tabs: #c6b8dd;
   --md-code-radius: 4px;
 } 
+
+console.log('Tab Zed');  
+console.log('Tab One');  
