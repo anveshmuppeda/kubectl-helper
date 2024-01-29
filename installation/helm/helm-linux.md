@@ -16,7 +16,7 @@
     ./get_helm.sh
 ```  
 
-> ![NOTE]
+> [!NOTE]
 > Yes, you can curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash if you want to live on the edge.  
 
 ## From Apt (Debian/Ubuntu)  
