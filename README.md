@@ -11,6 +11,8 @@ The Kubernetes Helper Script is a Bash script designed to simplify the managemen
 - [Usage](#usage)
 - [Menu Options](#menu-options)
 - [Excel Report](#excel-report)
+- [Cheatsheet](#cheetsheer)
+  - [Key Features](#key-features)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -99,6 +101,20 @@ The script can generate an Excel report containing information about pods, names
 
 To generate the report, select option 12 from the menu.  
 
+## Cheatsheet  
+## 🚀 Kubectl Helper: Your Ultimate Kubernetes Command Companion! 🌐  
+
+Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This comprehensive guide empowers both beginners and seasoned professionals to navigate the Kubernetes landscape effortlessly. From cluster management and context switching to intricate pod manipulations, we've got you covered. Say goodbye to command memorization and hello to streamlined operations!  
+### ✨ Key Features  
+
+- **Intelligent Context Switching**: Seamlessly switch between contexts, manage configurations, and explore API resources.  
+- **Effortless Rollouts**: Master kubectl rollout commands for deployments, statefulsets, and daemonsets with ease.
+- **Label Magic**: Manipulate labels effortlessly – add, remove, list, and overwrite labels for your resources.
+- **Pod Power**: Dive into pod operations, log streaming, environment variable printing, and more.
+- **Node Nirvana**: Explore node-related commands, including node details, cordon, uncordon, and draining nodes.
+- **Troubleshoot like a Pro**: Unleash the power of logs with real-time streaming, time-based filtering, and container-specific logs.
+- **Secrets Simplified**: Encode and decode your secrets effortlessly using our handy guide.
+- **Taints & Tolerations**: Master taints, tolerations, and view them on nodes – ensuring smooth node operations.
 
 ## Project Maintainers & Contributors  
 <table>
