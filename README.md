@@ -110,9 +110,3 @@ To generate the report, select option 12 from the menu.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE) file for details.
-
-
-
-## TODO  
-1. debug flow chart
-2. --help
