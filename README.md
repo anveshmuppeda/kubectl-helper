@@ -28,6 +28,9 @@ This Bash script provides a menu-driven interface for managing a Kubernetes clus
   ```bash
   ./kubectl_helper.sh --help 
   ```
+```bash
+./kubectl_helper.sh --help 
+```
 ## Main menu  
 ```
 +-------------------------------------+
