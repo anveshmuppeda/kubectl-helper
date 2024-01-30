@@ -13,7 +13,7 @@ This Bash script provides a menu-driven interface for managing a Kubernetes clus
 - [License](#license)
 
 ## Prerequisites
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to connect to your Kubernetes cluster.
+- [kubectl](https://github.com/anveshmuppeda/kubectl-helper/tree/main/installation/kubectl) installed and configured to connect to your Kubernetes cluster.
 - [jq](https://stedolan.github.io/jq/) installed for JSON parsing.
 - [xlsxwriter](https://xlsxwriter.readthedocs.io/) Python library for Excel report generation.
 
@@ -82,9 +82,7 @@ To generate the report, select option 12 from the menu.
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE) file for details.
 
-```csharp
-You can customize this template based on your specific script details and add additional sections as needed. Once you have the README ready, you can use it as a basis for your blog post. Feel free to expand on specific sections in your blog post to provide more details about the script and its usage.
-```  
+
 
 ## TODO  
 1. debug flow chart
