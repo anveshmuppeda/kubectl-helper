@@ -11,7 +11,7 @@ The Kubernetes Helper Script is a Bash script designed to simplify the managemen
 - [Usage](#usage)
 - [Menu Options](#menu-options)
 - [Excel Report](#excel-report)
-- [Cheatsheet](#cheetsheet)
+- [Cheatsheet](#cheatsheet)
   - [Key Features](#key-features)
 - [Contributing](#contributing)
 - [License](#license)
