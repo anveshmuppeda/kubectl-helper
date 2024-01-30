@@ -33,18 +33,42 @@ The Kubernetes Helper Script is a Bash script designed to simplify the managemen
   - Retrieve information about Kubernetes resources.
   - View pods, deployments, services, replica sets, stateful sets, config maps, secrets, and more.
   - Option to filter resources by namespace.
-2. **Describe Resources**: Describe details about Kubernetes resources.  
-3. **Get Logs for a Pod**: Retrieve logs for a specific pod.  
-4. **Delete Resources**: Delete Kubernetes resources.  
-5. **Nodes**: Perform operations related to Kubernetes nodes.  
-6. **Contexts**: Manage Kubernetes contexts.  
-7. **Patch**: Patch Kubernetes resources.  
-8. **Adding Annotations**: Add or update annotations for resources.  
-9. **Adding Labels**: Add or update labels for resources.  
-10. **Create Resources**: Apply new Kubernetes resources.  
-11. **Debug Pods**: Create a debug pod for troubleshooting.  
-12. **Create Excel Report**: Generate an Excel report of Kubernetes resources.  
-13. **Exit**: Exit the script.  
+2. **Describe Resources**:
+  - Get detailed descriptions of Kubernetes resources.
+  - Describe pods, deployments, services, daemonsets, stateful sets, config maps, secrets, and more.
+  - Option to select resources interactively.
+3. **Get Logs for a Pod**: 
+  - Fetch logs for a specific pod.
+  - Choose the namespace and pod interactively.
+4. **Delete Resources**:
+  - Delete various Kubernetes resources.
+  - Interactive selection of resource type and specific resources.
+5. **Nodes**:
+  - Perform operations related to Kubernetes nodes.
+  - Get node information, view status, configuration, and events.
+  - Drain or cordon nodes for maintenance.
+6. **Contexts**:
+  - Manage Kubernetes contexts.
+  - Display the current context, list available contexts, switch to a specific context, and delete a context.
+7. **Patch**:
+  - Apply patches to Kubernetes resources.
+  - Choose resource type and provide a patch file.
+8. **Adding Annotations**:
+  - Add or update annotations for Kubernetes resources.
+  - Interactive selection of resource type and specific resource.
+9. **Adding Labels**:
+  - Add or update labels for Kubernetes resources.
+  - Interactive selection of resource type and specific resource.
+10. **Create Resources**:
+  - Apply new Kubernetes resources from YAML manifests.
+  - Input the path to the YAML file.
+11. **Debug Pods**:
+  - Create a debug pod for troubleshooting.
+  - Interactive selection of the pod to debug.
+12. **Create Excel Report**:
+  - Generate an Excel report containing information about pods, namespaces, and their statuses.
+  - Utilizes the xlsxwriter Python library.
+13. **Exit**: Gracefully exit the script.
 
 ### Main menu display:    
 ```
