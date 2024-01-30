@@ -18,12 +18,16 @@ This Bash script provides a menu-driven interface for managing a Kubernetes clus
 - [xlsxwriter](https://xlsxwriter.readthedocs.io/) Python library for Excel report generation.
 
 ## Usage
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/kubernetes-helper-script.git
-   cd kubernetes-helper-script
-
-
+1. Clone the repository:  
+  ```bash
+  git clone https://github.com/anveshmuppeda/kubectl-helper.git
+  cd kubectl-helper
+  ```
+2. Ensure the prerequisites are installed.  
+3. Run the script:  
+  ```bash
+  ./kubectl_helper.sh --help 
+  ```
 ## Main menu  
 ```
 +-------------------------------------+
