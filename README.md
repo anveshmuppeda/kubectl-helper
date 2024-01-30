@@ -2,7 +2,7 @@
 
 ## Kubernetes Helper Script
 
-This Bash script provides a menu-driven interface for managing a Kubernetes cluster using kubectl. It includes various operations such as retrieving information about resources, describing resources, deleting resources, managing nodes, working with contexts, and more.
+The Kubernetes Helper Script is a Bash script designed to simplify the management of a Kubernetes cluster through a user-friendly, menu-driven interface. It leverages the `kubectl` command-line tool to interact with a Kubernetes cluster and perform various operations, catering to both beginners and experienced users.  
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -29,7 +29,10 @@ This Bash script provides a menu-driven interface for managing a Kubernetes clus
   ./kubectl_helper.sh 
   ```  
 ## Menu Options  
-1. **Get Resources**: Retrieve information about Kubernetes resources.  
+1. **Get Resources**: 
+  - Retrieve information about Kubernetes resources.
+  - View pods, deployments, services, replica sets, stateful sets, config maps, secrets, and more.
+  - Option to filter resources by namespace.
 2. **Describe Resources**: Describe details about Kubernetes resources.  
 3. **Get Logs for a Pod**: Retrieve logs for a specific pod.  
 4. **Delete Resources**: Delete Kubernetes resources.  
