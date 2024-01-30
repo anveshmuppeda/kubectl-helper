@@ -26,11 +26,23 @@ This Bash script provides a menu-driven interface for managing a Kubernetes clus
 2. Ensure the prerequisites are installed.  
 3. Run the script:  
   ```bash
-  ./kubectl_helper.sh --help 
-  ```
-```bash
-./kubectl_helper.sh --help 
-```
+  ./kubectl_helper.sh 
+  ```  
+## Menu Options  
+1. **Get Resources**: Retrieve information about Kubernetes resources.  
+2. **Describe Resources**: Describe details about Kubernetes resources.  
+3. **Get Logs for a Pod**: Retrieve logs for a specific pod.  
+4. **Delete Resources**: Delete Kubernetes resources.  
+5. **Nodes**: Perform operations related to Kubernetes nodes.  
+6. **Contexts**: Manage Kubernetes contexts.  
+7. **Patch**: Patch Kubernetes resources.  
+8. **Adding Annotations**: Add or update annotations for resources.  
+9. **Adding Labels**: Add or update labels for resources.  
+11. **Create Resources**: Apply new Kubernetes resources.  
+12. **Debug Pods**: Create a debug pod for troubleshooting.  
+13. **Create Excel Report**: Generate an Excel report of Kubernetes resources.  
+14. **Exit**: Exit the script.  
+
 ## Main menu  
 ```
 +-------------------------------------+
@@ -55,4 +67,8 @@ Enter your choice (1-9):
     <td align="center"><a href="https://anveshmuppeda.github.io/profile/"><img src="https://avatars.githubusercontent.com/u/115966808?v=4" width="100px;" alt=""/><br /><sub><b>Anvesh Muppeda</b></sub></a></td>
     <td align="center"><a href="https://github.com/saimanasak"><img src="https://avatars.githubusercontent.com/u/47205414?v=4" width="100px;" alt=""/><br /><sub><b>Sai Manasa Kota</b></sub></a></td>
   </tr>
-</table>
+</table>  
+
+## TODO  
+1. debug flow chart
+2. --help
