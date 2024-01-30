@@ -103,6 +103,7 @@ To generate the report, select option 12 from the menu.
 
 ## Cheatsheet  
 ## 🚀 Kubectl Helper: Your Ultimate Kubernetes Command Companion! 🌐  
+### [Click here](https://anveshmuppeda.github.io/kubectl-helper/) to get [kubectl cheatsheet](https://anveshmuppeda.github.io/kubectl-helper/)
 
 Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This comprehensive guide empowers both beginners and seasoned professionals to navigate the Kubernetes landscape effortlessly. From cluster management and context switching to intricate pod manipulations, we've got you covered. Say goodbye to command memorization and hello to streamlined operations!  
 ### Key Features  
