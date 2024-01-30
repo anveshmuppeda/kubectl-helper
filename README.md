@@ -39,7 +39,6 @@ By Anvesh Muppeda & Sai Manasa Kota
   ```  
 
 ### c. Get the configurations of saved clusters  
-  To get more information about config view click here.
   ```sh
   kubectl config view
   ```
