@@ -11,7 +11,7 @@ The Kubernetes Helper Script is a Bash script designed to simplify the managemen
 - [Usage](#usage)
 - [Menu Options](#menu-options)
 - [Excel Report](#excel-report)
-- [Cheatsheet](#cheetsheer)
+- [Cheatsheet](#cheetsheet)
   - [Key Features](#key-features)
 - [Contributing](#contributing)
 - [License](#license)
@@ -105,7 +105,7 @@ To generate the report, select option 12 from the menu.
 ## 🚀 Kubectl Helper: Your Ultimate Kubernetes Command Companion! 🌐  
 
 Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This comprehensive guide empowers both beginners and seasoned professionals to navigate the Kubernetes landscape effortlessly. From cluster management and context switching to intricate pod manipulations, we've got you covered. Say goodbye to command memorization and hello to streamlined operations!  
-### ✨ Key Features  
+### Key Features  
 
 - **Intelligent Context Switching**: Seamlessly switch between contexts, manage configurations, and explore API resources.  
 - **Effortless Rollouts**: Master kubectl rollout commands for deployments, statefulsets, and daemonsets with ease.
