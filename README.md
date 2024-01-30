@@ -96,7 +96,7 @@ The Kubernetes Helper Script is a Bash script designed to simplify the managemen
 Enter your choice (1-13):
 ```  
 
-## Excel Report
+## Excel Report  
 The script can generate an Excel report containing information about pods, namespaces, and their statuses. The report is created using the xlsxwriter Python library.  
 
 To generate the report, select option 12 from the menu.  
