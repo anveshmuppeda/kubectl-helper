@@ -1,12 +1,13 @@
 # Welcome to Kubectl cheatsheet [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)  
 
+<p align="center">  
+By Anvesh Muppeda & Sai Manasa Kota  
+</p>   
+
 🚀 Kubectl Helper: Your Ultimate Kubernetes Command Companion! 🌐  
 
 Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This comprehensive guide empowers both beginners and seasoned professionals to navigate the Kubernetes landscape effortlessly. From cluster management and context switching to intricate pod manipulations, we've got you covered. Say goodbye to command memorization and hello to streamlined operations!  
 
-<p align="center">  
-By Anvesh Muppeda & Sai Manasa Kota  
-</p>   
 <a name="tableofcontents"></a>  
 
 ## Table of Contents   
@@ -597,7 +598,7 @@ kubectl delete all --selector=<key>
 If you have any questions or feedback, feel free to reach out:  
 
 - Email: muppedaanvesh@gmail.com 📧  
-- LinkedIn: [@AnveshLinkedInHandle](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) & [@ManasaLInkedInHanlde](https://www.linkedin.com/in/sai-manasa-51882b156) 🌐  
+- LinkedIn: [@Anvesh](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) & [@Manasa](https://www.linkedin.com/in/sai-manasa-51882b156) 🌐  
 - GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 🚀 
 
 --- 
