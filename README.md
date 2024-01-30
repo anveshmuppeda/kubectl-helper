@@ -1,15 +1,28 @@
 # kubectl-helper [![GitHub](https://img.shields.io/github/license/anveshmuppeda/kubectl-helper?color=blue)](https://github.com/anveshmuppeda/kubectl-helper/blob/main/LICENSE)
-Kubectl Helper
-Kuberenetes cluster manager  
 
-Allowed values
+# Kubernetes Helper Script
 
-A-Z
-## to be added  
-kubectl installation
-eksctl installation 
-output in box 
-pod logs to a file 
+This Bash script provides a menu-driven interface for managing a Kubernetes cluster using kubectl. It includes various operations such as retrieving information about resources, describing resources, deleting resources, managing nodes, working with contexts, and more.
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Usage](#usage)
+- [Menu Options](#menu-options)
+- [Excel Report](#excel-report)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Prerequisites
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured to connect to your Kubernetes cluster.
+- [jq](https://stedolan.github.io/jq/) installed for JSON parsing.
+- [xlsxwriter](https://xlsxwriter.readthedocs.io/) Python library for Excel report generation.
+
+## Usage
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/kubernetes-helper-script.git
+   cd kubernetes-helper-script
+
 
 ## Main menu  
 ```
