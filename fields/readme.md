@@ -40,19 +40,19 @@ spec:
 &emsp;&emsp;&emsp;&emsp;tolerationSeconds:  
 &emsp;&emsp;volumes:  
 &emsp;&emsp;- name:  
-&emsp;&emsp;&emsp;&emsp;projected: 
+&emsp;&emsp;&emsp;&emsp;projected:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;defaultMode:  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sources: 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sources:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- serviceAccountToken:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;expirationSeconds:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;path:  
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- configMap: 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;items: 
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- configMap:  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;items:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- key:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;path:  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;name:  
-status:
-&emsp;&emsp;conditions:
+status:  
+&emsp;&emsp;conditions:  
 &emsp;&emsp;- lastProbeTime:  
 &emsp;&emsp;&emsp;&emsp;lastTransitionTime:  
 &emsp;&emsp;status:  
@@ -69,7 +69,7 @@ status:
 &emsp;&emsp;lastTransitionTime:  
 &emsp;&emsp;status:  
 &emsp;&emsp;type:  
-&emsp;&emsp;containerStatuses:
+&emsp;&emsp;containerStatuses:  
 &emsp;&emsp;- containerID:  
 &emsp;&emsp;image:  
 &emsp;&emsp;imageID:  
