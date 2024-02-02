@@ -72,7 +72,7 @@
 &emsp;&emsp;**hostIP:**  
 &emsp;&emsp;**phase:**  
 &emsp;&emsp;**podIP:**  
-&emsp;&emsp;**podIPs:**
+&emsp;&emsp;**podIPs:**  
 &emsp;&emsp;- **ip:**  
 &emsp;&emsp;**qosClass:**  
 &emsp;&emsp;**startTime:**  
