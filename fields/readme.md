@@ -1,100 +1,90 @@
 # Kubernetes Pod Fields explaination  
 
-apiVersion: v1
-kind: Pod
-metadata:
-  creationTimestamp: "2024-02-02T01:09:06Z"
-  labels:
-    run: nginx
-  name: nginx
-  namespace: default
-  resourceVersion: "375761"
-  uid: 61be49db-8c52-452f-b952-56efb46b8684
+apiVersion:  
+kind:   
+metadata:  
+  creationTimestamp:   
+  labels:  
+    run:   
+  name:   
+  namespace:   
+  resourceVersion:   
+  uid:   
 spec:
-  containers:
-  - image: nginx
-    imagePullPolicy: Always
-    name: nginx
-    resources: {}
-    terminationMessagePath: /dev/termination-log
-    terminationMessagePolicy: File
-    volumeMounts:
-    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: kube-api-access-9z9n2
-      readOnly: true
-  dnsPolicy: ClusterFirst
-  enableServiceLinks: true
-  nodeName: minikube
-  preemptionPolicy: PreemptLowerPriority
-  priority: 0
-  restartPolicy: Always
-  schedulerName: default-scheduler
-  securityContext: {}
-  serviceAccount: default
-  serviceAccountName: default
-  terminationGracePeriodSeconds: 30
-  tolerations:
-  - effect: NoExecute
-    key: node.kubernetes.io/not-ready
-    operator: Exists
-    tolerationSeconds: 300
-  - effect: NoExecute
-    key: node.kubernetes.io/unreachable
-    operator: Exists
-    tolerationSeconds: 300
-  volumes:
-  - name: kube-api-access-9z9n2
-    projected:
-      defaultMode: 420
-      sources:
-      - serviceAccountToken:
-          expirationSeconds: 3607
-          path: token
-      - configMap:
-          items:
-          - key: ca.crt
-            path: ca.crt
-          name: kube-root-ca.crt
-      - downwardAPI:
-          items:
-          - fieldRef:
-              apiVersion: v1
-              fieldPath: metadata.namespace
-            path: namespace
+  containers:  
+  - image:   
+    imagePullPolicy:   
+    name:   
+    resources:   
+    terminationMessagePath:   
+    terminationMessagePolicy:  
+    volumeMounts:  
+    - mountPath:   
+      name:   
+      readOnly:  
+  dnsPolicy:  
+  enableServiceLinks:  
+  nodeName:  
+  preemptionPolicy:  
+  priority:  
+  restartPolicy:  
+  schedulerName:  
+  securityContext:  
+  serviceAccount:  
+  serviceAccountName:  
+  terminationGracePeriodSeconds:  
+  tolerations:  
+  - effect:  
+    key:  
+    operator:  
+    tolerationSeconds:  
+  volumes:  
+  - name:  
+    projected: 
+      defaultMode:  
+      sources: 
+      - serviceAccountToken:  
+          expirationSeconds:  
+          path:  
+      - configMap: 
+          items: 
+          - key:  
+            path:  
+          name:  
 status:
   conditions:
-  - lastProbeTime: null
-    lastTransitionTime: "2024-02-02T01:09:06Z"
-    status: "True"
-    type: Initialized
-  - lastProbeTime: null
-    lastTransitionTime: "2024-02-02T01:10:18Z"
-    status: "True"
-    type: Ready
-  - lastProbeTime: null
-    lastTransitionTime: "2024-02-02T01:10:18Z"
-    status: "True"
-    type: ContainersReady
-  - lastProbeTime: null
-    lastTransitionTime: "2024-02-02T01:09:06Z"
-    status: "True"
-    type: PodScheduled
+  - lastProbeTime:  
+    lastTransitionTime:  
+    status:  
+    type:  
+  - lastProbeTime:  
+    lastTransitionTime:  
+    status:  
+    type:  
+  - lastProbeTime:  
+    lastTransitionTime:  
+    status:  
+    type:  
+  - lastProbeTime:  
+    lastTransitionTime:  
+    status:  
+    type:  
   containerStatuses:
-  - containerID: docker://596dc198a2ed7170b1f358304f391c9819bdcd057f195ec8c25330a1e38bd330
-    image: nginx:latest
-    imageID: docker-pullable://nginx@sha256:6eb953446a36ad7aaa1624ff7b0fba5c8f8742e13fbef572cda3cac202fcf4aa
-    lastState: {}
-    name: nginx
-    ready: true
-    restartCount: 0
-    started: true
+  - containerID:  
+    image:  
+    imageID:  
+    lastState:  
+    name:  
+    ready:  
+    restartCount:  
+    started:  
     state:
       running:
-        startedAt: "2024-02-02T01:10:18Z"
-  hostIP: 192.168.67.2
-  phase: Running
-  podIP: 10.244.0.158
+        startedAt:  
+  hostIP:  
+  phase:  
+  podIP:  
   podIPs:
-  - ip: 10.244.0.158
-  qosClass: BestEffort
-  startTime: "2024-02-02T01:09:06Z"
+  - ip:  
+  qosClass:  
+  startTime:  
