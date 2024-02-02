@@ -61,7 +61,7 @@ status:
 &emsp;&emsp;lastTransitionTime:  
 &emsp;&emsp;status:  
 &emsp;&emsp;type:  
-&emsp;&emsp;- lastProbeTime:  
+&emsp;&emsp;**- lastProbeTime:**  
 &emsp;&emsp;lastTransitionTime:  
 &emsp;&emsp;status:  
 &emsp;&emsp;type:  
