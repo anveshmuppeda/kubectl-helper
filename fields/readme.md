@@ -1,9 +1,9 @@
 # Kubernetes Pod Fields explaination  
 
-apiVersion:  
-kind:   
+# apiVersion:  
+# kind:   
 metadata:  
-  creationTimestamp:   
+#   creationTimestamp:   
   labels:  
     run:   
   name:   
