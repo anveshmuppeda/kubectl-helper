@@ -1,16 +1,16 @@
 # Kubernetes Pod Fields explaination  
 
-apiVersion:  
-kind:   
-metadata:  
-&emsp;&emsp;creationTimestamp:   
-&emsp;&emsp;labels:  
-&emsp;&emsp;&emsp;&emsp;run:   
-&emsp;&emsp;name:   
-&emsp;&emsp;namespace:   
-&emsp;&emsp;resourceVersion:   
-&emsp;&emsp;uid:   
-spec:
+**apiVersion:**  
+**kind:**   
+**metadata:**  
+&emsp;&emsp;**creationTimestamp:**   
+&emsp;&emsp;**labels:**  
+&emsp;&emsp;&emsp;&emsp;**run:**   
+&emsp;&emsp;**name:**   
+&emsp;&emsp;**namespace:**   
+&emsp;&emsp;**resourceVersion:**   
+&emsp;&emsp;**uid:**   
+**spec:**
 &emsp;&emsp;containers:  
 &emsp;&emsp;- image:   
 &emsp;&emsp;&emsp;&emsp;imagePullPolicy:   
