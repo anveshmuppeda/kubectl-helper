@@ -57,18 +57,6 @@ status:
 &emsp;&emsp;&emsp;&emsp;lastTransitionTime:  
 &emsp;&emsp;status:  
 &emsp;&emsp;type:  
-&emsp;&emsp;- lastProbeTime:  
-&emsp;&emsp;lastTransitionTime:  
-&emsp;&emsp;status:  
-&emsp;&emsp;type:  
-&emsp;&emsp;**- lastProbeTime:**  
-&emsp;&emsp;lastTransitionTime:  
-&emsp;&emsp;status:  
-&emsp;&emsp;type:  
-&emsp;&emsp;- lastProbeTime:  
-&emsp;&emsp;lastTransitionTime:  
-&emsp;&emsp;status:  
-&emsp;&emsp;type:  
 &emsp;&emsp;containerStatuses:  
 &emsp;&emsp;- containerID:  
 &emsp;&emsp;image:  
@@ -78,8 +66,8 @@ status:
 &emsp;&emsp;ready:  
 &emsp;&emsp;restartCount:  
 &emsp;&emsp;started:  
-&emsp;&emsp;state:
-&emsp;&emsp;  running:
+&emsp;&emsp;state:  
+&emsp;&emsp;  running:  
 &emsp;&emsp;&emsp;&emsp;startedAt:  
 &emsp;&emsp;hostIP:  
 &emsp;&emsp;phase:  
