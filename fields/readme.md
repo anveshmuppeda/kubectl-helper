@@ -1,27 +1,27 @@
 # Kubernetes Pod Fields explaination  
 
-# apiVersion:  
-# kind:   
+apiVersion:  
+kind:   
 metadata:  
-  creationTimestamp:   
+\  creationTimestamp:   
   labels:  
     run:   
   name:   
   namespace:   
   resourceVersion:   
   uid:   
-spec:
+spec:  
   containers:  
   \- image:   
-    imagePullPolicy:   
-    name:   
-    resources:   
-    terminationMessagePath:   
-    terminationMessagePolicy:  
-    volumeMounts:  
-    - mountPath:   
-      name:   
-      readOnly:  
+     imagePullPolicy:   
+     name:   
+     resources:   
+     terminationMessagePath:   
+     terminationMessagePolicy:  
+     volumeMounts:  
+     \- mountPath:   
+        name:   
+        readOnly:  
   dnsPolicy:  
   enableServiceLinks:  
   nodeName:  
