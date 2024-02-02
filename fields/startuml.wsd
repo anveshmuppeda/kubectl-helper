@@ -1,0 +1,54 @@
+@startuml
+
+!define CONTAINER class DockerContainer {
+  image: string
+  imagePullPolicy: string
+  name: string
+  resources: string
+  terminationMessagePath: string
+  terminationMessagePolicy: string
+  volumeMounts: string
+}
+
+class Pod {
+  apiVersion: string
+  kind: string
+  metadata: {
+    creationTimestamp: string
+    labels: string
+    name: string
+    namespace: string
+    resourceVersion: string
+    uid: string
+  }
+  spec: {
+    containers: CONTAINER[]
+    dnsPolicy: string
+    enableServiceLinks: string
+    nodeName: string
+    preemptionPolicy: string
+    priority: string
+    restartPolicy: string
+    schedulerName: string
+    securityContext: string
+    serviceAccount: string
+    serviceAccountName: string
+    terminationGracePeriodSeconds: string
+    tolerations: string
+    volumes: string
+  }
+  status: {
+    conditions: string
+    containerStatuses: string
+    hostIP: string
+    phase: string
+    podIP: string
+    podIPs: string
+    qosClass: string
+    startTime: string
+  }
+}
+
+Pod --|> CONTAINER
+
+@enduml

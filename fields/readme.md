@@ -3,7 +3,7 @@
 # apiVersion:  
 # kind:   
 metadata:  
-  #### creationTimestamp:   
+  creationTimestamp:   
   labels:  
     run:   
   name:   
@@ -12,7 +12,7 @@ metadata:
   uid:   
 spec:
   containers:  
-  - image:   
+  \- image:   
     imagePullPolicy:   
     name:   
     resources:   
