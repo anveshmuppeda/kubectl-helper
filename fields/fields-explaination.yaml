@@ -1,0 +1,101 @@
+
+apiVersion: The version of the Kubernetes API to use for this object 
+kind: The type of Resource  
+metadata: #Holds information about the resource 
+  creationTimestamp: The timestamp when the resource was created  
+  annotations: #Allow you to attach arbitrary metadata to the resource   
+      app.version: sample Annotation   
+  labels: #Key-value pairs used to organize and select Pods 
+      application: sample label   
+  name: The name of the Resource  
+  namespace: The namespace to which the resource belongs  
+  resourceVersion: An opaque value that represents the resource's version   
+  uid: A unique identifier for the Resource  
+spec:
+  initContainers: 
+  -   name: "This defines an init container name"  
+      image: Specifies the container image to be used for the init container 
+      command: Specifies the command to run in the init container.
+      env: Defines environment variables for the init container.
+      volumeMounts:
+      - mountPath: Specifies the path within the container where the volume should be mounted 
+        name: The name of the volume  
+        readOnly: A boolean flag 
+      resources:
+        limits:
+          memory: Specifies the maximum amount of memory that the container can use   
+          cpu: Sets the maximum CPU usage for the container
+        requests:
+          memory: Indicates the initial amount of memory requested by the container  
+          cpu: Specifies the initial CPU request 
+      securityContext: 
+        runAsUser: This field sets the user ID that the container should run as
+        runAsGroup: Similar to `runAsUser`, this field sets the group ID for the process inside the container
+  containers:
+  -   image: "The container image to run"  
+      imagePullPolicy: Policy for pulling the container image  
+      name: The name of the container  
+      lifecycle: This field allows you to specify actions that should be taken before a container state change
+      terminationMessagePath: The path where the container writes its termination message  
+      terminationMessagePolicy: Policy for the termination message 
+      volumeMounts: #This is a list that defines the volume mounts for the container
+      -   mountPath: Specifies the path within the container where the volume should be mounted 
+          name: The name of the volume
+          readOnly: A boolean flag
+      resources: #Defines resource requests and limits for the container
+        limits: #This section allows you to set upper bounds, or limits
+          memory: Specifies the maximum amount of memory that the container can use 
+          cpu: Sets the maximum CPU usage for the container
+        requests: #T#his section defines the amount of resources that a container initially requests
+          memory: Indicates the initial amount of memory requested by the container
+          cpu: Specifies the initial CPU request
+      securityContext: #The securityContext field is used to configure security-related settings for a container
+        runAsUser: This field sets the user ID that the container should run as
+        runAsGroup: Similar to `runAsUser`, this field sets the group ID for the process inside the container
+  dnsPolicy: DNS resolution policy for the Pod 
+  enableServiceLinks: If set, inject the service account's secret into Pod's environment 
+  nodeName:  The node name where the Pod should run 
+  preemptionPolicy: Indicates whether the Pod can be preempted 
+  priority: Priority value for the Pod 
+  restartPolicy: Restart policy for the containers in the Pod 
+  schedulerName: Name of the scheduler to use for scheduling 
+  serviceAccount:  
+  serviceAccountName: Service account to associate with the Pod 
+  terminationGracePeriodSeconds: Time given to containers to terminate gracefully 
+  tolerations: 
+  -   effect: Specifies the effect of the toleration  
+      key: The key is the taint key that the toleration is associated with  
+      operator: Specifies the comparison operator for the toleration  
+      tolerationSeconds: Optional field specifying the amount of time a pod can tolerate
+  volumes:
+  -   name: The name of the volume    
+      emptyDir: This field specifies an `emptyDir` volume type(emptyDir)   
+      hostPath: Specifies a path on the host machine's filesystem
+      configMap: Mounts a ConfigMap as a volume   
+      secret: Mounts a Secret as a volume 
+      persistentVolumeClaim: This allows you to use a `PersistentVolumeClaim (PVC)` as a volume
+status:  
+  conditions:
+    -   lastProbeTime: The last time a probe was executed 
+        lastTransitionTime: The last time the condition transitioned
+        status: Represents the current status of the condition 
+        type: Describes the type of condition
+  containerStatuses:
+    -     containerID: A unique identifier for the container instance 
+          image: The image of the container 
+          imageID: A unique identifier for the container image 
+          lastState: Information about the previous state
+          name: The name of the container
+          ready: Indicates whether the container is in a ready state
+          restartCount: The number of times the container has been restarted 
+          started: ndicates whether the container has started
+          state:  
+            running:
+              startedAt: Timestamp indicating when the container started running  
+  hostIP: IP address of the host to which the Pod is assigned 
+  phase: The current phase of the Pod
+  podIP: The IP address assigned to the Pod 
+  podIPs:
+  - ip: The actual IP address assigned to the pod  
+  qosClass: Quality of Service class assigned to the Pod
+  startTime: Timestamp when the Pod was started 
