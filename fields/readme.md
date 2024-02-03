@@ -7,101 +7,101 @@
 4. &emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
 5. &emsp;&emsp;**annotations:** *Allow you to attach arbitrary metadata to the resource.* [More](#annotations)   
 6. &emsp;&emsp;&emsp;&emsp;**app.version:** *sample Annotation*   
-5. &emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
-6. &emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
-7. &emsp;&emsp;**name:** *The name of the Resource.*   
-8. &emsp;&emsp;**namespace:** *The namespace to which the resource belongs.*   
-9. &emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
-10. &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
-11. **spec:**  *It stands for "specification" and is used to describe the desired state of a Kubernetes resource* [More](#spec)    
-12. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod.* [More](#initContainers)    
-13.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container name.* [More](#initContainersName)   
-13.  &emsp;&emsp;&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
-13. &emsp;&emsp;&emsp;&emsp;**command:** *Specifies the command to run in the init container.*
-13. &emsp;&emsp;&emsp;&emsp;**env:** *Defines environment variables for the init container. *
-14. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the init container.* [More](#volemeMounts)  
+7. &emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
+8. &emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
+9. &emsp;&emsp;**name:** *The name of the Resource.*   
+10. &emsp;&emsp;**namespace:** *The namespace to which the resource belongs.*   
+11. &emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
+12. &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
+13. **spec:**  *It stands for "specification" and is used to describe the desired state of a Kubernetes resource* [More](#spec)    
+14. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod.* [More](#initContainers)    
+15.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container name.* [More](#initContainersName)   
+16.  &emsp;&emsp;&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
+17. &emsp;&emsp;&emsp;&emsp;**command:** *Specifies the command to run in the init container.*
+18. &emsp;&emsp;&emsp;&emsp;**env:** *Defines environment variables for the init container.*
+19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the init container.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
-13. &emsp;&emsp;&emsp;&emsp;**resources:** *Defines resource requests and limits for the init container.* [More](#resources)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**limits:** *This section allows you to set upper bounds, or limits.* [More](#resourceslimits) 
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Specifies the maximum amount of memory that the container can use.* [More](#resourceslimitsmem)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Sets the maximum CPU usage for the container.* [More](#resourceslimitscpu) 
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests.* [More](#resourcesrequest)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container.* [More](#resourcesrequestmem)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request* [More](#resourcesrequestcpu)   
-13. &emsp;&emsp;&emsp;&emsp;**securityContext:** *The securityContext field is used to configure security-related settings for a container.* [More](#securityContext)    
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsUser:** *This field sets the user ID that the container should run as.* [More](#runAsUser)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsGroup:** *Similar to `runAsUser`, this field sets the group ID for the process inside the container.* [More](#runAsGroup)  
-12. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
-13. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
-14. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
-15. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
-16. &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
-17. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
-18. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
-19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
-20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
-21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
-13. &emsp;&emsp;&emsp;&emsp;**resources:** *Defines resource requests and limits for the container.* [More](#resources)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**limits:** *This section allows you to set upper bounds, or limits.* [More](#resourceslimits) 
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Specifies the maximum amount of memory that the container can use.* [More](#resourceslimitsmem)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Sets the maximum CPU usage for the container.* [More](#resourceslimitscpu) 
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests.* [More](#resourcesrequest)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container.* [More](#resourcesrequestmem)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request* [More](#resourcesrequestcpu)   
-13. &emsp;&emsp;&emsp;&emsp;**securityContext:** *The securityContext field is used to configure security-related settings for a container.* [More](#securityContext)    
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsUser:** *This field sets the user ID that the container should run as.* [More](#runAsUser)  
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsGroup:** *Similar to `runAsUser`, this field sets the group ID for the process inside the container.* [More](#runAsGroup)  
-23. &emsp;&emsp;**dnsPolicy:** *DNS resolution policy for the Pod.*  
-24. &emsp;&emsp;**enableServiceLinks:** *If set, inject the service account's secret into Pod's environment.*  
-25. &emsp;&emsp;**nodeName:**  *The node name where the Pod should run.*  
-26. &emsp;&emsp;**preemptionPolicy:** *Indicates whether the Pod can be preempted.*  
-27. &emsp;&emsp;**priority:** *Priority value for the Pod.*  
-28. &emsp;&emsp;**restartPolicy:** *Restart policy for the containers in the Pod.*  
-29. &emsp;&emsp;**schedulerName:** *Name of the scheduler to use for scheduling.*  
-30. &emsp;&emsp;**securityContext:** *Security settings for the Pod.*  
-31. &emsp;&emsp;**serviceAccount:**  
-32. &emsp;&emsp;**serviceAccountName:** *Service account to associate with the Pod.*  
-33. &emsp;&emsp;**terminationGracePeriodSeconds:** *Time given to containers to terminate gracefully.*  
-34. &emsp;&emsp;**tolerations:** *List of tolerations for scheduling.*  
-35. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
-36. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
-37. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
-38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
-39. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
-40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
-41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
-42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
-43. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
-44. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
-45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume.* [More](#persistentVolumeClaim)  
-46. **status:**  
-47. &emsp;&emsp;**conditions:** *Conditions represent the latest available observations of the Pod's current state.*  
-48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
-49. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
-50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
-51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
-52. &emsp;&emsp;**containerStatuses:** *The status of each container in the Pod.*  
-53. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
-54. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
-55. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
-56. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
-57. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
-58. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state.* [More](#statuscontainerready)  
-59. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
-60. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started.* [More](#statuscontainerstarted)  
-61. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container.* [More](#statuscontainerstate)  
-62. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
-63. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
-64. &emsp;&emsp;**hostIP:** *IP address of the host to which the Pod is assigned.*  
-65. &emsp;&emsp;**phase:** *The current phase of the Pod.* [More](#statuscontainerphase)  
-66. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
-67. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod.* [More](#statuscontainerpodIps)  
-68. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
-69. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
-70. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
+23. &emsp;&emsp;&emsp;&emsp;**resources:** *Defines resource requests and limits for the init container.* [More](#resources)  
+24. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**limits:** *This section allows you to set upper bounds, or limits.* [More](#resourceslimits) 
+25. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Specifies the maximum amount of memory that the container can use.* [More](#resourceslimitsmem)   
+26. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Sets the maximum CPU usage for the container.* [More](#resourceslimitscpu) 
+27. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests.* [More](#resourcesrequest)  
+28. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container.* [More](#resourcesrequestmem)   
+29. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request* [More](#resourcesrequestcpu)   
+30. &emsp;&emsp;&emsp;&emsp;**securityContext:** *The securityContext field is used to configure security-related settings for a container.* [More](#securityContext)    
+31. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsUser:** *This field sets the user ID that the container should run as.* [More](#runAsUser)  
+32. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsGroup:** *Similar to `runAsUser`, this field sets the group ID for the process inside the container.* [More](#runAsGroup)  
+33. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
+34. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
+35. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
+36. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
+37. &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
+38. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
+39. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
+40. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
+41. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
+42. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
+43. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
+44. &emsp;&emsp;&emsp;&emsp;**resources:** *Defines resource requests and limits for the container.* [More](#resources)  
+45. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**limits:** *This section allows you to set upper bounds, or limits.* [More](#resourceslimits) 
+46. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Specifies the maximum amount of memory that the container can use.* [More](#resourceslimitsmem)   
+47. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Sets the maximum CPU usage for the container.* [More](#resourceslimitscpu) 
+48. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests.* [More](#resourcesrequest)  
+49. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container.* [More](#resourcesrequestmem)  
+50. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request* [More](#resourcesrequestcpu)   
+51. &emsp;&emsp;&emsp;&emsp;**securityContext:** *The securityContext field is used to configure security-related settings for a container.* [More](#securityContext)    
+52. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsUser:** *This field sets the user ID that the container should run as.* [More](#runAsUser)  
+53. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsGroup:** *Similar to `runAsUser`, this field sets the group ID for the process inside the container.* [More](#runAsGroup)  
+54. &emsp;&emsp;**dnsPolicy:** *DNS resolution policy for the Pod.*  
+55. &emsp;&emsp;**enableServiceLinks:** *If set, inject the service account's secret into Pod's environment.*  
+56. &emsp;&emsp;**nodeName:**  *The node name where the Pod should run.*  
+57. &emsp;&emsp;**preemptionPolicy:** *Indicates whether the Pod can be preempted.*  
+58. &emsp;&emsp;**priority:** *Priority value for the Pod.*  
+59. &emsp;&emsp;**restartPolicy:** *Restart policy for the containers in the Pod.*  
+60. &emsp;&emsp;**schedulerName:** *Name of the scheduler to use for scheduling.*  
+61. &emsp;&emsp;**securityContext:** *Security settings for the Pod.*  
+62. &emsp;&emsp;**serviceAccount:**  
+63. &emsp;&emsp;**serviceAccountName:** *Service account to associate with the Pod.*  
+64. &emsp;&emsp;**terminationGracePeriodSeconds:** *Time given to containers to terminate gracefully.*  
+65. &emsp;&emsp;**tolerations:** *List of tolerations for scheduling.*  
+66. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
+67. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
+68. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
+69. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
+70. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
+71. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
+72. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
+73. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
+74. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
+75. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
+76. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a `PersistentVolumeClaim (PVC)` as a volume.* [More](#persistentVolumeClaim)  
+77. **status:**  
+78. &emsp;&emsp;**conditions:** *Conditions represent the latest available observations of the Pod's current state.*  
+79. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
+80. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
+81. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
+82. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
+83. &emsp;&emsp;**containerStatuses:** *The status of each container in the Pod.*  
+84. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
+85. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
+86. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
+87. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
+88. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
+89. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state.* [More](#statuscontainerready)  
+90. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
+91. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started.* [More](#statuscontainerstarted)  
+92. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container.* [More](#statuscontainerstate)  
+93. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
+94. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
+95. &emsp;&emsp;**hostIP:** *IP address of the host to which the Pod is assigned.*  
+96. &emsp;&emsp;**phase:** *The current phase of the Pod.* [More](#statuscontainerphase)  
+97. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
+98. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod.* [More](#statuscontainerpodIps)  
+99. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
+100. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
+101. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
 
 
 ---
