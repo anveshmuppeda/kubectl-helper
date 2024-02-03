@@ -194,78 +194,83 @@ The exact contents of the `spec` field depend on the type of resource you are de
 65. **effect:** *Specifies the effect of the toleration. Possible values are `NoSchedule`, `PreferNoSchedule`, or `NoExecute`. This field indicates what action should be taken if the toleration conditions are met.* 
 
 <a name="tolerationKey"></a>  
-36. **key:** The key is the taint key that the toleration is associated with. A taint is a key-value pair associated with a node that affects pod scheduling.  
+66. **key:** The key is the taint key that the toleration is associated with. A taint is a key-value pair associated with a node that affects pod scheduling.  
 
 <a name="tolerationOperator"></a>  
-37. **operator:** Specifies the comparison operator for the toleration. Possible values are "Equal" or "Exists." If set to "Equal," the toleration is considered to match only if the key and value are equal. If set to "Exists," the toleration is considered to match if the key exists, regardless of the value.   
+67. **operator:** Specifies the comparison operator for the toleration. Possible values are "Equal" or "Exists." If set to "Equal," the toleration is considered to match only if the key and value are equal. If set to "Exists," the toleration is considered to match if the key exists, regardless of the value.   
 
 <a name="tolerationSeconds"></a>  
-38. **tolerationSeconds:** Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled. 
+68. **tolerationSeconds:** Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled. 
 
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
 </p>
 
 <a name="volumesname"></a>  
-40. **name:** The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.   
+70. **name:** The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.   
 
 <a name="emptyDir"></a>  
-41. **emptyDir:** This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.  
+71. **emptyDir:** This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.  
 
 <a name="hostPath"></a>  
-42. **hostPath:** Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.  
+72. **hostPath:** Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.  
 
 <a name="configMap"></a>  
-43. **configMap:** Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.   
+73. **configMap:** Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.   
 
 <a name="secret"></a>  
-44. **secret:** Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.  
+74. **secret:** Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.  
 
 <a name="persistentVolumeClaim"></a>  
-45. **persistentVolumeClaim:** This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.   
+75. **persistentVolumeClaim:** This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.   
 
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
 </p>
 
 <a name="statuslastProbeTime"></a>  
-48. **lastProbeTime:** This field typically contains the timestamp of the last time a probe was executed to check the condition. 
+78. **lastProbeTime:** This field typically contains the timestamp of the last time a probe was executed to check the condition. 
 
 <a name="statuslastTransitionTime"></a>  
-49. **lastTransitionTime:** This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.   
+79. **lastTransitionTime:** This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.   
 
 <a name="statusStatus"></a>  
-50. **status:** Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.   
+80. **status:** Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.   
 
 <a name="statusType"></a>  
-51. **type:** Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.  
+81. **type:** Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.   
 
 <a name="statusContainerID"></a>  
-53. **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*   
+83. **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*   
 
 <a name="statusImageID"></a>  
-55. **imageID:** A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.    
+85. **imageID:** A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.    
 
-<a name="statusLastState"></a>  
-56. **lastState:** Information about the previous state of the container before the current status.    
-
-<a name="statuscontainername"></a>  
-57. **name:** The name of the container as defined in the pod specification.   
-
-<a name="statuscontainerready"></a>  
-58. **ready:** Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").   
-
-<a name="statuscontainerstarted"></a>  
-60. **started:** ndicates whether the container has started. It's usually a boolean value ("true" or "false").    
-
-<a name="statuscontainerstate"></a>  
-61. **state:** Describes the current state of the container.   
-
-<a name="statuscontainerphase"></a>  
-65. **phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).   
- 
-<a name="statuscontainerpodIps"></a>
-67. **podIPs:** A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.  
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
 </p>
+
+<a name="statusLastState"></a>  
+86. **lastState:** Information about the previous state of the container before the current status.    
+
+<a name="statuscontainername"></a>  
+87. **name:** The name of the container as defined in the pod specification.   
+
+<a name="statuscontainerready"></a>  
+88. **ready:** Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").   
+
+<a name="statuscontainerstarted"></a>  
+90. **started:** ndicates whether the container has started. It's usually a boolean value ("true" or "false").    
+
+<a name="statuscontainerstate"></a>  
+91. **state:** Describes the current state of the container.   
+
+<a name="statuscontainerphase"></a>  
+95. **phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).   
+ 
+<a name="statuscontainerpodIps"></a>
+97. **podIPs:** A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.  
+
+<p align="center">
+  <a href="#fieldsexplaination">Go to Top ▲</a>
+</p>  
