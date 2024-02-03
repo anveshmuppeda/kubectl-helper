@@ -18,7 +18,7 @@
 16. &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
 17. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
 18. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
-19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.*  
+19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.*   
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).  
@@ -70,3 +70,9 @@
 68. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
 69. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
 70. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
+
+
+## More information about fields:  
+<a name="Cluster"></a>   
+
+19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.
