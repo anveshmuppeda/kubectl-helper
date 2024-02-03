@@ -44,29 +44,29 @@
 &emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.*   
 &emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.*  
 &emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.*  
-&emsp;&emsp;&emsp;*persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
+&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
 **status:**  
 &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
-&emsp;&emsp;- **lastProbeTime:**   
-&emsp;&emsp;&emsp;&emsp;**lastTransitionTime:**  
-&emsp;&emsp;**status:**  
-&emsp;&emsp;**type:**  
+&emsp;&emsp;- **lastProbeTime:** *This field typically contains the timestamp of the last time a probe was executed to check the condition.*   
+&emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.*  
+&emsp;&emsp;**status:** *Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.*  
+&emsp;&emsp;**type:** *Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.*  
 &emsp;&emsp;**containerStatuses:** The status of each container in the Pod.  
-&emsp;&emsp;- **containerID:**  
-&emsp;&emsp;**image:**  
-&emsp;&emsp;**imageID:**  
-&emsp;&emsp;**lastState:**  
-&emsp;&emsp;**name:**  
-&emsp;&emsp;**ready:**  
-&emsp;&emsp;**restartCount:**  
-&emsp;&emsp;**started:**  
-&emsp;&emsp;**state:**  
-&emsp;&emsp;  **running:**  
-&emsp;&emsp;&emsp;&emsp;**startedAt:**  
+&emsp;&emsp;- **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*  
+&emsp;&emsp;**image:** *The image of the container.*  
+&emsp;&emsp;**imageID:** *A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.*  
+&emsp;&emsp;**lastState:** *Information about the previous state of the container before the current status.*  
+&emsp;&emsp;**name:** *The name of the container as defined in the pod specification.*  
+&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").*  
+&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
+&emsp;&emsp;**started:** *ndicates whether the container has started. It's usually a boolean value ("true" or "false").*  
+&emsp;&emsp;**state:** *Describes the current state of the container. In the provided example, it's indicating that the container is in the "running" state.*  
+&emsp;&emsp;  **running:** *Describes the container state when it's currently running.*  
+&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running.*  
 &emsp;&emsp;**hostIP:** IP address of the host to which the Pod is assigned.  
 &emsp;&emsp;**phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).  
-&emsp;&emsp;**podIP:** The IP address assigned to the Pod.  
-&emsp;&emsp;**podIPs:** The IP addresses assigned to the Pod.  
-&emsp;&emsp;- **ip:**   
-&emsp;&emsp;**qosClass:** Quality of Service class assigned to the Pod.  
-&emsp;&emsp;**startTime:** Timestamp when the Pod was started.  
+&emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
+&emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.*  
+&emsp;&emsp;- **ip:** *The actual IP address assigned to the pod.*   
+&emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
+&emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
