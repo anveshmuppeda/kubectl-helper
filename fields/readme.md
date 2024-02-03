@@ -42,10 +42,10 @@
 39. &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
 40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.*  
 41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
-42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.*   
-43. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.*  
-44. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.*  
-45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
+42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. [More](#hostPath)  
+43. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
+44. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
+45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume.* [More](#persistentVolumeClaim)  
 46. **status:**  
 47. &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
 48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *This field typically contains the timestamp of the last time a probe was executed to check the condition.*   
@@ -82,8 +82,33 @@
 <a name="volemeMounts"></a>   
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.  
 
+<a name="volemeMountsName"></a> 
+21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.  
+
 <a name="emptyDir"></a> 
 41. **emptyDir:** This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod. 
 
-<a name="volemeMountsName"></a> 
-21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification. 
+<a name="hostPath"></a> 
+42. **hostPath:** Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod. 
+
+<a name="configMap"></a> 
+43. **configMap:** Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.   
+
+<a name="secret"></a>  
+44. **secret:** Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.  
+
+<a name="persistentVolumeClaim"></a>  
+45. **persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*   
+
+<a name="configMap"></a>  
+
+<a name="configMap"></a>  
+
+<a name="configMap"></a>  
+
+<a name="configMap"></a>  
+
+<a name="configMap"></a>  
+
+<a name="configMap"></a>  
+
