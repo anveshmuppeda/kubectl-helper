@@ -37,7 +37,7 @@
 34. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
 35. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
 36. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
-37. &emsp;&emsp;&emsp;&emsp;**lifecycle:** *This field allows you to specify actions that should be taken before a container starts (`preStop`) or after it stops (`postStart`).*   
+37. &emsp;&emsp;&emsp;&emsp;**lifecycle:** *This field allows you to specify actions that should be taken before a container state change* [More](#lifecycle)    
 38. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
 39. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
 40. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
@@ -170,6 +170,9 @@ The exact contents of the `spec` field depend on the type of resource you are de
 
 <a name="runAsGroup"></a>  
 **runAsGroup:** Similar to `runAsUser`, this field sets the group ID for the process inside the container. It defines the GID (Group ID) for the process. 
+
+<a name="lifecycle"></a>  
+37. **lifecycle:** This field allows you to specify actions that should be taken before a container starts (`preStop`) or after it stops (`postStart`).   
 
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
