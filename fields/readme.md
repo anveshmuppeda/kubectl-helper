@@ -73,6 +73,5 @@
 
 
 ## More information about fields:  
-<a name="Cluster"></a>   
-
+<a name="volemeMounts"></a>   
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.
