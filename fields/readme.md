@@ -30,6 +30,9 @@
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests.* [More](#resourcesrequest)  
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container.* [More](#resourcesrequestmem)   
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request* [More](#resourcesrequestcpu)   
+13. &emsp;&emsp;&emsp;&emsp;**securityContext:** *The securityContext field is used to configure security-related settings for a container.* [More](#securityContext)    
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsUser:** *This field sets the user ID that the container should run as.* [More](#runAsUser)  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**runAsGroup:** *Similar to `runAsUser`, this field sets the group ID for the process inside the container.* [More](#runAsGroup)  
 12. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
 13. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
 14. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
@@ -131,6 +134,15 @@
 
 <a name="resourcesrequestcpu"></a>  
 **cpu:** Specifies the initial CPU request for the container. It is also expressed as a decimal fraction.   
+
+<a name="securityContext"></a>  
+**securityContext:** The securityContext field is used to configure security-related settings for a container in Kubernetes. Specifically, the `runAsUser` and `runAsGroup` fields are part of this configuration.    
+
+<a name="runAsUser"></a>  
+**runAsUser:** This field sets the user ID that the container should run as. It defines the UID (User ID) for the process inside the container. It's a security best practice to run processes inside containers as non-root users to minimize the impact of security vulnerabilities.    
+
+<a name="runAsGroup"></a>  
+**runAsGroup:** Similar to `runAsUser`, this field sets the group ID for the process inside the container. It defines the GID (Group ID) for the process. 
 
 <a name="volemeMounts"></a>   
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.   
