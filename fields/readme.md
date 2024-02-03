@@ -6,7 +6,7 @@
 3. **metadata:** *Holds information about the resource.* [More](#metadata)   
 4. &emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
 5. &emsp;&emsp;**annotations:** *Allow you to attach arbitrary metadata to the resource.* [More](#annotations)   
-6. &emsp;&emsp;&emsp;&emsp;**annotationSample:** *sample Annotation*   
+6. &emsp;&emsp;&emsp;&emsp;**app.version:** *sample Annotation*   
 5. &emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
 6. &emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
 7. &emsp;&emsp;**name:** *The name of the Resource.*   
