@@ -47,10 +47,10 @@
 45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
 46. **status:**  
 47. &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
-48. &emsp;&emsp;- **lastProbeTime:** *This field typically contains the timestamp of the last time a probe was executed to check the condition.*   
+48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *This field typically contains the timestamp of the last time a probe was executed to check the condition.*   
 49. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.*  
-50. &emsp;&emsp;**status:** *Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.*  
-51. &emsp;&emsp;**type:** *Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.*  
+50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.*  
+51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.*  
 52. &emsp;&emsp;**containerStatuses:** The status of each container in the Pod.  
 53. &emsp;&emsp;- **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*  
 54. &emsp;&emsp;**image:** *The image of the container.*  
