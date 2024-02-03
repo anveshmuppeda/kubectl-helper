@@ -52,21 +52,21 @@
 50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.*  
 51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.*  
 52. &emsp;&emsp;**containerStatuses:** The status of each container in the Pod.  
-53. &emsp;&emsp;- **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*  
-54. &emsp;&emsp;**image:** *The image of the container.*  
-55. &emsp;&emsp;**imageID:** *A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.*  
-56. &emsp;&emsp;**lastState:** *Information about the previous state of the container before the current status.*  
-57. &emsp;&emsp;**name:** *The name of the container as defined in the pod specification.*  
-58. &emsp;&emsp;**ready:** *Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").*  
-59. &emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
-60. &emsp;&emsp;**started:** *ndicates whether the container has started. It's usually a boolean value ("true" or "false").*  
-61. &emsp;&emsp;**state:** *Describes the current state of the container. In the provided example, it's indicating that the container is in the "running" state.*  
-62. &emsp;&emsp;  **running:** *Describes the container state when it's currently running.*  
-63. &emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
+53. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*  
+54. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
+55. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.*  
+56. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state of the container before the current status.*  
+57. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container as defined in the pod specification.*  
+58. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").*  
+59. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
+60. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started. It's usually a boolean value ("true" or "false").*  
+61. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container. In the provided example, it's indicating that the container is in the "running" state.*  
+62. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
+63. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
 64. &emsp;&emsp;**hostIP:** IP address of the host to which the Pod is assigned.  
 65. &emsp;&emsp;**phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).  
 66. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
 67. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.*  
-68. &emsp;&emsp;- **ip:** *The actual IP address assigned to the pod.*   
+68. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
 69. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
 70. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
