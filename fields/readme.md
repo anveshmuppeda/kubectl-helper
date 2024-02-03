@@ -14,8 +14,8 @@
 9. &emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
 10. &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
 11. **spec:**  *It stands for "specification" and is used to describe the desired state of a Kubernetes resource* [More](#spec)    
-12. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.*  
-13.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container named. The name field is used to identify the init container within the Pod.*   
+12. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod.* [More](#initContainers)    
+13.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container name.* [More](#initContainersName)   
 13.  &emsp;&emsp;&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
 13. &emsp;&emsp;&emsp;&emsp;**command:** *Specifies the command to run in the init container.*
 13. &emsp;&emsp;&emsp;&emsp;**env:** *Defines environment variables for the init container. *
@@ -119,6 +119,12 @@
 The `spec` field provides a declarative way to define how the resources should behave and what their configuration should be. When you create or update a resource, Kubernetes uses the information in the `spec` field to reconcile the actual state with the desired state, making adjustments as needed.
 
 The exact contents of the `spec` field depend on the type of resource you are defining. It encapsulates the configuration, parameters, and other details that dictate how the resource should function within the Kubernetes cluster. 
+
+<a name="initContainers"></a>   
+**initContainers:** This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.   
+
+<a name="initContainersName"></a>   
+**name:** *This defines an init container name. The name field is used to identify the init container within the Pod.* 
 
 <a name="annotations"></a>   
 5. **annotations:** *Annotations allow you to attach arbitrary metadata to the resource. They are not used by Kubernetes itself but can be leveraged by tools, controllers, or custom scripts to provide additional context or configuration.*     
