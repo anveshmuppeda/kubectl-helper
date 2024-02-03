@@ -37,7 +37,7 @@
 34. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
 35. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
 36. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
-37. &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
+37. &emsp;&emsp;&emsp;&emsp;**lifecycle:** *This field allows you to specify actions that should be taken before a container starts (`preStop`) or after it stops (`postStart`).*   
 38. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
 39. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
 40. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
@@ -103,7 +103,6 @@
 100. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
 101. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
 
-
 ---
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
@@ -119,7 +118,7 @@
 
 
 <a name="spec"></a>   
-**spec:**
+13. **spec:**
 The `spec` field provides a declarative way to define how the resources should behave and what their configuration should be. When you create or update a resource, Kubernetes uses the information in the `spec` field to reconcile the actual state with the desired state, making adjustments as needed.
 
 The exact contents of the `spec` field depend on the type of resource you are defining. It encapsulates the configuration, parameters, and other details that dictate how the resource should function within the Kubernetes cluster. 
@@ -129,32 +128,35 @@ The exact contents of the `spec` field depend on the type of resource you are de
 </p>
 
 <a name="initContainers"></a>   
-**initContainers:** This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.   
+14. **initContainers:** This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.   
 
 <a name="initContainersName"></a>   
-**name:** *This defines an init container name. The name field is used to identify the init container within the Pod.* 
+15. **name:** (InitContainerName)This defines an init container name. The name field is used to identify the init container within the Pod.
 
+<p align="center">
+  <a href="#fieldsexplaination">Go to Top ▲</a>
+</p>
 
 <a name="resources"></a>   
-**resources:** Defines resource requests and limits for the init-container, container, or mutli container. This controls the amount of CPU and memory resources the init container can use.   
+23 & 44. **resources:** Defines resource requests and limits for the init-container, container, or mutli container. This controls the amount of CPU and memory resources the init container can use.   
 
 <a name="resourceslimits"></a>   
-**limits:** This section allows you to set upper bounds, or limits, on the amount of resources that a container can consume. These limits are enforced by the Kubernetes scheduler and the container runtime.  
+24 & 45. **limits:** This section allows you to set upper bounds, or limits, on the amount of resources that a container can consume. These limits are enforced by the Kubernetes scheduler and the container runtime.  
 
 <a name="resourceslimitsmem"></a>   
-**memory:** Specifies the maximum amount of memory that the container can use. You can use suffixes like `Ki`, `Mi`, `Gi`, etc., to denote kilobytes, megabytes, gigabytes, etc.  
+25 & 46. **memory:** (Resources Limit Memory)Specifies the maximum amount of memory that the container can use. You can use suffixes like `Ki`, `Mi`, `Gi`, etc., to denote kilobytes, megabytes, gigabytes, etc.  
 
 <a name="resourceslimitscpu"></a>   
-**cpu:** Sets the maximum CPU usage for the container. You can specify this value as a decimal fraction, such as `0.5` for half of a CPU core.  
+26 & 47. **cpu:** (Resource Limit CPU)Sets the maximum CPU usage for the container. You can specify this value as a decimal fraction, such as `0.5` for half of a CPU core.  
 
 <a name="resourcesrequest"></a>   
-**requests:** This section defines the amount of resources that a container initially requests when it is scheduled onto a node. It represents the guaranteed resources that will be available to the container.   
+27 & 48. **requests:** This section defines the amount of resources that a container initially requests when it is scheduled onto a node. It represents the guaranteed resources that will be available to the container.   
 
 <a name="resourcesrequestmem"></a>   
-**memory:** Indicates the initial amount of memory requested by the container. Similar to `limits`, you can use suffixes for different units.   
+28 & 49. **memory:** (Resource Request Memory)Indicates the initial amount of memory requested by the container. Similar to `limits`, you can use suffixes for different units.   
 
 <a name="resourcesrequestcpu"></a>  
-**cpu:** Specifies the initial CPU request for the container. It is also expressed as a decimal fraction.   
+29 & 50. **cpu:** (Resource Request CPU)Specifies the initial CPU request for the container. It is also expressed as a decimal fraction.   
 
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
