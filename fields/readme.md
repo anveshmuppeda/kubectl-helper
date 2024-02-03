@@ -22,52 +22,52 @@
 19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag. [More](#volemereadOnly)  
-23. &emsp;&emsp;**dnsPolicy:** DNS resolution policy for the Pod.  
-24. &emsp;&emsp;**enableServiceLinks:** If set, inject the service account's secret into Pod's environment.  
-25. &emsp;&emsp;**nodeName:**  The node name where the Pod should run.  
-26. &emsp;&emsp;**preemptionPolicy:** Indicates whether the Pod can be preempted.  
-27. &emsp;&emsp;**priority:** Priority value for the Pod.  
-28. &emsp;&emsp;**restartPolicy:** Restart policy for the containers in the Pod.  
-29. &emsp;&emsp;**schedulerName:** Name of the scheduler to use for scheduling.  
-30. &emsp;&emsp;**securityContext:** Security settings for the Pod.  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
+23. &emsp;&emsp;**dnsPolicy:** *DNS resolution policy for the Pod.*  
+24. &emsp;&emsp;**enableServiceLinks:** *If set, inject the service account's secret into Pod's environment.*  
+25. &emsp;&emsp;**nodeName:**  *The node name where the Pod should run.*  
+26. &emsp;&emsp;**preemptionPolicy:** *Indicates whether the Pod can be preempted.*  
+27. &emsp;&emsp;**priority:** *Priority value for the Pod.*  
+28. &emsp;&emsp;**restartPolicy:** *Restart policy for the containers in the Pod.*  
+29. &emsp;&emsp;**schedulerName:** *Name of the scheduler to use for scheduling.*  
+30. &emsp;&emsp;**securityContext:** *Security settings for the Pod.*  
 31. &emsp;&emsp;**serviceAccount:**  
-32. &emsp;&emsp;**serviceAccountName:** Service account to associate with the Pod.  
-33. &emsp;&emsp;**terminationGracePeriodSeconds:** Time given to containers to terminate gracefully.  
-34. &emsp;&emsp;**tolerations:** List of tolerations for scheduling.  
+32. &emsp;&emsp;**serviceAccountName:** *Service account to associate with the Pod.*  
+33. &emsp;&emsp;**terminationGracePeriodSeconds:** *Time given to containers to terminate gracefully.*  
+34. &emsp;&emsp;**tolerations:** *List of tolerations for scheduling.*  
 35. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
 36. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
 37. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
 38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
-39. &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
+39. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
 40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
 41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
-42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. [More](#hostPath)  
+42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
 43. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
 44. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
 45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume.* [More](#persistentVolumeClaim)  
 46. **status:**  
-47. &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
+47. &emsp;&emsp;**conditions:** *Conditions represent the latest available observations of the Pod's current state.*  
 48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
 49. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
 50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
 51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
-52. &emsp;&emsp;**containerStatuses:** The status of each container in the Pod.  
+52. &emsp;&emsp;**containerStatuses:** *The status of each container in the Pod.*  
 53. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
 54. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
 55. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
 56. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
 57. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
-58. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").*  
+58. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state.* [More](#statuscontainerready)  
 59. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
-60. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started. It's usually a boolean value ("true" or "false").*  
-61. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container. In the provided example, it's indicating that the container is in the "running" state.*  
+60. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started.* [More](#statuscontainerstarted)  
+61. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container.* [More](#statuscontainerstate)  
 62. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
 63. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
-64. &emsp;&emsp;**hostIP:** IP address of the host to which the Pod is assigned.  
-65. &emsp;&emsp;**phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).  
+64. &emsp;&emsp;**hostIP:** *IP address of the host to which the Pod is assigned.*  
+65. &emsp;&emsp;**phase:** *The current phase of the Pod.* [More](#statuscontainerphase)  
 66. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
-67. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.*  
+67. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod.* [More](#statuscontainerpodIps)  
 68. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
 69. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
 70. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
@@ -142,11 +142,17 @@
 <a name="statuscontainername"></a>  
 57. **name:** The name of the container as defined in the pod specification.   
 
-<a name="statusImageID"></a>  
+<a name="statuscontainerready"></a>  
+58. **ready:** Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").   
 
-<a name="statusImageID"></a>  
+<a name="statuscontainerstarted"></a>  
+60. **started:** ndicates whether the container has started. It's usually a boolean value ("true" or "false").    
 
-<a name="statusImageID"></a>  
+<a name="statuscontainerstate"></a>  
+61. **state:** Describes the current state of the container.   
 
-<a name="statusImageID"></a>  
-
+<a name="statuscontainerphase"></a>  
+65. **phase:** The current phase of the Pod (Pending, Running, Succeeded, Failed, Unknown).   
+ 
+<a name="statuscontainerpodIps"></a>
+67. **podIPs:** A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.  
