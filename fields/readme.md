@@ -21,7 +21,7 @@
 18. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
 19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
-21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.*   
+21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).  
 23. &emsp;&emsp;**dnsPolicy:** DNS resolution policy for the Pod.  
 24. &emsp;&emsp;**enableServiceLinks:** If set, inject the service account's secret into Pod's environment.  
@@ -83,4 +83,7 @@
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.  
 
 <a name="emptyDir"></a> 
-41. **emptyDir:** *This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.* 
+41. **emptyDir:** This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod. 
+
+<a name="volemeMountsName"></a> 
+21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification. 
