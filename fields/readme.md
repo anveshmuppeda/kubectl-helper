@@ -71,36 +71,36 @@
 68. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
 69. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
 70. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
-72. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
-73. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
-74. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
-75. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
-76. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a `PersistentVolumeClaim (PVC)` as a volume.* [More](#persistentVolumeClaim)  
-77. **status:**  
-78. &emsp;&emsp;**conditions:** *Conditions represent the latest available observations of the Pod's current state.*  
-79. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
-80. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
-81. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
-82. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
-83. &emsp;&emsp;**containerStatuses:** *The status of each container in the Pod.*  
-84. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
-85. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
-86. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
-87. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
-88. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
-89. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state.* [More](#statuscontainerready)  
-90. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
-91. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started.* [More](#statuscontainerstarted)  
-92. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container.* [More](#statuscontainerstate)  
-93. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
-94. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
-95. &emsp;&emsp;**hostIP:** *IP address of the host to which the Pod is assigned.*  
-96. &emsp;&emsp;**phase:** *The current phase of the Pod.* [More](#statuscontainerphase)  
-97. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
-98. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod.* [More](#statuscontainerpodIps)  
-99. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
-100. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
-101. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
+71. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](emptyDir)   
+72. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
+73. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
+74. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume.* [More](#secret)   
+75. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a `PersistentVolumeClaim (PVC)` as a volume.* [More](#persistentVolumeClaim)  
+76. **status:**  
+77. &emsp;&emsp;**conditions:** *Conditions represent the latest available observations of the Pod's current state.*  
+78. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
+79. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
+80. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
+81. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
+82. &emsp;&emsp;**containerStatuses:** *The status of each container in the Pod.*  
+83. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
+84. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
+85. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
+86. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
+87. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
+88. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state.* [More](#statuscontainerready)  
+89. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
+90. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started.* [More](#statuscontainerstarted)  
+91. &emsp;&emsp;&emsp;&emsp;**state:** *Describes the current state of the container.* [More](#statuscontainerstate)  
+92. &emsp;&emsp;&emsp;&emsp;&emsp;**running:** *Describes the container state when it's currently running.*  
+93. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**startedAt:** *Timestamp indicating when the container started running*  
+94. &emsp;&emsp;**hostIP:** *IP address of the host to which the Pod is assigned.*  
+95. &emsp;&emsp;**phase:** *The current phase of the Pod.* [More](#statuscontainerphase)  
+96. &emsp;&emsp;**podIP:** *The IP address assigned to the Pod.*  
+97. &emsp;&emsp;**podIPs:** *A list of IP addresses assigned to the pod.* [More](#statuscontainerpodIps)  
+98. &emsp;&emsp;-&emsp;**ip:** *The actual IP address assigned to the pod.*   
+99. &emsp;&emsp;**qosClass:** *Quality of Service class assigned to the Pod.* 
+100. &emsp;&emsp;**startTime:** *Timestamp when the Pod was started.*  
 
 ---
 <p align="center">
