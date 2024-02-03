@@ -16,13 +16,20 @@
 11. **spec:**  
 12. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.*  
 13.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container named. The name field is used to identify the init container within the Pod.*   
-13.  &emsp;&emsp;-&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
+13.  &emsp;&emsp;&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
 13. &emsp;&emsp;&emsp;&emsp;**command:** *Specifies the command to run in the init container.*
 13. &emsp;&emsp;&emsp;&emsp;**env:** *Defines environment variables for the init container. *
 14. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the init container.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
 22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
+13. &emsp;&emsp;&emsp;&emsp;**resources:** *Defines resource requests and limits for the init container. This controls the amount of CPU and memory resources the init container can use.*  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**limits:** *This section allows you to set upper bounds, or limits, on the amount of resources that a container can consume. These limits are enforced by the Kubernetes scheduler and the container runtime.* 
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Specifies the maximum amount of memory that the container can use. You can use suffixes like `Ki`, `Mi`, `Gi`, etc., to denote kilobytes, megabytes, gigabytes, etc.*   
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Sets the maximum CPU usage for the container. You can specify this value as a decimal fraction, such as `0.5` for half of a CPU core.* 
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**requests:** *This section defines the amount of resources that a container initially requests when it is scheduled onto a node. It represents the guaranteed resources that will be available to the container.*  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**memory:** *Indicates the initial amount of memory requested by the container. Similar to `limits`, you can use suffixes for different units.*  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**cpu:** *Specifies the initial CPU request for the container. It is also expressed as a decimal fraction.*   
 12. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
 13. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
 14. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
