@@ -14,6 +14,15 @@
 9. &emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
 10. &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
 11. **spec:**  
+12. &emsp;&emsp;**initContainers:** *This field is a list that specifies the init containers for the Pod. Init containers are executed before the main containers and are commonly used for setup or initialization tasks.*  
+13.  &emsp;&emsp;-&emsp;&emsp;**name:** *This defines an init container named. The name field is used to identify the init container within the Pod.*   
+13.  &emsp;&emsp;-&emsp;&emsp;**image:** *Specifies the container image to be used for the init container.*  
+13. &emsp;&emsp;&emsp;&emsp;**command:** *Specifies the command to run in the init container.*
+13. &emsp;&emsp;&emsp;&emsp;**env:** *Defines environment variables for the init container. *
+14. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the init container.* [More](#volemeMounts)  
+20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
+21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** *A boolean flag.* [More](#volemereadOnly)  
 12. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
 13. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
 14. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
