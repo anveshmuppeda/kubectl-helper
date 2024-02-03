@@ -61,17 +61,16 @@
 58. &emsp;&emsp;**priority:** *Priority value for the Pod.*  
 59. &emsp;&emsp;**restartPolicy:** *Restart policy for the containers in the Pod.*  
 60. &emsp;&emsp;**schedulerName:** *Name of the scheduler to use for scheduling.*  
-61. &emsp;&emsp;**securityContext:** *Security settings for the Pod.*  
-62. &emsp;&emsp;**serviceAccount:**  
-63. &emsp;&emsp;**serviceAccountName:** *Service account to associate with the Pod.*  
-64. &emsp;&emsp;**terminationGracePeriodSeconds:** *Time given to containers to terminate gracefully.*  
-65. &emsp;&emsp;**tolerations:** *List of tolerations for scheduling.*  
-66. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
-67. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
-68. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
-69. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
-70. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
-71. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
+61. &emsp;&emsp;**serviceAccount:**  
+62. &emsp;&emsp;**serviceAccountName:** *Service account to associate with the Pod.*  
+63. &emsp;&emsp;**terminationGracePeriodSeconds:** *Time given to containers to terminate gracefully.*  
+64. &emsp;&emsp;**tolerations:** *List of tolerations for scheduling.*  
+65. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
+66. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
+67. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
+68. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
+69. &emsp;&emsp;**volumes:** *List of volumes that can be mounted by containers.*  
+70. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
 72. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
 73. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem.* [More](#hostPath)  
 74. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume.* [More](#configMap)    
@@ -163,13 +162,13 @@ The exact contents of the `spec` field depend on the type of resource you are de
 </p>
 
 <a name="securityContext"></a>  
-**securityContext:** The securityContext field is used to configure security-related settings for a container in Kubernetes. Specifically, the `runAsUser` and `runAsGroup` fields are part of this configuration.    
+30 & 51. **securityContext:** The securityContext field is used to configure security-related settings for a container in Kubernetes. Specifically, the `runAsUser` and `runAsGroup` fields are part of this configuration.    
 
 <a name="runAsUser"></a>  
-**runAsUser:** This field sets the user ID that the container should run as. It defines the UID (User ID) for the process inside the container. It's a security best practice to run processes inside containers as non-root users to minimize the impact of security vulnerabilities.    
+31 & 52. **runAsUser:** This field sets the user ID that the container should run as. It defines the UID (User ID) for the process inside the container. It's a security best practice to run processes inside containers as non-root users to minimize the impact of security vulnerabilities.    
 
 <a name="runAsGroup"></a>  
-**runAsGroup:** Similar to `runAsUser`, this field sets the group ID for the process inside the container. It defines the GID (Group ID) for the process. 
+32 & 53. **runAsGroup:** Similar to `runAsUser`, this field sets the group ID for the process inside the container. It defines the GID (Group ID) for the process. 
 
 <a name="lifecycle"></a>  
 37. **lifecycle:** This field allows you to specify actions that should be taken before a container starts (`preStop`) or after it stops (`postStart`).   
@@ -179,20 +178,20 @@ The exact contents of the `spec` field depend on the type of resource you are de
 </p>
 
 <a name="volemeMounts"></a>   
-19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.   
+19 & 40. **volumeMounts:** This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.   
 
 <a name="volemeMountsName"></a>  
-21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.    
+21 & 42. **name:** (Volume mount name)The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.    
 
 <a name="volemereadOnly"></a>   
-22. **readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).
+22 & 43. **readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).
 
 <p align="center">
   <a href="#fieldsexplaination">Go to Top ▲</a>
 </p>
 
 <a name="tolerationEffect"></a>  
-35. **effect:** *Specifies the effect of the toleration. Possible values are `NoSchedule`, `PreferNoSchedule`, or `NoExecute`. This field indicates what action should be taken if the toleration conditions are met.* 
+65. **effect:** *Specifies the effect of the toleration. Possible values are `NoSchedule`, `PreferNoSchedule`, or `NoExecute`. This field indicates what action should be taken if the toleration conditions are met.* 
 
 <a name="tolerationKey"></a>  
 36. **key:** The key is the taint key that the toleration is associated with. A taint is a key-value pair associated with a node that affects pod scheduling.  
