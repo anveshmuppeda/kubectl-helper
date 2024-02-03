@@ -41,7 +41,7 @@
 38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:**  
 39. &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
 40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.*  
-41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.*   
+41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
 42. &emsp;&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.*   
 43. &emsp;&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.*  
 44. &emsp;&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.*  
@@ -80,4 +80,7 @@
 
 ## More information about fields:  
 <a name="volemeMounts"></a>   
-19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.
+19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.  
+
+<a name="emptyDir"></a> 
+41. **emptyDir:** *This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.* 
