@@ -48,16 +48,16 @@
 45. &emsp;&emsp;&emsp;&emsp;**persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume.* [More](#persistentVolumeClaim)  
 46. **status:**  
 47. &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
-48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *This field typically contains the timestamp of the last time a probe was executed to check the condition.*   
-49. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.*  
-50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.*  
-51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.*  
+48. &emsp;&emsp;- &emsp;&emsp;**lastProbeTime:** *The last time a probe was executed* [More](#statuslastProbeTime)   
+49. &emsp;&emsp;&emsp;&emsp;**lastTransitionTime:** *The last time the condition transitioned.* [More](#statuslastTransitionTime)  
+50. &emsp;&emsp;&emsp;&emsp;**status:** *Represents the current status of the condition.* [More](#statusStatus)  
+51. &emsp;&emsp;&emsp;&emsp;**type:** *Describes the type of condition.*  [More](#statusType) 
 52. &emsp;&emsp;**containerStatuses:** The status of each container in the Pod.  
-53. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*  
+53. &emsp;&emsp;-&emsp;&emsp;**containerID:** *A unique identifier for the container instance.* [More](#statusContainerID)   
 54. &emsp;&emsp;&emsp;&emsp;**image:** *The image of the container.*  
-55. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.*  
-56. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state of the container before the current status.*  
-57. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container as defined in the pod specification.*  
+55. &emsp;&emsp;&emsp;&emsp;**imageID:** *A unique identifier for the container image.* [More](#statusImageID)  
+56. &emsp;&emsp;&emsp;&emsp;**lastState:** *Information about the previous state.* [More](#statusLastState)  
+57. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.* [More](#statuscontainername)  
 58. &emsp;&emsp;&emsp;&emsp;**ready:** *Indicates whether the container is in a ready state. It's usually a boolean value ("true" or "false").*  
 59. &emsp;&emsp;&emsp;&emsp;**restartCount:** *The number of times the container has been restarted.*  
 60. &emsp;&emsp;&emsp;&emsp;**started:** *ndicates whether the container has started. It's usually a boolean value ("true" or "false").*  
@@ -118,15 +118,35 @@
 <a name="persistentVolumeClaim"></a>  
 45. **persistentVolumeClaim:** This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.   
 
-<a name="configMap"></a>  
-46. 
-<a name="configMap"></a>  
+<a name="statuslastProbeTime"></a>  
+48. **lastProbeTime:** This field typically contains the timestamp of the last time a probe was executed to check the condition. 
 
-<a name="configMap"></a>  
+<a name="statuslastTransitionTime"></a>  
+49. **lastTransitionTime:** This field usually holds the timestamp of the last time the condition transitioned from one status to another. It indicates when a change in the condition occurred.   
 
-<a name="configMap"></a>  
+<a name="statusStatus"></a>  
+50. **status:** Represents the current status of the condition. It could be "True," "False," or "Unknown," indicating whether the condition is currently satisfied, not satisfied, or the status is unknown.   
 
-<a name="configMap"></a>  
+<a name="statusType"></a>  
+51. **type:** Describes the type of condition. This field helps identify what aspect of the resource's status is being represented. For example, it might be related to readiness, liveness, or some other custom condition.  
 
-<a name="configMap"></a>  
+<a name="statusContainerID"></a>  
+53. **containerID:** *A unique identifier for the container instance. This ID is typically specific to the container runtime (like Docker).*   
+
+<a name="statusImageID"></a>  
+55. **imageID:** A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.    
+
+<a name="statusLastState"></a>  
+56. **lastState:** Information about the previous state of the container before the current status.    
+
+<a name="statuscontainername"></a>  
+57. **name:** The name of the container as defined in the pod specification.   
+
+<a name="statusImageID"></a>  
+
+<a name="statusImageID"></a>  
+
+<a name="statusImageID"></a>  
+
+<a name="statusImageID"></a>  
 
