@@ -1,5 +1,5 @@
 # Kubernetes Pod Fields explaination  
-<a name="fieldsexplaination"></a>
+<a name="fieldsexplanation"></a>
 
 1. **apiVersion:** *The version of the Kubernetes API to use for this object.*  
 2. **kind:** *The type of Resource.*   
@@ -104,7 +104,7 @@
 
 ---
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 ## More information about fields:  
@@ -123,7 +123,7 @@ The `spec` field provides a declarative way to define how the resources should b
 The exact contents of the `spec` field depend on the type of resource you are defining. It encapsulates the configuration, parameters, and other details that dictate how the resource should function within the Kubernetes cluster. 
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="initContainers"></a>   
@@ -133,7 +133,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 15. **name:** (InitContainerName)This defines an init container name. The name field is used to identify the init container within the Pod.
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="resources"></a>   
@@ -158,7 +158,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 29 & 50. **cpu:** (Resource Request CPU)Specifies the initial CPU request for the container. It is also expressed as a decimal fraction.   
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="securityContext"></a>  
@@ -174,7 +174,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 37. **lifecycle:** This field allows you to specify actions that should be taken before a container starts (`preStop`) or after it stops (`postStart`).   
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="volemeMounts"></a>   
@@ -187,7 +187,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 22 & 43. **readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="tolerationEffect"></a>  
@@ -203,7 +203,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 68. **tolerationSeconds:** Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled. 
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="volumesname"></a>  
@@ -225,7 +225,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 75. **persistentVolumeClaim:** This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.   
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="statuslastProbeTime"></a>  
@@ -247,7 +247,7 @@ The exact contents of the `spec` field depend on the type of resource you are de
 85. **imageID:** A unique identifier for the container image. Like `containerID`, it's specific to the container runtime.    
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
 
 <a name="statusLastState"></a>  
@@ -272,9 +272,9 @@ The exact contents of the `spec` field depend on the type of resource you are de
 97. **podIPs:** A list of IP addresses assigned to the pod. It's common to have only one IP address in this list, but in certain scenarios (e.g., pods with multiple network interfaces), there might be more than one.  
 
 <p align="center">
-  <a href="#fieldsexplaination">Go to Top ▲</a>
+  <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>  
 
 ---  
-
+Pod Fields explanation diagrammatically 
 ![Alt text](fields_k8s.png)
