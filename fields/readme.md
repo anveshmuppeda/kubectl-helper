@@ -39,12 +39,12 @@
 &emsp;&emsp;&emsp;&emsp;**operator:**  
 &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:**  
 &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
-&emsp;&emsp;-  **name:** *The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.*  
-&emsp;&emsp;&emsp;   **emptyDir:** *This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.*   
-&emsp;&emsp;   **hostPath:** *Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.*   
-&emsp;&emsp;   **configMap:** *Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.*  
-&emsp;&emsp;   **secret:** *Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.*  
-&emsp;&emsp;   *persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
+&emsp;&emsp;&emsp;-  **name:** *The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.*  
+&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type. An emptyDir volume is initially empty and is created when a Pod is assigned to a node. It can be used for temporary storage that is shared among containers in the same Pod.*   
+&emsp;&emsp;&emsp;**hostPath:** *Specifies a path on the host machine's filesystem. This volume type mounts a directory or file into a Pod.*   
+&emsp;&emsp;&emsp;**configMap:** *Mounts a ConfigMap as a volume. ConfigMaps are used to store configuration data as key-value pairs.*  
+&emsp;&emsp;&emsp;**secret:** *Mounts a Secret as a volume. Secrets are used to store sensitive information, such as passwords or API keys.*  
+&emsp;&emsp;&emsp;*persistentVolumeClaim:** *This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.*  
 **status:**  
 &emsp;&emsp;**conditions:** Conditions represent the latest available observations of the Pod's current state.  
 &emsp;&emsp;- **lastProbeTime:**   
