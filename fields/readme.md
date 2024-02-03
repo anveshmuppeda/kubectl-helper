@@ -1,24 +1,24 @@
 # Kubernetes Pod Fields explaination  
 
-**apiVersion:** *The version of the Kubernetes API to use for this object.*  
-**kind:** *The type of Resource.*   
-**metadata:**  
-&emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
-&emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
-&emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
-&emsp;&emsp;**name:** *The name of the Resource.*   
-&emsp;&emsp;**namespace:** *The namespace to which the resource belongs.*   
-&emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
-&emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
-**spec:**  
-&emsp;&emsp;**containers:** *List of containers within the Pod.*  
-&emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
-&emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
-&emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
-&emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
-&emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
-&emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
-&emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.*  
+1. **apiVersion:** *The version of the Kubernetes API to use for this object.*  
+2. **kind:** *The type of Resource.*   
+3. **metadata:**  
+4. &emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
+5. &emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
+6. &emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
+7. &emsp;&emsp;**name:** *The name of the Resource.*   
+8. &emsp;&emsp;**namespace:** *The namespace to which the resource belongs.*   
+9. &emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
+10. &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
+11. **spec:**  
+12. &emsp;&emsp;**containers:** *List of containers within the Pod.*  
+13. &emsp;&emsp;-&emsp;&emsp;**image:** *The container image to run.*   
+14. &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
+15. &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
+16. &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
+17. &emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
+18. &emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
+19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.*  
 &emsp;&emsp;&emsp;&emsp;- **mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.*   
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).  
