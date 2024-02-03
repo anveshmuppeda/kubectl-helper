@@ -1,27 +1,27 @@
 # Kubernetes Pod Fields explaination  
 
 **apiVersion:** *The version of the Kubernetes API to use for this object.*  
-**kind:** The type of Resource.   
+**kind:** *The type of Resource.*   
 **metadata:**  
-&emsp;&emsp;**creationTimestamp:** The timestamp when the resource was created.   
-&emsp;&emsp;**labels:** Key-value pairs used to organize and select Pods.  
-&emsp;&emsp;&emsp;&emsp;**application:** sample label   
-&emsp;&emsp;**name:** The name of the Resource.   
-&emsp;&emsp;**namespace:** The namespace to which the resource belongs.   
-&emsp;&emsp;**resourceVersion:** An opaque value that represents the resource's version.    
-&emsp;&emsp;**uid:** A unique identifier for the Resource.   
+&emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
+&emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
+&emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
+&emsp;&emsp;**name:** *The name of the Resource.*   
+&emsp;&emsp;**namespace:** *The namespace to which the resource belongs.*   
+&emsp;&emsp;**resourceVersion:** *An opaque value that represents the resource's version.*    
+&emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
 **spec:**  
-&emsp;&emsp;**containers:** List of containers within the Pod.  
-&emsp;&emsp;- **image:** The container image to run.   
-&emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** Policy for pulling the container image.   
-&emsp;&emsp;&emsp;&emsp;**name:** The name of the container.   
-&emsp;&emsp;&emsp;&emsp;**resources:** Resource constraints for the container.   
-&emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** The path where the container writes its termination message.   
-&emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** Policy for the termination message.  
-&emsp;&emsp;&emsp;&emsp;**volumeMounts:** List of volume mounts for the container.  
-&emsp;&emsp;&emsp;&emsp;- **mountPath:**   
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:**   
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:**  
+&emsp;&emsp;**containers:** *List of containers within the Pod.*  
+&emsp;&emsp;- **image:** *The container image to run.*   
+&emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
+&emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
+&emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
+&emsp;&emsp;&emsp;&emsp;**terminationMessagePath:** *The path where the container writes its termination message.*   
+&emsp;&emsp;&emsp;&emsp;**terminationMessagePolicy:** *Policy for the termination message.*  
+&emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.*  
+&emsp;&emsp;&emsp;&emsp;- **mountPath:** *Specifies the path within the container where the volume should be mounted.*  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.*   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).  
 &emsp;&emsp;**dnsPolicy:** DNS resolution policy for the Pod.  
 &emsp;&emsp;**enableServiceLinks:** If set, inject the service account's secret into Pod's environment.  
 &emsp;&emsp;**nodeName:**  The node name where the Pod should run.  
