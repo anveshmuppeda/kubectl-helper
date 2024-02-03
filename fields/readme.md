@@ -22,7 +22,7 @@
 19. &emsp;&emsp;&emsp;&emsp;**volumeMounts:** *This is a list that defines the volume mounts for the container.* [More](#volemeMounts)  
 20. &emsp;&emsp;&emsp;&emsp;-&emsp;&emsp;**mountPath:** *Specifies the path within the container where the volume should be mounted.*  
 21. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**name:** *The name of the volume.* [More](#volemeMountsName)   
-22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).  
+22. &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**readOnly:** A boolean flag. [More](#volemereadOnly)  
 23. &emsp;&emsp;**dnsPolicy:** DNS resolution policy for the Pod.  
 24. &emsp;&emsp;**enableServiceLinks:** If set, inject the service account's secret into Pod's environment.  
 25. &emsp;&emsp;**nodeName:**  The node name where the Pod should run.  
@@ -37,8 +37,8 @@
 34. &emsp;&emsp;**tolerations:** List of tolerations for scheduling.  
 35. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
 36. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
-37. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration. Possible values are "Equal" or "Exists." If set to "Equal," the toleration is considered to match only if the key and value are equal. If set to "Exists," the toleration is considered to match if the key exists, regardless of the value.* [More](#tolerationOperator)  
-38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled.* [More](#tolerationSeconds)  
+37. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration.* [More](#tolerationOperator)  
+38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate* [More](#tolerationSeconds)  
 39. &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
 40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
 41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
@@ -83,7 +83,10 @@
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.   
 
 <a name="volemeMountsName"></a>  
-21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.   
+21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.    
+
+<a name="volemereadOnly"></a>   
+22. **readOnly:** A boolean flag indicating whether the volume should be mounted as read-only (`true`) or read-write (`false`).
 
 <a name="tolerationEffect"></a>  
 35. **effect:** *Specifies the effect of the toleration. Possible values are `NoSchedule`, `PreferNoSchedule`, or `NoExecute`. This field indicates what action should be taken if the toleration conditions are met.* 
