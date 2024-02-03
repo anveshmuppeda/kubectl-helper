@@ -86,7 +86,7 @@
 21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.   
 
 <a name="tolerationEffect"></a>  
-35. **effect:** *Specifies the effect of the toleration. Possible values are "NoSchedule," "PreferNoSchedule," or "NoExecute." This field indicates what action should be taken if the toleration conditions are met.* 
+35. **effect:** *Specifies the effect of the toleration. Possible values are `NoSchedule`, `PreferNoSchedule`, or `NoExecute`. This field indicates what action should be taken if the toleration conditions are met.* 
 
 <a name="tolerationKey"></a>  
 36. **key:** The key is the taint key that the toleration is associated with. A taint is a key-value pair associated with a node that affects pod scheduling.  
