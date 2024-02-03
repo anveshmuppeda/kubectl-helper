@@ -35,10 +35,10 @@
 32. &emsp;&emsp;**serviceAccountName:** Service account to associate with the Pod.  
 33. &emsp;&emsp;**terminationGracePeriodSeconds:** Time given to containers to terminate gracefully.  
 34. &emsp;&emsp;**tolerations:** List of tolerations for scheduling.  
-35. &emsp;&emsp;-&emsp;&emsp;**effect:**   
-36. &emsp;&emsp;&emsp;&emsp;**key:**  
-37. &emsp;&emsp;&emsp;&emsp;**operator:**  
-38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:**  
+35. &emsp;&emsp;-&emsp;&emsp;**effect:** *Specifies the effect of the toleration.* [More](#tolerationEffect)   
+36. &emsp;&emsp;&emsp;&emsp;**key:** *The key is the taint key that the toleration is associated with.* [More](#tolerationKey)   
+37. &emsp;&emsp;&emsp;&emsp;**operator:** *Specifies the comparison operator for the toleration. Possible values are "Equal" or "Exists." If set to "Equal," the toleration is considered to match only if the key and value are equal. If set to "Exists," the toleration is considered to match if the key exists, regardless of the value.* [More](#tolerationOperator)  
+38. &emsp;&emsp;&emsp;&emsp;**tolerationSeconds:** *Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled.* [More](#tolerationSeconds)  
 39. &emsp;&emsp;**volumes:** List of volumes that can be mounted by containers.  
 40. &emsp;&emsp;&emsp;-&emsp;**name:** *The name of the volume.* [More](#volumesname)     
 41. &emsp;&emsp;&emsp;&emsp;**emptyDir:** *This field specifies an `emptyDir` volume type.* [More](#emptyDir)   
@@ -85,6 +85,18 @@
 <a name="volemeMountsName"></a>  
 21. **name:** The name of the volume, which should match the name of a volume defined in the `volumes` section of the same pod specification.   
 
+<a name="tolerationEffect"></a>  
+35. **effect:** *Specifies the effect of the toleration. Possible values are "NoSchedule," "PreferNoSchedule," or "NoExecute." This field indicates what action should be taken if the toleration conditions are met.* 
+
+<a name="tolerationKey"></a>  
+36. **key:** The key is the taint key that the toleration is associated with. A taint is a key-value pair associated with a node that affects pod scheduling.  
+
+<a name="tolerationOperator"></a>  
+37. **operator:** Specifies the comparison operator for the toleration. Possible values are "Equal" or "Exists." If set to "Equal," the toleration is considered to match only if the key and value are equal. If set to "Exists," the toleration is considered to match if the key exists, regardless of the value.   
+
+<a name="tolerationSeconds"></a>  
+38. **tolerationSeconds:** Optional field specifying the amount of time a pod can tolerate being scheduled onto a node with the corresponding taint. After this time, the pod will be evicted if it cannot be scheduled. 
+
 <a name="volumesname"></a>  
 40. **name:** The name of the volume. This is used to reference the volume in other parts of the pod specification, such as in the `volumeMounts` section of a container.   
 
@@ -104,7 +116,7 @@
 45. **persistentVolumeClaim:** This allows you to use a PersistentVolumeClaim (PVC) as a volume. PVCs provide a way to request durable storage.   
 
 <a name="configMap"></a>  
-
+46. 
 <a name="configMap"></a>  
 
 <a name="configMap"></a>  
