@@ -3,8 +3,10 @@
 
 1. **apiVersion:** *The version of the Kubernetes API to use for this object.*  
 2. **kind:** *The type of Resource.*   
-3. **metadata:**  
+3. **metadata:** *Holds information about the resource.* [More](#metadata)   
 4. &emsp;&emsp;**creationTimestamp:** *The timestamp when the resource was created.*   
+5. &emsp;&emsp;**annotations:** *Allow you to attach arbitrary metadata to the resource.* [More](#annotations)   
+6. &emsp;&emsp;&emsp;&emsp;**annotationSample:** *sample Annotation*   
 5. &emsp;&emsp;**labels:** *Key-value pairs used to organize and select Pods.*  
 6. &emsp;&emsp;&emsp;&emsp;**application:** *sample label*   
 7. &emsp;&emsp;**name:** *The name of the Resource.*   
@@ -79,6 +81,13 @@
 </p>
 
 ## More information about fields:  
+
+<a name="metadata"></a>   
+3. **metadata:** This is the top-level field in the Kubernetes resource definition that holds information about the resource.   
+
+<a name="annotations"></a>   
+5. **annotations:** *Annotations allow you to attach arbitrary metadata to the resource. They are not used by Kubernetes itself but can be leveraged by tools, controllers, or custom scripts to provide additional context or configuration.*     
+
 <a name="volemeMounts"></a>   
 19. **volumeMounts** : This is a list that defines the volume mounts for the container. Each item in the list represents a separate volume mount.   
 
