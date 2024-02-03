@@ -12,7 +12,7 @@
 &emsp;&emsp;**uid:** *A unique identifier for the Resource.*   
 **spec:**  
 &emsp;&emsp;**containers:** *List of containers within the Pod.*  
-&emsp;&emsp;- **image:** *The container image to run.*   
+&emsp;&emsp;-   **image:** *The container image to run.*   
 &emsp;&emsp;&emsp;&emsp;**imagePullPolicy:** *Policy for pulling the container image.*   
 &emsp;&emsp;&emsp;&emsp;**name:** *The name of the container.*   
 &emsp;&emsp;&emsp;&emsp;**resources:** *Resource constraints for the container.*   
