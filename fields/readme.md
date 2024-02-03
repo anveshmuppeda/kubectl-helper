@@ -276,7 +276,8 @@ The exact contents of the `spec` field depend on the type of resource you are de
 </p>  
 
 ---  
-Pod Fields explanation diagrammatically 
+## Pod Fields explanation diagrammatically  
+
 ![Alt text](fields_k8s.png)  
 
 <p align="center">
