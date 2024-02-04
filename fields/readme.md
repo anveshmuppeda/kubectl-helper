@@ -4,7 +4,7 @@
 ## Table of Contents   
 1. [ Fields explanation](#fieldsExplanationHead)
 2. [ More information about fields ](#moreInformationAboutFields)
-3. [ Rollout 🔄 ](#rollouts)
+3. [ Pod Fields explanation diagrammatically ](#diagrammatically)
 
 <a name="fieldsExplanationHead"></a> 
 ## Fields explanation  
@@ -285,6 +285,8 @@ The exact contents of the `spec` field depend on the type of resource you are de
 </p>  
 
 ---  
+<a name="diagrammatically"></a>
+
 ## Pod Fields explanation diagrammatically  
 
 ![Alt text](fields_k8s.png)  
