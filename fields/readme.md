@@ -1,4 +1,4 @@
-# Kubernetes Pod Fields explaination  
+# Kubernetes Pod Fields explanation  
 
 <a name="fieldsexplanation"></a>
 ## Table of Contents   
