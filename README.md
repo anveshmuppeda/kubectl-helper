@@ -5,6 +5,7 @@
 1. [ Fields explanation](#fieldsExplanationHead)
 2. [ More information about fields ](#moreInformationAboutFields)
 3. [ Pod Fields explanation diagrammatically ](#diagrammatically)
+4. [Contributing](#contributing)
 4. [ Contact Information 📧 ](#contact)
 5. [ Feedback Welcome 🌟 ](#feedback)
 <a name="fieldsExplanationHead"></a> 
@@ -291,6 +292,19 @@ The exact contents of the `spec` field depend on the type of resource you are de
 ## Pod Fields explanation diagrammatically  
 
 ![Alt text](fields_k8s.png)  
+
+<p align="center">
+  <a href="#fieldsexplanation">Go to Top ▲</a>
+</p>  
+
+---
+<a name="contributing"></a>  
+## Project Maintainers & Contributors  
+<table>
+  <tr>
+    <td align="center"><a href="https://anveshmuppeda.github.io/profile/"><img src="https://avatars.githubusercontent.com/u/115966808?v=4" width="100px;" alt=""/><br /><sub><b>Anvesh Muppeda</b></sub></a></td>
+  </tr>
+</table>  
 
 <p align="center">
   <a href="#fieldsexplanation">Go to Top ▲</a>
