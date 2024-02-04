@@ -6,8 +6,8 @@
 2. [ More information about fields ](#moreInformationAboutFields)
 3. [ Pod Fields explanation diagrammatically ](#diagrammatically)
 4. [Contributing](#contributing)
-4. [ Contact Information 📧 ](#contact)
-5. [ Feedback Welcome 🌟 ](#feedback)
+5. [ Contact Information 📧 ](#contact)
+6. [ Feedback Welcome 🌟 ](#feedback)
 <a name="fieldsExplanationHead"></a> 
 ## Fields explanation  
 
@@ -333,4 +333,5 @@ We welcome your feedback and suggestions! If you encounter any issues or have id
 <p align="center">
   <a href="#fieldsexplanation">Go to Top ▲</a>
 </p> 
+
 ---
