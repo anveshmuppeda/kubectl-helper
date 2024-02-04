@@ -5,7 +5,8 @@
 1. [ Fields explanation](#fieldsExplanationHead)
 2. [ More information about fields ](#moreInformationAboutFields)
 3. [ Pod Fields explanation diagrammatically ](#diagrammatically)
-
+4. [ Contact Information 📧 ](#contact)
+5. [ Feedback Welcome 🌟 ](#feedback)
 <a name="fieldsExplanationHead"></a> 
 ## Fields explanation  
 
@@ -294,3 +295,28 @@ The exact contents of the `spec` field depend on the type of resource you are de
 <p align="center">
   <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>  
+
+---
+<a name="contact"></a>  
+
+## Contact Information  
+If you have any questions or feedback, feel free to reach out:  
+
+- Email: muppedaanvesh@gmail.com 📧  
+- LinkedIn: [@Anvesh](https://www.linkedin.com/in/anvesh-muppeda-5a0a83167) 🌐  
+- GitHub Issues: [Project Issues](https://github.com/anveshmuppeda/kubectl-helper/issues) 🚀 
+
+--- 
+<p align="center">
+  <a href="#fieldsexplanation">Go to Top ▲</a>
+</p>  
+<a name="feedback"></a>   
+
+## Feedback Welcome!  
+
+We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues). 🚀   
+
+<p align="center">
+  <a href="#fieldsexplanation">Go to Top ▲</a>
+</p> 
+---
