@@ -5,7 +5,7 @@
 
 Simplify your Kubernetes cluster management with the Kubernetes Helper Script – a powerful yet user-friendly Bash script that puts the control of your Kubernetes environment at your fingertips.  
 The Kubernetes Helper Script is a Bash script designed to simplify the management of a Kubernetes cluster through a user-friendly, menu-driven interface. It leverages the `kubectl` command-line tool to interact with a Kubernetes cluster and perform various operations, catering to both beginners and experienced users.  
-
+tet 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
