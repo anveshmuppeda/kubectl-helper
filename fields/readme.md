@@ -3,7 +3,7 @@
 <a name="fieldsexplanation"></a>
 ## Table of Contents   
 1. [ Fields explanation](#fieldsExplanationHead)
-2. [ Switching Between Contexts ⇢ ](#SwitchingBetweenContexts)
+2. [ More information about fields ](#moreInformationAboutFields)
 3. [ Rollout 🔄 ](#rollouts)
 
 <a name="fieldsExplanationHead"></a> 
@@ -114,6 +114,7 @@
 <p align="center">
   <a href="#fieldsexplanation">Go to Top ▲</a>
 </p>
+<a name="moreInformationAboutFields"></a>   
 
 ## More information about fields:  
 
