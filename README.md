@@ -106,6 +106,7 @@ To generate the report, select option 12 from the menu.
 ### [Click here](https://anveshmuppeda.github.io/kubectl-helper/) to get [kubectl cheatsheet](https://anveshmuppeda.github.io/kubectl-helper/)
 
 Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This comprehensive guide empowers both beginners and seasoned professionals to navigate the Kubernetes landscape effortlessly. From cluster management and context switching to intricate pod manipulations, we've got you covered. Say goodbye to command memorization and hello to streamlined operations!  
+
 ### Key Features  
 
 - **Intelligent Context Switching**: Seamlessly switch between contexts, manage configurations, and explore API resources.  
@@ -117,6 +118,7 @@ Master the art of Kubernetes with our feature-packed Kubectl Cheatsheet! This co
 - **Secrets Simplified**: Encode and decode your secrets effortlessly using our handy guide.
 - **Taints & Tolerations**: Master taints, tolerations, and view them on nodes – ensuring smooth node operations.
 
+<a name="contributing"></a>  
 ## Project Maintainers & Contributors  
 <table>
   <tr>
