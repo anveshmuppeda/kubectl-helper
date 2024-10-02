@@ -611,4 +611,6 @@ If you have any questions or feedback, feel free to reach out:
 
 We welcome your feedback and suggestions! If you encounter any issues or have ideas for improvements, please open an issue on our [GitHub repository](https://github.com/anveshmuppeda/kubectl-helper/issues). 🚀   
 
----
+---  
+
+.
