@@ -328,7 +328,7 @@ The `kubectl rollout` command is primarily used with Kubernetes **Deployments**,
   ```  
 ### g. Get the kubelet version for a specific node.  
   ```bash
-  kubectl get node <nodename> -o jsonpath='{.status.nodeInfo.kubeletVersion}
+  kubectl get node <nodename> -o jsonpath='{.status.nodeInfo.kubeletVersion}'
   ``` 
 
 ---
